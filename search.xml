@@ -1,6 +1,26 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>可能是目前最好用的L2TP VPN解决方案：SoftetherVPN</title>
+    <url>/2019/10/24/softether/</url>
+    <content><![CDATA[<p>公司早先使用的VPN方案是路由设备自带的PPTP+L2TP服务，但随着的VPN用户量的逐渐增加，设备支持的用户数量已逼近上限，路由设备的性能负载</p>
+<blockquote>
+<p>简介：SoftEtherVPN是一个由筑波大学研究生Daiyuu Nobori（登大游）因硕士论文而开发的开源、跨平台、多重协议的虚拟专用网方案，此方案让一些虚拟专用网协议像是SSL、VPN 、L2TP、IPsec、OpenVPN以及微软SSTP都由同一个单一VPN服务器提供。在2014年1月4日以GNU通用公共授权条款的方式转变为开源软件。</p>
+</blockquote>
+<p><img src="http://ww1.sinaimg.cn/large/005DqEfjgy1g8ab3gmkjbj317m148aut.jpg" alt="1.2.jpg"></p>
+<h2 id=""><a href="#" class="headerlink" title=""></a></h2>]]></content>
+      <categories>
+        <category>VPN</category>
+        <category>运维</category>
+      </categories>
+      <tags>
+        <tag>softether</tag>
+        <tag>VPN</tag>
+        <tag>网络</tag>
+        <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>Git代理的使用和取消</title>
     <url>/2019/10/24/gitproxy/</url>
     <content><![CDATA[<p>因为git被半墙的原因，部署Hexo时一直卡在git clone，使用<code>npm config set registry</code>更换npm为淘宝源后，又卡在clone landscape ，landscape是hexo的默认主题，托管在 Github上，clone 的指令是内置在 hexo-cli 的 install.js 中的。这个时候就算 npm 换源，这一步也绕不过去，看着5Kb/s的clone速度忍不住再一次对GFW爆粗，无奈只能尝试代理</p>
@@ -21,12 +41,6 @@
         <tag>Proxy</tag>
         <tag>代理</tag>
       </tags>
-  </entry>
-  <entry>
-    <title>hello world</title>
-    <url>/2019/10/23/test/</url>
-    <content><![CDATA[<h1 id="hello-world"><a href="#hello-world" class="headerlink" title="hello world"></a>hello world</h1><h2 id="一级标题"><a href="#一级标题" class="headerlink" title="一级标题"></a>一级标题</h2><h3 id="三级标题"><a href="#三级标题" class="headerlink" title="三级标题"></a>三级标题</h3><h4 id="四级标题"><a href="#四级标题" class="headerlink" title="四级标题"></a>四级标题</h4><h5 id="五级标题"><a href="#五级标题" class="headerlink" title="五级标题"></a>五级标题</h5><p><code>hello world</code></p>
-<figure class="highlight shell"><table><tr><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line"></span><br><span class="line">a="hello world!"</span><br><span class="line"></span><br><span class="line">b()&#123;</span><br><span class="line">    echo a</span><br><span class="line">    return    </span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">b;</span><br></pre></td></tr></table></figure>]]></content>
   </entry>
   <entry>
     <title>Hello World</title>
