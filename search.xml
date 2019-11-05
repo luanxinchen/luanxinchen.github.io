@@ -1,13 +1,27 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>开坑计划</title>
+    <url>/2019/11/05/blog-plan/</url>
+    <content><![CDATA[<ul>
+<li><input checked="" disabled="" type="checkbox"> <strong>SoftetherVPN</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Prometheus</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Packetfence</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Proxmox</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Deepin-Wine-Ubuntu</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Ansible</strong></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>可能是目前最好用的L2TP VPN解决方案：SoftetherVPN</title>
     <url>/2019/10/24/softether/</url>
     <content><![CDATA[<blockquote>
 <p>提到VPN，可能大部分人联想到的是翻墙、爬梯子等关键词，这里需要先纠正一下，VPN并不等于翻墙，VPN的全称是Virtual Private Network（<a href="https://zh.wikipedia.org/wiki/%E8%99%9B%E6%93%AC%E7%A7%81%E4%BA%BA%E7%B6%B2%E8%B7%AF" target="_blank" rel="noopener">虚拟专用网络</a>），它是一种基于隧道协议的网络服务，常用于连接中、大型企业或团体与团体间的私人网络。国内由于GFW的存在，早期许多公司采用VPN服务连接国外网络的翻墙方法，后商业化的一键VPN逐渐成熟，久而久之，许多人便把VPN与翻墙画上了等号，实际这是一种错误的理解。</p>
 </blockquote>
-<p>公司早先为了方便异地办公向员工提供了VPN服务，使用的VPN方案是路由设备自带的PPTP+L2TP协议，随着的使用VPN的员工逐渐增加，这种方案的缺点也逐渐暴露出来：</p>
+<p>公司早先为了方便异地办公向员工提供了VPN服务，使用的方案是路由设备自带的PPTP+L2TP服务，随着的使用VPN的员工逐渐增加，这种方案的缺点也逐渐暴露出来：</p>
 <a id="more"></a>
+
 <ul>
 <li>设备支持的用户数量十分有限</li>
 <li>路由设备的性能负载受VPN连接数影响</li>
@@ -40,19 +54,20 @@
         <category>运维</category>
       </categories>
       <tags>
+        <tag>网络</tag>
         <tag>softether</tag>
         <tag>VPN</tag>
-        <tag>网络</tag>
         <tag>运维</tag>
       </tags>
   </entry>
   <entry>
     <title>Git代理的使用和取消</title>
     <url>/2019/10/24/gitproxy/</url>
-    <content><![CDATA[<p>因为git被半墙的原因，部署Hexo时一直卡在git clone，使用<code>npm config set registry</code>更换npm为淘宝源后，又卡在clone landscape ，landscape是hexo的默认主题，托管在 Github上，clone 的指令是内置在 hexo-cli 的 install.js 中的。这个时候就算 npm 换源，这一步也绕不过去，看着5Kb/s的clone速度忍不住再一次对GFW爆粗，无奈只能尝试代理</p>
+    <content><![CDATA[<p>因为git被半墙的原因，部署Hexo时一直卡在git，使用<code>npm config set registry</code>更换npm为淘宝源后，又卡在git clone landscape ，landscape是hexo的默认主题，托管在 Github上，clone 的指令是内置在 hexo-cli 的 install.js 中的。这个时候就算 npm 换源，这一步也绕不过去，看着5Kb/s的clone速度忍不住再一次对GFW爆粗，无奈只能使用代理服务器</p>
 <a id="more"></a>
 
-<h2 id="设置代理"><a href="#设置代理" class="headerlink" title="设置代理"></a>设置代理</h2><p>http/https</p>
+<h2 id="设置代理"><a href="#设置代理" class="headerlink" title="设置代理"></a>设置代理</h2><p><em>假设代理服务器ip为127.0.0.1</em></p>
+<p>http/https</p>
 <figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">git config --global https.proxy https://127.0.0.1:1080</span><br><span class="line">git config --global http.proxy http://127.0.0.1:1080</span><br></pre></td></tr></table></figure>
 
 <p>ss/ssr</p>
@@ -65,7 +80,7 @@
       <tags>
         <tag>Git</tag>
         <tag>Proxy</tag>
-        <tag>代理</tag>
+        <tag>网络</tag>
       </tags>
   </entry>
   <entry>
