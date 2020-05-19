@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Ubuntu引导fsck报错处理</title>
+    <url>/2020/05/19/fsck-4/</url>
+    <content><![CDATA[<p>Ubuntu 在引导过程中出现如下报错：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">[ 1.910988] radeon 0000:01:00.0: VCE init error (-110)</span><br><span class="line">fsck from util-linux 2.26.2</span><br><span class="line">/dev/sda1 contains a file system with errors, check forced.</span><br><span class="line">/dev/sda1: Inodes that were part of a corrupted prphan linked list found.</span><br><span class="line"></span><br><span class="line">/dev/sda1: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY.</span><br><span class="line">        (i.e., without -a or -p options)</span><br><span class="line">fsck exited with status code 4</span><br><span class="line">The root filesystem on /dev/sda1 requires a manual fsck</span><br></pre></td></tr></table></figure>
+
+<h4 id="出错原因："><a href="#出错原因：" class="headerlink" title="出错原因："></a>出错原因：</h4><p>分区损坏，磁盘检测不能通过，可能是因为系统突然断电或其它未正常关闭系统导致。</p>
+<h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><p>根据上面的错误提示，可以发现是sda1出错，对sda1进行修复：</p>
+<figure class="highlight plain"><table><tr><td class="code"><pre><span class="line">fsck.ext3 -y /dev/sda1</span><br><span class="line">#修复中...</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+<p>重启后正常引导进入系统。</p>
+]]></content>
+      <categories>
+        <category>运维</category>
+      </categories>
+      <tags>
+        <tag>ubuntu</tag>
+        <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>开坑计划</title>
     <url>/2019/11/05/blog-plan/</url>
     <content><![CDATA[<ul>
