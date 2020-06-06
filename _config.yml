@@ -3,17 +3,17 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: luanxinchen
-subtitle: hello world
-description: 这是一个测试博客
+title: Keep it real
+subtitle: 
+description: 
 keywords:
 author: xinchen.luan
-language: en
+language: zh-CN
 timezone:
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://yoursite.com/child' and root as '/child/'
-url: http://yoursite.com
+url: https://luanxinchen.github.io
 root: /
 permalink: :year/:month/:day/:title/
 permalink_defaults:
@@ -84,9 +84,11 @@ pagination_dir: page
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: landscape
+theme: ocean
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
 deploy:
-  type:
+  type: git
+  repository: https://github.com/luanxinchen/luanxinchen.github.io
+  branch: master
