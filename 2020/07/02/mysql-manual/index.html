@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    Hello World |
+    Mysql语法收集 |
     
     Keep it real</title>
   
@@ -25,7 +25,7 @@
   <section class="outer">
   
 
-<article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+<article id="post-mysql-manual" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
   
   <div class="article-inner">
     
@@ -33,7 +33,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Hello World
+      Mysql语法收集
     </h1>
   
   
@@ -46,10 +46,14 @@
 
     
       <div class="article-meta">
-        <a href="/2019/10/23/hello-world/" class="article-date">
-  <time datetime="2019-10-23T06:40:22.940Z" itemprop="datePublished">2019-10-23</time>
+        <a href="/2020/07/02/mysql-manual/" class="article-date">
+  <time datetime="2020-07-01T16:00:00.000Z" itemprop="datePublished">2020-07-02</time>
 </a>
         
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Mysql/">Mysql</a>
+  </div>
+
       </div>
     
 
@@ -70,26 +74,19 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
+        <h5 id="增加主键id并自增"><a href="#增加主键id并自增" class="headerlink" title="增加主键id并自增"></a>增加主键id并自增</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table hwinfo add id int not null primary key Auto_increment  first;</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
+<h5 id="调整字段顺序"><a href="#调整字段顺序" class="headerlink" title="调整字段顺序"></a>调整字段顺序</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER table hwinfo change `test1` `tese1` varchar(100) after `test2`</span><br><span class="line">#将test1字段调整到test2后面</span><br></pre></td></tr></table></figure>
 
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
+<a id="more"></a>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://luanxinchen.github.io/2019/10/23/hello-world/" data-id="ckadrnrge00073gue1ps5ga1u"
+      <a data-url="https://luanxinchen.github.io/2020/07/02/mysql-manual/" data-id="ckn05h4nn000hhkue32z6372f"
          class="article-share-link">分享</a>
       
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a></li></ul>
+
     </footer>
 
   </div>
@@ -98,15 +95,20 @@
     
   <nav class="article-nav">
     
-      <a href="/2019/10/24/gitproxy/" class="article-nav-link">
+      <a href="/2020/07/02/motd/" class="article-nav-link">
         <strong class="article-nav-caption">前一篇</strong>
         <div class="article-nav-title">
           
-            Git代理的使用和取消
+            自定义Login Shell后的显示字符
           
         </div>
       </a>
     
+    
+      <a href="/2020/06/19/Git/" class="article-nav-link">
+        <strong class="article-nav-caption">后一篇</strong>
+        <div class="article-nav-title">Git常见流程</div>
+      </a>
     
   </nav>
 
@@ -152,7 +154,7 @@
 </ul>
     </div>
     <ul class="list-inline">
-      <li>&copy; 2020 Keep it real</li>
+      <li>&copy; 2021 Keep it real</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
       <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean" target="_blank" rel="noopener">Ocean</a></li>
     </ul>

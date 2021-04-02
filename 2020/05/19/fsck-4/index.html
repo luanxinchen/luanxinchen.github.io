@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <title>
-    Ubuntu引导fsck报错处理 |
+    记一次Ubuntu fsck code4报错处理 |
     
     Keep it real</title>
   
@@ -33,7 +33,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Ubuntu引导fsck报错处理
+      记一次Ubuntu fsck code4报错处理
     </h1>
   
   
@@ -51,7 +51,7 @@
 </a>
         
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>
+    <a class="article-category-link" href="/categories/Ubuntu/">Ubuntu</a>
   </div>
 
       </div>
@@ -74,21 +74,23 @@
       
 
       
-        <p>Ubuntu 在引导过程中出现如下报错：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[ 1.910988] radeon 0000:01:00.0: VCE init error (-110)</span><br><span class="line">fsck from util-linux 2.26.2</span><br><span class="line">/dev/sda1 contains a file system with errors, check forced.</span><br><span class="line">/dev/sda1: Inodes that were part of a corrupted prphan linked list found.</span><br><span class="line"></span><br><span class="line">/dev/sda1: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY.</span><br><span class="line">        (i.e., without -a or -p options)</span><br><span class="line">fsck exited with status code 4</span><br><span class="line">The root filesystem on /dev/sda1 requires a manual fsck</span><br></pre></td></tr></table></figure>
+        <p>Ubuntu OS在一次断电重启后无法开机，通过BMC发现引导过程中出现如下报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/dev/sda1: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY.</span><br><span class="line">        (i.e., without -a or -p options)</span><br><span class="line">fsck exited with status code 4</span><br><span class="line">The root filesystem on /dev/sda1 requires a manual fsck</span><br></pre></td></tr></table></figure>
+<p>记录下解决方法</p>
+<a id="more"></a>
 
-<h4 id="出错原因："><a href="#出错原因：" class="headerlink" title="出错原因："></a>出错原因：</h4><p>分区损坏，磁盘检测不能通过，可能是因为系统突然断电或其它未正常关闭系统导致。</p>
-<h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><p>根据上面的错误提示，可以发现是sda1出错，对sda1进行修复：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fsck.ext3 -y /dev/sda1</span><br><span class="line">#修复中...</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
+<h3 id="出错原因："><a href="#出错原因：" class="headerlink" title="出错原因："></a>出错原因：</h3><p>分区损坏，磁盘检测不能通过，可能是因为系统突然断电或其它未正常关闭系统导致。</p>
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>根据上面的错误提示，可以发现是sda1出错，使用fsck对sda1进行修复：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$ fsck  -y /dev/sda1</span><br><span class="line">#修复中...</span><br><span class="line">$ reboot</span><br></pre></td></tr></table></figure>
 <p>重启后正常引导进入系统。</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://luanxinchen.github.io/2020/05/19/fsck-4/" data-id="ckadrnrg300023gue6otbdmit"
+      <a data-url="https://luanxinchen.github.io/2020/05/19/fsck-4/" data-id="ckn05h4ng0007hkue99umbztw"
          class="article-share-link">分享</a>
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
 
     </footer>
 
@@ -98,10 +100,19 @@
     
   <nav class="article-nav">
     
+      <a href="/2020/05/28/prometheus/" class="article-nav-link">
+        <strong class="article-nav-caption">前一篇</strong>
+        <div class="article-nav-title">
+          
+            Prometheus从入门到精通（伪）
+          
+        </div>
+      </a>
+    
     
       <a href="/2019/11/05/blog-plan/" class="article-nav-link">
         <strong class="article-nav-caption">后一篇</strong>
-        <div class="article-nav-title">开坑计划</div>
+        <div class="article-nav-title">学习计划</div>
       </a>
     
   </nav>
@@ -148,7 +159,7 @@
 </ul>
     </div>
     <ul class="list-inline">
-      <li>&copy; 2020 Keep it real</li>
+      <li>&copy; 2021 Keep it real</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
       <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean" target="_blank" rel="noopener">Ocean</a></li>
     </ul>

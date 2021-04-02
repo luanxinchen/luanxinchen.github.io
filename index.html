@@ -53,6 +53,577 @@
       
         
 
+<article id="post-storcli-locate-disks" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2021/02/28/storcli-locate-disks/">利用Storcli定位RAID组盘符/dev/sd*对应物理磁盘</a>
+    </h2>
+  
+  
+
+
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2021/02/28/storcli-locate-disks/" class="article-date">
+  <time datetime="2021-02-27T16:00:00.000Z" itemprop="datePublished">2021-02-28</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Server/">Server</a>
+  </div>
+
+      </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>研发组里有个裸金属集群需要升级磁盘，要求不能停机，而且只能给到mount的盘符信息，应该如何快速准确的定位到物理磁盘呢？当然是求助万能的Storcli啦！</p>
+        
+          <a class="article-more-link" href="/2021/02/28/storcli-locate-disks/">阅读更多...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://luanxinchen.github.io/2021/02/28/storcli-locate-disks/" data-id="ckn05h4nv000thkue143aelbb"
+         class="article-share-link">分享</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Disk/" rel="tag">Disk</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Server/" rel="tag">Server</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        
+
+<article id="post-hwinfo" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/08/28/hwinfo/">服务器硬件配置采集脚本</a>
+    </h2>
+  
+  
+
+
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/08/28/hwinfo/" class="article-date">
+  <time datetime="2020-08-27T16:00:00.000Z" itemprop="datePublished">2020-08-28</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Server/">Server</a>
+  </div>
+
+      </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此脚本主要基于<code>pciutils</code>、<code>dmidecode</code>、<code>smartmontools</code>获取以下硬件配置信息，并通过POST方法触发写入远端数据库。</p>
+<ul>
+<li>系统信息：系统厂商、型号、序列号、Hostname、操作系统版本、内核版本、ip地址.</li>
+<li>CPU信息：CPU型号、物理CPU数量、每CPU核心数量、总线程数量.</li>
+<li>内存信息：内存总容量、内存插槽总数、已用内存插槽数量、插槽类型、遍历各插槽内存容量&amp;频率.</li>
+<li>硬盘信息：硬盘总数量、遍历硬盘型号&amp;容量&amp;规格.</li>
+<li>网卡信息：网卡总数量、遍历网卡型号.</li>
+</ul>
+        
+          <a class="article-more-link" href="/2020/08/28/hwinfo/">阅读更多...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://luanxinchen.github.io/2020/08/28/hwinfo/" data-id="ckn05h4nk000chkuea87398eb"
+         class="article-share-link">分享</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hardware/" rel="tag">Hardware</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Server/" rel="tag">Server</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        
+
+<article id="post-docker-mysql" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/08/21/docker-mysql/">Docker Pull Mysql</a>
+    </h2>
+  
+  
+
+
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/08/21/docker-mysql/" class="article-date">
+  <time datetime="2020-08-20T16:00:00.000Z" itemprop="datePublished">2020-08-21</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Docker/">Docker</a>
+  </div>
+
+      </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker pull mysql:latest</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-link" href="/2020/08/21/docker-mysql/">阅读更多...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://luanxinchen.github.io/2020/08/21/docker-mysql/" data-id="ckn05h4nf0006hkue2e32g5it"
+         class="article-share-link">分享</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Docker/" rel="tag">Docker</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        
+
+<article id="post-motd" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/07/02/motd/">自定义Login Shell后的显示字符</a>
+    </h2>
+  
+  
+
+
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/07/02/motd/" class="article-date">
+  <time datetime="2020-07-02T05:05:26.000Z" itemprop="datePublished">2020-07-02</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a>
+  </div>
+
+      </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <p>1、/etc/issue 本地登陆显示的信息，本地登录前</p>
+<p>2、/etc/issue.net 网络登陆显示的信息，登录后显示，需要由sshd配置</p>
+<p>3、/etc/motd 常用于通告信息，如计划关机时间的警告等，登陆后的提示信息</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://luanxinchen.github.io/2020/07/02/motd/" data-id="ckn05h4nm000ghkueg902bio6"
+         class="article-share-link">分享</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        
+
+<article id="post-mysql-manual" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/07/02/mysql-manual/">Mysql语法收集</a>
+    </h2>
+  
+  
+
+
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/07/02/mysql-manual/" class="article-date">
+  <time datetime="2020-07-01T16:00:00.000Z" itemprop="datePublished">2020-07-02</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Mysql/">Mysql</a>
+  </div>
+
+      </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <h5 id="增加主键id并自增"><a href="#增加主键id并自增" class="headerlink" title="增加主键id并自增"></a>增加主键id并自增</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">alter table hwinfo add id int not null primary key Auto_increment  first;</span><br></pre></td></tr></table></figure>
+
+<h5 id="调整字段顺序"><a href="#调整字段顺序" class="headerlink" title="调整字段顺序"></a>调整字段顺序</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">ALTER table hwinfo change `test1` `tese1` varchar(100) after `test2`</span><br><span class="line">#将test1字段调整到test2后面</span><br></pre></td></tr></table></figure>
+        
+          <a class="article-more-link" href="/2020/07/02/mysql-manual/">阅读更多...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://luanxinchen.github.io/2020/07/02/mysql-manual/" data-id="ckn05h4nn000hhkue32z6372f"
+         class="article-share-link">分享</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Mysql/" rel="tag">Mysql</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        
+
+<article id="post-Git" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/06/19/Git/">Git常见流程</a>
+    </h2>
+  
+  
+
+
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/06/19/Git/" class="article-date">
+  <time datetime="2020-06-19T02:21:26.000Z" itemprop="datePublished">2020-06-19</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/Git/">Git</a>
+  </div>
+
+      </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <p><img src="https://mmbiz.qpic.cn/mmbiz_png/KmXPKA19gWicpG4ibricDjhseFOGY3Qnc47QerrsJKNIjX2kiaUcH5vgEhxWiavM0YewFoJF5EicMrkf03sibglPia8esQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
+        
+          <a class="article-more-link" href="/2020/06/19/Git/">阅读更多...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://luanxinchen.github.io/2020/06/19/Git/" data-id="ckn05h4n50001hkuegzys2zob"
+         class="article-share-link">分享</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        
+
+<article id="post-Redhat" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/06/19/Redhat/">RHCE认证笔记</a>
+    </h2>
+  
+  
+
+
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/06/19/Redhat/" class="article-date">
+  <time datetime="2020-06-19T02:21:26.000Z" itemprop="datePublished">2020-06-19</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a> / <a class="article-category-link" href="/categories/linux/RHEL/">RHEL</a>
+  </div>
+
+      </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <h4 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h4><p>RHCE：Red Hat Certified Engineer. RedHat 认证工程师</p>
+<p>CentOS：Community Enterprise Operating System. 社区企业操作系统，免费使用</p>
+<p>RHEL：Red Hat Enterprise Linux. 红帽企业Linux系统，由RedHat提供服务，付费使用</p>
+        
+          <a class="article-more-link" href="/2020/06/19/Redhat/">阅读更多...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://luanxinchen.github.io/2020/06/19/Redhat/" data-id="ckn05h4nd0005hkued089cnne"
+         class="article-share-link">分享</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RHEL/" rel="tag">RHEL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        
+
+<article id="post-prometheus" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h2 itemprop="name">
+      <a class="article-title" href="/2020/05/28/prometheus/">Prometheus从入门到精通（伪）</a>
+    </h2>
+  
+  
+
+
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/05/28/prometheus/" class="article-date">
+  <time datetime="2020-05-28T06:22:11.000Z" itemprop="datePublished">2020-05-28</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a> / <a class="article-category-link" href="/categories/%E8%BF%90%E7%BB%B4/prometheus/">prometheus</a>
+  </div>
+
+      </div>
+    
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+  <div class="article-gallery">
+    <div class="article-gallery-photos">
+      
+        
+          <a class="article-gallery-img" href="/2020/05/28/prometheus/" rel="gallery_ckn05h4nq000mhkuegyqwgvfw">
+            <img src="http://blog.daocloud.io/wp-content/uploads/2017/11/8d65459b8fa4b2973d27210b4dd66d42.png" itemprop="image">
+          </a>
+        
+      
+    </div>
+  </div>
+
+
+      
+        <h2 id="一、前言"><a href="#一、前言" class="headerlink" title="一、前言"></a>一、前言</h2><h3 id="1-1-为什么要监控"><a href="#1-1-为什么要监控" class="headerlink" title="1.1 为什么要监控"></a>1.1 为什么要监控</h3><ul>
+<li>监控可以及时有效的告知我们：服务发生了事件、服务器出现了故障、环境出现了异常</li>
+<li>出现问题后，利用监控数据追踪溯源，可以更高效的解决问题</li>
+<li>利用监控提高网站/服务的可用性</li>
+</ul>
+        
+          <a class="article-more-link" href="/2020/05/28/prometheus/">阅读更多...</a>
+        
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://luanxinchen.github.io/2020/05/28/prometheus/" data-id="ckn05h4nq000mhkuegyqwgvfw"
+         class="article-share-link">分享</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/prometheus/" rel="tag">prometheus</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%9B%91%E6%8E%A7/" rel="tag">监控</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BF%90%E7%BB%B4/" rel="tag">运维</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+
+  
+
+</article>
+
+
+
+      
+        
+
 <article id="post-fsck-4" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
   
   <div class="article-inner">
@@ -61,7 +632,7 @@
         
   
     <h2 itemprop="name">
-      <a class="article-title" href="/2020/05/19/fsck-4/">Ubuntu引导fsck报错处理</a>
+      <a class="article-title" href="/2020/05/19/fsck-4/">记一次Ubuntu fsck code4报错处理</a>
     </h2>
   
   
@@ -79,7 +650,7 @@
 </a>
         
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E8%BF%90%E7%BB%B4/">运维</a>
+    <a class="article-category-link" href="/categories/Ubuntu/">Ubuntu</a>
   </div>
 
       </div>
@@ -94,21 +665,19 @@
       
 
       
-        <p>Ubuntu 在引导过程中出现如下报错：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[ 1.910988] radeon 0000:01:00.0: VCE init error (-110)</span><br><span class="line">fsck from util-linux 2.26.2</span><br><span class="line">/dev/sda1 contains a file system with errors, check forced.</span><br><span class="line">/dev/sda1: Inodes that were part of a corrupted prphan linked list found.</span><br><span class="line"></span><br><span class="line">/dev/sda1: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY.</span><br><span class="line">        (i.e., without -a or -p options)</span><br><span class="line">fsck exited with status code 4</span><br><span class="line">The root filesystem on /dev/sda1 requires a manual fsck</span><br></pre></td></tr></table></figure>
-
-<h4 id="出错原因："><a href="#出错原因：" class="headerlink" title="出错原因："></a>出错原因：</h4><p>分区损坏，磁盘检测不能通过，可能是因为系统突然断电或其它未正常关闭系统导致。</p>
-<h4 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h4><p>根据上面的错误提示，可以发现是sda1出错，对sda1进行修复：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">fsck.ext3 -y /dev/sda1</span><br><span class="line">#修复中...</span><br><span class="line">reboot</span><br></pre></td></tr></table></figure>
-<p>重启后正常引导进入系统。</p>
-
+        <p>Ubuntu OS在一次断电重启后无法开机，通过BMC发现引导过程中出现如下报错：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">/dev/sda1: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY.</span><br><span class="line">        (i.e., without -a or -p options)</span><br><span class="line">fsck exited with status code 4</span><br><span class="line">The root filesystem on /dev/sda1 requires a manual fsck</span><br></pre></td></tr></table></figure>
+<p>记录下解决方法</p>
+        
+          <a class="article-more-link" href="/2020/05/19/fsck-4/">阅读更多...</a>
+        
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://luanxinchen.github.io/2020/05/19/fsck-4/" data-id="ckadrnrg300023gue6otbdmit"
+      <a data-url="https://luanxinchen.github.io/2020/05/19/fsck-4/" data-id="ckn05h4ng0007hkue99umbztw"
          class="article-share-link">分享</a>
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/ubuntu/" rel="tag">ubuntu</a></li></ul>
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
 
     </footer>
 
@@ -133,7 +702,7 @@
         
   
     <h2 itemprop="name">
-      <a class="article-title" href="/2019/11/05/blog-plan/">开坑计划</a>
+      <a class="article-title" href="/2019/11/05/blog-plan/">学习计划</a>
     </h2>
   
   
@@ -166,254 +735,25 @@
       
 
       
-        <ul>
+        <a id="more"></a>
+
+<ul>
 <li><input checked="" disabled="" type="checkbox"> <strong>SoftetherVPN</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Prometheus</strong></li>
+<li><input checked="" disabled="" type="checkbox"> <strong>Prometheus</strong></li>
 <li><input disabled="" type="checkbox"> <strong>Packetfence</strong></li>
 <li><input disabled="" type="checkbox"> <strong>Proxmox</strong></li>
 <li><input disabled="" type="checkbox"> <strong>Deepin-Wine-Ubuntu</strong></li>
 <li><input disabled="" type="checkbox"> <strong>Ansible</strong></li>
+<li><input disabled="" type="checkbox"> <strong>JumpServer</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Webpy实战应用</strong></li>
+<li><input disabled="" type="checkbox"> <strong>RHCE</strong></li>
+<li><input disabled="" type="checkbox"> <strong>CCNP/HCNP</strong></li>
 </ul>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://luanxinchen.github.io/2019/11/05/blog-plan/" data-id="ckadrnrfu00003guehbg4dc3r"
-         class="article-share-link">分享</a>
-      
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        
-
-<article id="post-softether" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-  
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/10/24/softether/">可能是目前最好用的L2TP VPN解决方案：SoftetherVPN</a>
-    </h2>
-  
-  
-
-
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/10/24/softether/" class="article-date">
-  <time datetime="2019-10-24T08:35:19.000Z" itemprop="datePublished">2019-10-24</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/VPN/">VPN</a> / <a class="article-category-link" href="/categories/VPN/%E8%BF%90%E7%BB%B4/">运维</a>
-  </div>
-
-      </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-  <div class="article-gallery">
-    <div class="article-gallery-photos">
-      
-        
-          <a class="article-gallery-img" href="/2019/10/24/softether/" rel="gallery_ckadrnrgh00083gueg4lnd0mn">
-            <img src="http://ww1.sinaimg.cn/large/005DqEfjgy1g8afapquqmj30sg0aggmq.jpg" itemprop="image">
-          </a>
-        
-      
-    </div>
-  </div>
-
-
-      
-        <blockquote>
-<p>提到VPN，可能大部分人联想到的是翻墙、爬梯子等关键词，这里需要先纠正一下，VPN并不等于翻墙，VPN的全称是Virtual Private Network（<a href="https://zh.wikipedia.org/wiki/%E8%99%9B%E6%93%AC%E7%A7%81%E4%BA%BA%E7%B6%B2%E8%B7%AF" target="_blank" rel="noopener">虚拟专用网络</a>），它是一种基于隧道协议的网络服务，常用于连接中、大型企业或团体与团体间的私人网络。国内由于GFW的存在，早期许多公司采用VPN服务连接国外网络的翻墙方法，后商业化的一键VPN逐渐成熟，久而久之，许多人便把VPN与翻墙画上了等号，实际这是一种错误的理解。</p>
-</blockquote>
-<p>公司早先为了方便异地办公向员工提供了VPN服务，使用的方案是路由设备自带的PPTP+L2TP服务，随着的使用VPN的员工逐渐增加，这种方案的缺点也逐渐暴露出来：</p>
-        
-          <a class="article-more-link" href="/2019/10/24/softether/">阅读更多...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://luanxinchen.github.io/2019/10/24/softether/" data-id="ckadrnrgh00083gueg4lnd0mn"
-         class="article-share-link">分享</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPN/" rel="tag">VPN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/softether/" rel="tag">softether</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BF%90%E7%BB%B4/" rel="tag">运维</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        
-
-<article id="post-gitproxy" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-  
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/10/24/gitproxy/">Git代理的使用和取消</a>
-    </h2>
-  
-  
-
-
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/10/24/gitproxy/" class="article-date">
-  <time datetime="2019-10-24T02:21:26.000Z" itemprop="datePublished">2019-10-24</time>
-</a>
-        
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/Git/">Git</a>
-  </div>
-
-      </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-  <div class="article-gallery">
-    <div class="article-gallery-photos">
-      
-        
-          <a class="article-gallery-img" href="/2019/10/24/gitproxy/" rel="gallery_ckadrnrg600043gue7w3pgnz5">
-            <img src="https://github.blog/wp-content/uploads/2019/08/DL-V2-LinkedIn_FB.png" itemprop="image">
-          </a>
-        
-      
-    </div>
-  </div>
-
-
-      
-        <p>因为git被半墙的原因，部署Hexo时一直卡在git，使用<code>npm config set registry</code>更换npm为淘宝源后，又卡在git clone landscape ，landscape是hexo的默认主题，托管在 Github上，clone 的指令是内置在 hexo-cli 的 install.js 中的。这个时候就算 npm 换源，这一步也绕不过去，看着5Kb/s的clone速度忍不住再一次对GFW爆粗，无奈只能使用代理服务器</p>
-        
-          <a class="article-more-link" href="/2019/10/24/gitproxy/">阅读更多...</a>
-        
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://luanxinchen.github.io/2019/10/24/gitproxy/" data-id="ckadrnrg600043gue7w3pgnz5"
-         class="article-share-link">分享</a>
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Git/" rel="tag">Git</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Proxy/" rel="tag">Proxy</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li></ul>
-
-    </footer>
-
-  </div>
-
-  
-
-  
-
-</article>
-
-
-
-      
-        
-
-<article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
-  
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h2 itemprop="name">
-      <a class="article-title" href="/2019/10/23/hello-world/">Hello World</a>
-    </h2>
-  
-  
-
-
-
-
-      </header>
-    
-
-    
-      <div class="article-meta">
-        <a href="/2019/10/23/hello-world/" class="article-date">
-  <time datetime="2019-10-23T06:40:22.940Z" itemprop="datePublished">2019-10-23</time>
-</a>
-        
-      </div>
-    
-
-    
-
-    <div class="article-entry" itemprop="articleBody">
-      
-
-
-      
-
-      
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="https://luanxinchen.github.io/2019/10/23/hello-world/" data-id="ckadrnrge00073gue1ps5ga1u"
+      <a data-url="https://luanxinchen.github.io/2019/11/05/blog-plan/" data-id="ckn05h4n80002hkue07wkb008"
          class="article-share-link">分享</a>
       
     </footer>
@@ -433,6 +773,11 @@
   
 
   
+    <nav class="page-nav">
+      
+      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">下一页</a>
+    </nav>
+  
 </section>
 </div>
 
@@ -446,7 +791,7 @@
 </ul>
     </div>
     <ul class="list-inline">
-      <li>&copy; 2020 Keep it real</li>
+      <li>&copy; 2021 Keep it real</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
       <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean" target="_blank" rel="noopener">Ocean</a></li>
     </ul>

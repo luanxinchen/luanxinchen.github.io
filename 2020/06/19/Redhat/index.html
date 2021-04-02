@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  
+  
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <title>
+    RHCE认证笔记 |
+    
+    Keep it real</title>
+  
+    <link rel="shortcut icon" href="/favicon.ico">
+  
+  <link rel="stylesheet" href="/css/style.css">
+  
+    <link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+  
+  <script src="/js/pace.min.js"></script>
+</head>
+
+<body>
+<main class="content">
+  <section class="outer">
+  
+
+<article id="post-Redhat" class="article article-type-post" itemscope itemprop="blogPost" data-scroll-reveal>
+  
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      RHCE认证笔记
+    </h1>
+  
+  
+
+
+
+
+      </header>
+    
+
+    
+      <div class="article-meta">
+        <a href="/2020/06/19/Redhat/" class="article-date">
+  <time datetime="2020-06-19T02:21:26.000Z" itemprop="datePublished">2020-06-19</time>
+</a>
+        
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/linux/">linux</a> / <a class="article-category-link" href="/categories/linux/RHEL/">RHEL</a>
+  </div>
+
+      </div>
+    
+
+    
+      
+    <div class="tocbot"></div>
+
+
+
+
+
+    
+
+    <div class="article-entry" itemprop="articleBody">
+      
+
+
+      
+
+      
+        <h4 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h4><p>RHCE：Red Hat Certified Engineer. RedHat 认证工程师</p>
+<p>CentOS：Community Enterprise Operating System. 社区企业操作系统，免费使用</p>
+<p>RHEL：Red Hat Enterprise Linux. 红帽企业Linux系统，由RedHat提供服务，付费使用</p>
+<a id="more"></a>
+
+<h4 id="RHEL-7-amp-8-命令笔记"><a href="#RHEL-7-amp-8-命令笔记" class="headerlink" title="RHEL 7&amp;8 命令笔记"></a>RHEL 7&amp;8 命令笔记</h4><p>pidof</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用于查询指定服务进程的PID值</span></span><br><span class="line">[root@linuxprobe ~]<span class="comment"># pidof sshd</span></span><br><span class="line">2156</span><br></pre></td></tr></table></figure>
+
+<p>killall</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用于终止指定服务所对应的所有进程</span></span><br><span class="line">[root@linuxprobe ~]<span class="comment"># pidof httpd</span></span><br><span class="line">13581 13580 13579 13578 13577 13576</span><br><span class="line">[root@linuxprobe ~]<span class="comment"># killall httpd</span></span><br></pre></td></tr></table></figure>
+
+<p>uname</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 查看系统内核</span></span><br><span class="line">[root@linuxprobe ~]<span class="comment"># uname -a</span></span><br><span class="line">Linux linuxprobe.com 3.10.0-123.el7.x86_64 <span class="comment">#1 SMP Mon May 5 11:16:57 EDT 2017 x86_64 x86_64 x86_64 GNU/Linux</span></span><br><span class="line"><span class="comment"># 同上</span></span><br><span class="line">[root@linuxprobe ~]<span class="comment"># cat /etc/redhat-release</span></span><br><span class="line">Red Hat Enterprise Linux Server release 7.0 (Maipo)</span><br></pre></td></tr></table></figure>
+
+<p>uptime</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 显示系统当前时间、已运行时间、终端数量、平均负载等信息</span></span><br><span class="line">[root@linuxprobe ~]<span class="comment"># uptime</span></span><br><span class="line">22:49:55 up 10 min, 2 users, load average: 0.01, 0.19, 0.18</span><br></pre></td></tr></table></figure>
+
+<p>sosreport</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用于收集系统配置及架构信息并输出诊断文档</span></span><br><span class="line">[root@linuxprobe ~]<span class="comment"># sosreport</span></span><br><span class="line">sosreport (version 3.0)</span><br><span class="line">........省略.........</span><br><span class="line"></span><br><span class="line">No changes will be made to system configuration.</span><br><span class="line">Press ENTER to <span class="built_in">continue</span>, or CTRL-C to quit. 此处敲击回车来确认收集信息</span><br><span class="line"></span><br><span class="line">Please enter your first initial and last name [linuxprobe.com]:此处敲击回车来确认主机编号</span><br><span class="line">Please enter the <span class="keyword">case</span> number that you are generating this report <span class="keyword">for</span>:此处敲击回车来确认主机编号</span><br><span class="line">Running plugins. Please <span class="built_in">wait</span> ...</span><br><span class="line">Running 70/70: yum...</span><br><span class="line">Creating compressed archive...</span><br><span class="line">Your sosreport has been generated and saved <span class="keyword">in</span>:</span><br><span class="line"></span><br><span class="line">/var/tmp/sosreport-linuxprobe.com-20170905230631.tar.xz</span><br><span class="line">The checksum is: 79436cdf791327040efde48c452c6322</span><br><span class="line">Please send this file to your support representative.</span><br></pre></td></tr></table></figure>
+
+<p>file</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用于查看文件的类型</span></span><br><span class="line">[root@linuxprobe ~]<span class="comment"># file anaconda-ks.cfg </span></span><br><span class="line">anaconda-ks.cfg: ASCII text</span><br><span class="line">[root@linuxprobe ~]<span class="comment"># file /dev/sda</span></span><br><span class="line">/dev/sda: block special</span><br></pre></td></tr></table></figure>
+
+<p>wc</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用于统计指定文本的行数、字数、字节数</span></span><br><span class="line">[root@linuxprobe ~]<span class="comment"># wc -l /etc/passwd</span></span><br><span class="line">38 /etc/passwd</span><br></pre></td></tr></table></figure>
+
+<p>cut</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 用于按列提取文本字符，通常配合head和grep使用</span></span><br><span class="line">[root@linuxprobe ~]<span class="comment"># cut -d: -f1 /etc/passwd</span></span><br><span class="line">root</span><br><span class="line">bin</span><br><span class="line">daemon</span><br></pre></td></tr></table></figure>
+
+<p>重定向 </p>
+<table>
+<thead>
+<tr>
+<th>符号</th>
+<th>作用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>命令 &gt; 文件</td>
+<td>将标准输出重定向到一个文件中（清空原有文件的数据）</td>
+</tr>
+<tr>
+<td>命令 &lt; 文件</td>
+<td>将文件作为命令的标准输入</td>
+</tr>
+<tr>
+<td>命令 2&gt; 文件</td>
+<td>将错误输出重定向到一个文件中（清空原有文件的数据）</td>
+</tr>
+<tr>
+<td>命令 &gt;&gt; 文件</td>
+<td>将标准输出重定向到一个文件中（追加到原有内容的后面）</td>
+</tr>
+<tr>
+<td>命令 &lt;&lt; 分界符</td>
+<td>从标准输入中读入，直到遇见分界符才停止</td>
+</tr>
+<tr>
+<td>命令 2&gt;&gt; 文件</td>
+<td>将错误输出重定向到一个文件中（追加到原有内容的后面）</td>
+</tr>
+<tr>
+<td>命令 &gt;&gt; 文件 2&gt;&amp;1 或 命令 &amp;&gt;&gt; 文件</td>
+<td>将标准输出与错误输出共同写入到文件中（追加到原有内容的后面）</td>
+</tr>
+</tbody></table>
+<h4 id="Vim快捷键"><a href="#Vim快捷键" class="headerlink" title="Vim快捷键"></a>Vim快捷键</h4>
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://luanxinchen.github.io/2020/06/19/Redhat/" data-id="ckn05h4nd0005hkued089cnne"
+         class="article-share-link">分享</a>
+      
+  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/RHEL/" rel="tag">RHEL</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/linux/" rel="tag">linux</a></li></ul>
+
+    </footer>
+
+  </div>
+
+  
+    
+  <nav class="article-nav">
+    
+      <a href="/2020/06/19/Git/" class="article-nav-link">
+        <strong class="article-nav-caption">前一篇</strong>
+        <div class="article-nav-title">
+          
+            Git常见流程
+          
+        </div>
+      </a>
+    
+    
+      <a href="/2020/05/28/prometheus/" class="article-nav-link">
+        <strong class="article-nav-caption">后一篇</strong>
+        <div class="article-nav-title">Prometheus从入门到精通（伪）</div>
+      </a>
+    
+  </nav>
+
+
+  
+
+  
+    
+  <div class="gitalk" id="gitalk-container"></div>
+  <link rel="stylesheet" href="https://unpkg.com/gitalk/dist/gitalk.css">
+  <script src="https://unpkg.com/gitalk/dist/gitalk.min.js"></script>
+  <script src="https://cdn.bootcss.com/blueimp-md5/2.10.0/js/md5.min.js"></script>
+  <script type="text/javascript">
+    var gitalk = new Gitalk({
+      clientID: 'b2555d5318e4837c03c2',
+      clientSecret: '653ec7aa28d9278cdc7a8f19de368ad2ed6bb11d',
+      repo: 'luanxinchen.github.io',
+      owner: 'luanxinchen',
+      admin: ['luanxinchen'],
+      // id: location.pathname,      // Ensure uniqueness and length less than 50
+      id: md5(location.pathname),
+      distractionFreeMode: false,  // Facebook-like distraction free mode
+      pagerDirection: 'last'
+    })
+
+  gitalk.render('gitalk-container')
+  </script>
+
+  
+
+</article>
+
+
+
+</section>
+  <footer class="footer">
+  <div class="outer">
+    <div class="float-right">
+      <ul class="list-inline">
+  
+    <li><i class="fe fe-smile-alt"></i> <span id="busuanzi_value_site_uv"></span></li>
+  
+</ul>
+    </div>
+    <ul class="list-inline">
+      <li>&copy; 2021 Keep it real</li>
+      <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
+      <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean" target="_blank" rel="noopener">Ocean</a></li>
+    </ul>
+  </div>
+</footer>
+
+</main>
+
+<aside class="sidebar sidebar-specter">
+  
+    <button class="navbar-toggle"></button>
+<nav class="navbar">
+  
+    <div class="logo">
+      <a href="/"><img src="/images/hexo.svg" alt="Keep it real"></a>
+    </div>
+  
+  <ul class="nav nav-main">
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/">主页</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/archives">归档</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/gallery">相册</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/about">关于</a>
+      </li>
+    
+      <li class="nav-item">
+        <a class="nav-item-link" href="/categories">分类</a>
+      </li>
+    
+    <li class="nav-item">
+      <a class="nav-item-link nav-item-search" title="搜索">
+        <i class="fe fe-search"></i>
+        搜索
+      </a>
+    </li>
+  </ul>
+</nav>
+<nav class="navbar navbar-bottom">
+  <ul class="nav">
+    <li class="nav-item">
+      <div class="totop" id="totop">
+  <i class="fe fe-rocket"></i>
+</div>
+    </li>
+    <li class="nav-item">
+      
+        <a class="nav-item-link" target="_blank" href="/atom.xml" title="RSS Feed">
+          <i class="fe fe-feed"></i>
+        </a>
+      
+    </li>
+  </ul>
+</nav>
+<div class="search-form-wrap">
+  <div class="local-search local-search-plugin">
+  <input type="search" id="local-search-input" class="local-search-input" placeholder="Search...">
+  <div id="local-search-result" class="local-search-result"></div>
+</div>
+</div>
+  </aside>
+  <script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.justifiedGallery.min.js"></script>
+<script src="/js/lazyload.min.js"></script>
+<script src="/js/busuanzi-2.3.pure.min.js"></script>
+
+  <script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+  <script src="/js/tocbot.min.js"></script>
+  <script>
+    // Tocbot_v4.7.0  http://tscanlin.github.io/tocbot/
+    tocbot.init({
+      tocSelector: '.tocbot',
+      contentSelector: '.article-entry',
+      headingSelector: 'h1, h2, h3, h4, h5, h6',
+      hasInnerContainers: true,
+      scrollSmooth: true,
+      positionFixedSelector: '.tocbot',
+      positionFixedClass: 'is-position-fixed',
+      fixedSidebarOffset: 'auto',
+    });
+  </script>
+
+
+<script src="/js/ocean.js"></script>
+
+</body>
+</html>

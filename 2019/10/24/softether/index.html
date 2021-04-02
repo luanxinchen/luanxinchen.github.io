@@ -87,7 +87,7 @@
         <blockquote>
 <p>提到VPN，可能大部分人联想到的是翻墙、爬梯子等关键词，这里需要先纠正一下，VPN并不等于翻墙，VPN的全称是Virtual Private Network（<a href="https://zh.wikipedia.org/wiki/%E8%99%9B%E6%93%AC%E7%A7%81%E4%BA%BA%E7%B6%B2%E8%B7%AF" target="_blank" rel="noopener">虚拟专用网络</a>），它是一种基于隧道协议的网络服务，常用于连接中、大型企业或团体与团体间的私人网络。国内由于GFW的存在，早期许多公司采用VPN服务连接国外网络的翻墙方法，后商业化的一键VPN逐渐成熟，久而久之，许多人便把VPN与翻墙画上了等号，实际这是一种错误的理解。</p>
 </blockquote>
-<p>公司早先为了方便异地办公向员工提供了VPN服务，使用的方案是路由设备自带的PPTP+L2TP服务，随着的使用VPN的员工逐渐增加，这种方案的缺点也逐渐暴露出来：</p>
+<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>公司早先为了方便异地办公向员工提供了VPN服务，使用的方案是路由设备自带的PPTP+L2TP服务，随着的使用VPN的员工逐渐增加，这种方案的缺点也逐渐暴露出来：</p>
 <a id="more"></a>
 
 <ul>
@@ -108,19 +108,25 @@
 <li>支持集群部署高可用方案</li>
 <li>开源项目，拥有较为活跃的社群<br>等等</li>
 </ul>
-<p>有点啰嗦了，进入正题。</p>
-<h2 id="Server端部署"><a href="#Server端部署" class="headerlink" title="Server端部署"></a>Server端部署</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><h4 id="二进制安装"><a href="#二进制安装" class="headerlink" title="二进制安装"></a>二进制安装</h4><p>进入<a href="https://www.softether-download.com/cn.aspx" target="_blank" rel="noopener">Softether下载发布页</a>，组件选择VPN Server，系统选择linux（这里博主使用的服务器是Centos 7.2环境），在下方的列表里选择一个稳定版本复制链接，下载到本地后使用FTP工具传输到服务器，或在服务器环境使用<code>curl</code> <code>wget</code>等命令直接下载。</p>
+<p>有点啰嗦了，下面进入正题。</p>
+<h2 id="部署与配置"><a href="#部署与配置" class="headerlink" title="部署与配置"></a>部署与配置</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><h4 id="二进制安装"><a href="#二进制安装" class="headerlink" title="二进制安装"></a>二进制安装</h4><p>进入<a href="https://www.softether-download.com/cn.aspx" target="_blank" rel="noopener">Softether下载发布页</a>，组件选择VPN Server，选择系统版本（这里使用的是CentOS 7.2环境），在下方的列表里选择一个稳定版本复制链接，下载到本地后使用FTP工具传输到服务器，或在服务器环境使用<code>curl</code> <code>wget</code>等命令直接下载。</p>
 <h4 id="源码Build"><a href="#源码Build" class="headerlink" title="源码Build"></a>源码Build</h4><p>查看<a href="https://github.com/SoftEtherVPN/SoftEtherVPN/" target="_blank" rel="noopener">Github项目</a></p>
-<h3 id="部署"><a href="#部署" class="headerlink" title="部署"></a>部署</h3><p>下载完成后解压tar包，进入vpnserver目录，执行<code>make</code>开始部署</p>
+<h3 id="编译部署"><a href="#编译部署" class="headerlink" title="编译部署"></a>编译部署</h3><p>下载完成后解压tar包，进入vpnserver目录，执行<code>make</code>开始部署</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost vpnserver]# tar zxvf softether-vpnserver-v4.29-9680-rtm-2019.02.28-linux-x64-64bit.tar.gz</span><br><span class="line">[root@localhost vpnserver]# cd vpnserver/</span><br><span class="line">[root@localhost vpnserver]# make</span><br></pre></td></tr></table></figure>
 <p><em>执行make时报错按照提示安装依赖即可</em></p>
-<h3 id="启用"><a href="#启用" class="headerlink" title="启用"></a>启用</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost vpnserver]# ./vpnserver start #启动服务</span><br><span class="line">[root@localhost vpnserver]# ./vpnserver stop #关闭服务</span><br><span class="line">[root@localhost vpnserver]# ./vpncmd #进入命令行配置菜单</span><br></pre></td></tr></table></figure>
+<h3 id="启用服务"><a href="#启用服务" class="headerlink" title="启用服务"></a>启用服务</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">[root@localhost vpnserver]# ./vpnserver start #启动服务</span><br><span class="line">[root@localhost vpnserver]# ./vpnserver stop #关闭服务</span><br><span class="line">[root@localhost vpnserver]# ./vpncmd #进入命令行配置菜单</span><br></pre></td></tr></table></figure>
 <p><em>启动后默认侦听443、992、1194、5555端口，请注意防火墙放行或关闭防火墙</em></p>
-<h2 id="ServerManager的使用"><a href="#ServerManager的使用" class="headerlink" title="ServerManager的使用"></a>ServerManager的使用</h2>
+<h2 id="图形化管理工具ServerManager"><a href="#图形化管理工具ServerManager" class="headerlink" title="图形化管理工具ServerManager"></a>图形化管理工具ServerManager</h2><h2 id="命令行管理工具vpncmd"><a href="#命令行管理工具vpncmd" class="headerlink" title="命令行管理工具vpncmd"></a>命令行管理工具vpncmd</h2><h3 id="基于vpncmd实现账号增删查"><a href="#基于vpncmd实现账号增删查" class="headerlink" title="基于vpncmd实现账号增删查"></a>基于vpncmd实现账号增删查</h3><h4 id="vpncreate"><a href="#vpncreate" class="headerlink" title="vpncreate"></a>vpncreate</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">user=$1</span><br><span class="line">expect &lt;&lt; EOF</span><br><span class="line">spawn /usr/work/vpnserver/vpncmd /server</span><br><span class="line">expect &#123;</span><br><span class="line">                "Destination:"  &#123;send "\r";exp_continue&#125;</span><br><span class="line">                "Name:"  &#123;send "default\r"&#125;</span><br><span class="line">       &#125;</span><br><span class="line">expect &#123;</span><br><span class="line">                "&gt;" &#123;send "usercreate $user\r";exp_continue&#125;</span><br><span class="line">                "Name:"   &#123;send "\r";exp_continue&#125;</span><br><span class="line">                "Name:"   &#123;send "\r";exp_continue&#125;</span><br><span class="line">                "Description:"   &#123;send "\r"&#125;</span><br><span class="line">       &#125;</span><br><span class="line">expect &#123;</span><br><span class="line">                "&gt;" &#123;send "userradiusset $user\r";exp_continue&#125;</span><br><span class="line">                "(Optional):"  &#123;send "\r"&#125;</span><br><span class="line">       &#125;</span><br><span class="line">expect "&gt;" &#123;send "exit\r"&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<h4 id="vpndelete"><a href="#vpndelete" class="headerlink" title="vpndelete"></a>vpndelete</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">user=$1</span><br><span class="line">expect &lt;&lt; EOF</span><br><span class="line">spawn /usr/work/vpnserver/vpncmd /server</span><br><span class="line">expect &#123;</span><br><span class="line">                "Destination:"  &#123;send "\r";exp_continue&#125;</span><br><span class="line">                "Name:"  &#123;send "default\r"&#125;</span><br><span class="line">       &#125;</span><br><span class="line">expect "&gt;" &#123;send "userdel $user\r"&#125;</span><br><span class="line">expect "&gt;" &#123;send "exit\r"&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<h4 id="vpnlist"><a href="#vpnlist" class="headerlink" title="vpnlist"></a>vpnlist</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">#</span><span class="bash">!/bin/bash</span></span><br><span class="line">expect &lt;&lt; EOF</span><br><span class="line">spawn /usr/work/vpnserver/vpncmd /server</span><br><span class="line">expect &#123;</span><br><span class="line">                "Destination:"  &#123;send "\r";exp_continue&#125;</span><br><span class="line">                "Name:"  &#123;send "default\r"&#125;</span><br><span class="line">       &#125;</span><br><span class="line">expect "&gt;" &#123;send "userlist\r"&#125;</span><br><span class="line">expect "&gt;" &#123;send "exit\r"&#125;</span><br><span class="line">EOF</span><br></pre></td></tr></table></figure>
+
+<h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><h4 id="Radius认证无法开启"><a href="#Radius认证无法开启" class="headerlink" title="Radius认证无法开启"></a>Radius认证无法开启</h4><h4 id="MacOS密钥乱码"><a href="#MacOS密钥乱码" class="headerlink" title="MacOS密钥乱码"></a>MacOS密钥乱码</h4>
       
     </div>
     <footer class="article-footer">
-      <a data-url="https://luanxinchen.github.io/2019/10/24/softether/" data-id="ckadrnrgh00083gueg4lnd0mn"
+      <a data-url="https://luanxinchen.github.io/2019/10/24/softether/" data-id="ckn05h4nt000ohkuefe3q0am7"
          class="article-share-link">分享</a>
       
   <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/VPN/" rel="tag">VPN</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/softether/" rel="tag">softether</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E7%BD%91%E7%BB%9C/" rel="tag">网络</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%BF%90%E7%BB%B4/" rel="tag">运维</a></li></ul>
@@ -137,7 +143,7 @@
         <strong class="article-nav-caption">前一篇</strong>
         <div class="article-nav-title">
           
-            开坑计划
+            学习计划
           
         </div>
       </a>
@@ -192,7 +198,7 @@
 </ul>
     </div>
     <ul class="list-inline">
-      <li>&copy; 2020 Keep it real</li>
+      <li>&copy; 2021 Keep it real</li>
       <li>Powered by <a href="http://hexo.io/" target="_blank">Hexo</a></li>
       <li>Theme  <a href="https://github.com/zhwangart/hexo-theme-ocean" target="_blank" rel="noopener">Ocean</a></li>
     </ul>
