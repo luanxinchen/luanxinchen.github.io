@@ -116,7 +116,7 @@
   </entry>
   <entry>
     <title>Git常见流程</title>
-    <url>/2020/06/19/Git/</url>
+    <url>/2020/06/19/git-manual/</url>
     <content><![CDATA[<p><img src="https://mmbiz.qpic.cn/mmbiz_png/KmXPKA19gWicpG4ibricDjhseFOGY3Qnc47QerrsJKNIjX2kiaUcH5vgEhxWiavM0YewFoJF5EicMrkf03sibglPia8esQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
 <a id="more"></a>
 
@@ -135,7 +135,7 @@
   </entry>
   <entry>
     <title>RHCE认证笔记</title>
-    <url>/2020/06/19/Redhat/</url>
+    <url>/2020/06/19/redhat/</url>
     <content><![CDATA[<h4 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h4><p>RHCE：Red Hat Certified Engineer. RedHat 认证工程师</p>
 <p>CentOS：Community Enterprise Operating System. 社区企业操作系统，免费使用</p>
 <p>RHEL：Red Hat Enterprise Linux. 红帽企业Linux系统，由RedHat提供服务，付费使用</p>
@@ -427,8 +427,8 @@ X个9表示在软件系统1年时间的使用过程中，系统正常使用时�
         <category>prometheus</category>
       </categories>
       <tags>
-        <tag>监控</tag>
         <tag>运维</tag>
+        <tag>监控</tag>
         <tag>prometheus</tag>
       </tags>
   </entry>
@@ -519,9 +519,9 @@ X个9表示在软件系统1年时间的使用过程中，系统正常使用时�
       </categories>
       <tags>
         <tag>网络</tag>
-        <tag>运维</tag>
         <tag>softether</tag>
         <tag>VPN</tag>
+        <tag>运维</tag>
       </tags>
   </entry>
   <entry>
