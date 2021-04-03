@@ -209,9 +209,9 @@
       
         <tags>
             
-            <tag> 监控 </tag>
-            
             <tag> 运维 </tag>
+            
+            <tag> 监控 </tag>
             
             <tag> prometheus </tag>
             
@@ -280,11 +280,11 @@
             
             <tag> 网络 </tag>
             
-            <tag> 运维 </tag>
-            
             <tag> softether </tag>
             
             <tag> VPN </tag>
+            
+            <tag> 运维 </tag>
             
         </tags>
       
