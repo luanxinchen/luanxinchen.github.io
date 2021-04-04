@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Prometheus从入门到精通（伪）, Keep it real">
+    <meta name="keywords" content="Prometheus从入门到精通（伪）, Keep IT Real">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Prometheus从入门到精通（伪） | Keep it real</title>
+    <title>Prometheus从入门到精通（伪） | Keep IT Real</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -29,7 +29,7 @@
 
     <script src="/libs/jquery/jquery.min.js"></script>
 
-</head>
+<meta name="generator" content="Hexo 5.4.0"></head>
 
 
 
@@ -41,7 +41,7 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
-                    <span class="logo-span">Keep it real</span>
+                    <span class="logo-span">Keep IT Real</span>
                 </a>
             </div>
             
@@ -127,7 +127,7 @@
 
     <div class="mobile-head bg-color">
         
-        <div class="logo-name">Keep it real</div>
+        <div class="logo-name">Keep IT Real</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -206,75 +206,12 @@
         </li>
         
         
-        <li><div class="divider"></div></li>
-        <li>
-            <a href="https://github.com/blinkfox/hexo-theme-matery" class="waves-effect waves-light" target="_blank">
-                <i class="fab fa-github-square fa-fw"></i>Fork Me
-            </a>
-        </li>
-        
     </ul>
 </div>
 
 
         </div>
 
-        
-            <style>
-    .nav-transparent .github-corner {
-        display: none !important;
-    }
-
-    .github-corner {
-        position: absolute;
-        z-index: 10;
-        top: 0;
-        right: 0;
-        border: 0;
-        transform: scale(1.1);
-    }
-
-    .github-corner svg {
-        color: #0f9d58;
-        fill: #fff;
-        height: 64px;
-        width: 64px;
-    }
-
-    .github-corner:hover .octo-arm {
-        animation: a 0.56s ease-in-out;
-    }
-
-    .github-corner .octo-arm {
-        animation: none;
-    }
-
-    @keyframes a {
-        0%,
-        to {
-            transform: rotate(0);
-        }
-        20%,
-        60% {
-            transform: rotate(-25deg);
-        }
-        40%,
-        80% {
-            transform: rotate(10deg);
-        }
-    }
-</style>
-
-<a href="https://github.com/blinkfox/hexo-theme-matery" class="github-corner tooltipped hide-on-med-and-down" target="_blank"
-   data-tooltip="Fork Me" data-position="left" data-delay="50">
-    <svg viewBox="0 0 250 250" aria-hidden="true">
-        <path d="M0,0 L115,115 L130,115 L142,142 L250,250 L250,0 Z"></path>
-        <path d="M128.3,109.0 C113.8,99.7 119.0,89.6 119.0,89.6 C122.0,82.7 120.5,78.6 120.5,78.6 C119.2,72.0 123.4,76.3 123.4,76.3 C127.3,80.9 125.5,87.3 125.5,87.3 C122.9,97.6 130.6,101.9 134.4,103.2"
-              fill="currentColor" style="transform-origin: 130px 106px;" class="octo-arm"></path>
-        <path d="M115.0,115.0 C114.9,115.1 118.7,116.5 119.8,115.4 L133.7,101.6 C136.9,99.2 139.9,98.4 142.2,98.6 C133.8,88.0 127.5,74.4 143.8,58.0 C148.5,53.4 154.0,51.2 159.7,51.0 C160.3,49.4 163.2,43.6 171.4,40.1 C171.4,40.1 176.1,42.5 178.8,56.2 C183.1,58.6 187.2,61.8 190.9,65.4 C194.5,69.0 197.7,73.2 200.1,77.6 C213.8,80.2 216.3,84.9 216.3,84.9 C212.7,93.1 206.9,96.0 205.4,96.6 C205.1,102.4 203.0,107.8 198.3,112.5 C181.9,128.9 168.3,122.5 157.7,114.1 C157.9,116.9 156.7,120.9 152.7,124.9 L141.0,136.5 C139.8,137.7 141.6,141.9 141.8,141.8 Z"
-              fill="currentColor" class="octo-body"></path>
-    </svg>
-</a>
         
     </nav>
 
@@ -458,6 +395,9 @@
         <hr class="clearfix">
 
         
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
 
         
 
@@ -468,7 +408,7 @@
 <li>出现问题后，利用监控数据追踪溯源，可以更高效的解决问题</li>
 <li>利用监控提高网站/服务的可用性</li>
 </ul>
-<a id="more"></a>
+<span id="more"></span>
 
 <h4 id="1-1-1-可用性"><a href="#1-1-1-可用性" class="headerlink" title="1.1.1 可用性"></a>1.1.1 可用性</h4><pre><code>在软件系统的高可靠性（也称为可用性，英文描述为HA，High Available）里有个衡量其可靠性的标准——X个9，这个X是代表数字3~5。
 X个9表示在软件系统1年时间的使用过程中，系统正常使用时间与总时间（1年）之比，通过下面的计算来感受下X个9在不同级别的可靠性差异。
@@ -513,7 +453,7 @@ X个9表示在软件系统1年时间的使用过程中，系统正常使用时�
 <li><strong>Prometheus</strong></li>
 </ul>
 <h2 id="二、Prometheus简介"><a href="#二、Prometheus简介" class="headerlink" title="二、Prometheus简介"></a>二、Prometheus简介</h2><h3 id="2-1-Prometheus是什么"><a href="#2-1-Prometheus是什么" class="headerlink" title="2.1 Prometheus是什么"></a>2.1 Prometheus是什么</h3><p>Prometheus是由SoundCloud开发的开源监控报警系统和TSDB(Time Series Database，时序列数据库)。受启发于Google的BorgMon监控系统，使用Go语言编写，从2012年开始由前Google工程师在Soundcloud以开源软件的形式进行研发，并且于2015年早期对外发布早期版本。2016年5月继Kubernetes之后成为第二个正式加入CNCF基金会的项目，同年6月正式发布1.0版本。2017年底发布了基于全新存储层的2.0版本，能更好地与容器平台、云平台配合。</p>
-<p>有关 Prometheus 的详细信息，请参考<a href="https://prometheus.io/docs/introduction/overview/" target="_blank" rel="noopener">官方介绍</a></p>
+<p>有关 Prometheus 的详细信息，请参考<a target="_blank" rel="noopener" href="https://prometheus.io/docs/introduction/overview/">官方介绍</a></p>
 <p><img src="https://gblobscdn.gitbook.com/assets%2F-LBdoxo9EmQ0bJP2BuUi%2F-LPMFlGDFIX7wuLhSHx9%2F-LPMFo9ZTdKYHyFzu4DJ%2Fprometheus-release-roadmaps.png?alt=media" alt="1.3.jpg"></p>
 <h3 id="2-2-Prometheus的特点"><a href="#2-2-Prometheus的特点" class="headerlink" title="2.2 Prometheus的特点"></a>2.2 Prometheus的特点</h3><ul>
 <li>由指标名称和键值对标签标识的时间序列数据组成的多维度数据模型</li>
@@ -529,8 +469,8 @@ X个9表示在软件系统1年时间的使用过程中，系统正常使用时�
 <h3 id="2-3-Prometheus如何实现监控"><a href="#2-3-Prometheus如何实现监控" class="headerlink" title="2.3 Prometheus如何实现监控"></a>2.3 Prometheus如何实现监控</h3><p>在Prometheus的架构设计中，Prometheus Server并不直接服务监控特定的目标，其主要任务负责数据的收集，存储并且对外提供数据查询支持。因此为了能够监控到某些东西，如主机的CPU使用率，我们需要使用到<strong>Exporter</strong>。Prometheus周期性的从Exporter暴露的HTTP服务地址（通常是/metrics）拉取监控样本数据。</p>
 <pre><code>Exporter可以是一个独立运行的程序独立于监控目标以外，也可以是直接内置在监控目标中。只要能够向Prometheus提供标准格式的监控样本数据即可。</code></pre><h3 id="2-4-Prometheus-适用于什么场景"><a href="#2-4-Prometheus-适用于什么场景" class="headerlink" title="2.4 Prometheus 适用于什么场景"></a>2.4 Prometheus 适用于什么场景</h3><p>Prometheus 适用于记录文本格式的时间序列，它既适用于以机器为中心的监控，也适用于高度动态的面向服务架构的监控。在微服务的世界中，它对多维数据收集和查询的支持有特殊优势。Prometheus 是专为提高系统可靠性而设计的，它可以在断电期间快速诊断问题，每个 Prometheus Server 都是相互独立的，不依赖于网络存储或其他远程服务。当基础架构出现故障时，你可以通过 Prometheus 快速定位故障点，而且不会消耗大量的基础架构资源。</p>
 <h3 id="2-5-Prometheus-不适合什么场景"><a href="#2-5-Prometheus-不适合什么场景" class="headerlink" title="2.5 Prometheus 不适合什么场景"></a>2.5 Prometheus 不适合什么场景</h3><p>Prometheus 非常重视可靠性，即使在出现故障的情况下，你也可以随时查看有关系统的可用统计信息。如果你需要百分之百的准确度，例如按请求数量计费，那么 Prometheus 不太适合你，因为它收集的数据可能不够详细完整。这种情况下，你最好使用其他系统来收集和分析数据以进行计费，并使用 Prometheus 来监控系统的其余部分。</p>
-<h2 id="三、基本概念"><a href="#三、基本概念" class="headerlink" title="三、基本概念"></a>三、基本概念</h2><p>本章节主要参考<a href="https://prometheus.io/docs/introduction/overview/" target="_blank" rel="noopener">官方文档</a>。</p>
-<h3 id="3-1-数据模型"><a href="#3-1-数据模型" class="headerlink" title="3.1 数据模型"></a>3.1 数据模型</h3><p>Prometheus 所有采集的监控数据均以指标（metric）的形式保存在内置的<a href="https://www.wikiwand.com/zh/時間序列" target="_blank" rel="noopener">时间序列</a>数据库当中（TSDB）：属于同一指标名称，同一标签集合的、有时间戳标记的数据流。除了存储的时间序列，Prometheus 还可以根据查询请求产生临时的、衍生的时间序列作为返回结果。</p>
+<h2 id="三、基本概念"><a href="#三、基本概念" class="headerlink" title="三、基本概念"></a>三、基本概念</h2><p>本章节主要参考<a target="_blank" rel="noopener" href="https://prometheus.io/docs/introduction/overview/">官方文档</a>。</p>
+<h3 id="3-1-数据模型"><a href="#3-1-数据模型" class="headerlink" title="3.1 数据模型"></a>3.1 数据模型</h3><p>Prometheus 所有采集的监控数据均以指标（metric）的形式保存在内置的<a target="_blank" rel="noopener" href="https://www.wikiwand.com/zh/時間序列">时间序列</a>数据库当中（TSDB）：属于同一指标名称，同一标签集合的、有时间戳标记的数据流。除了存储的时间序列，Prometheus 还可以根据查询请求产生临时的、衍生的时间序列作为返回结果。</p>
 <h4 id="3-1-1-指针名称和标签"><a href="#3-1-1-指针名称和标签" class="headerlink" title="3.1.1 指针名称和标签"></a>3.1.1 指针名称和标签</h4><p>每一条时间序列由指标名称（Metrics Name）以及一组标签（键值对）唯一标识。其中指标的名称（metric name）可以反映被监控样本的含义（例如，<code>http_requests_total</code> — 表示当前系统接收到的 HTTP 请求总量），指标名称只能由 ASCII 字符、数字、下划线以及冒号组成，同时必须匹配正则表达式 <code>[a-zA-Z_:][a-zA-Z0-9_:]*</code>。</p>
 <blockquote>
 <p><strong>[info] 注意</strong></p>
@@ -538,7 +478,7 @@ X个9表示在软件系统1年时间的使用过程中，系统正常使用时�
 </blockquote>
 <p>通过使用标签，Prometheus 开启了强大的多维数据模型：对于相同的指标名称，通过不同标签列表的集合，会形成特定的度量维度实例（例如：所有包含度量名称为 <code>/api/tracks</code> 的 http 请求，打上 <code>method=POST</code> 的标签，就会形成具体的 http 请求）。该查询语言在这些指标和标签列表的基础上进行过滤和聚合。改变任何度量指标上的任何标签值（包括添加或删除指标），都会创建新的时间序列。</p>
 <p>标签的名称只能由 ASCII 字符、数字以及下划线组成并满足正则表达式 <code>[a-zA-Z_][a-zA-Z0-9_]*</code>。其中以 <code>__</code> 作为前缀的标签，是系统保留的关键字，只能在系统内部使用。标签的值则可以包含任何 <code>Unicode</code> 编码的字符。</p>
-<p>更多详细内容请参考 <a href="https://github.com/yangchuansheng/prometheus-handbook/tree/e8b31d4417a188994d05ecd1fce3f38c99cf8968/practices/naming.html" target="_blank" rel="noopener">指标和标签命名最佳实践</a>。</p>
+<p>更多详细内容请参考 <a target="_blank" rel="noopener" href="https://github.com/yangchuansheng/prometheus-handbook/tree/e8b31d4417a188994d05ecd1fce3f38c99cf8968/practices/naming.html">指标和标签命名最佳实践</a>。</p>
 <h4 id="3-1-2-样本"><a href="#3-1-2-样本" class="headerlink" title="3.1.2 样本"></a>3.1.2 样本</h4><p>在时间序列中的每一个点称为一个样本（sample），样本由以下三部分组成：</p>
 <ul>
 <li>指标（metric）：指标名称和描述当前样本特征的 labelsets；</li>
@@ -546,80 +486,111 @@ X个9表示在软件系统1年时间的使用过程中，系统正常使用时�
 <li>样本值（value）： 一个 folat64 的浮点型数据表示当前样本的值。</li>
 </ul>
 <h4 id="3-1-3-表达方式"><a href="#3-1-3-表达方式" class="headerlink" title="3.1.3 表达方式"></a>3.1.3 表达方式</h4><p>通过如下表达方式表示指定指标名称和指定标签集合的时间序列：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;metric name&gt;&#123;&lt;label name&gt;=&lt;label value&gt;, ...&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&lt;metric name&gt;&#123;&lt;label name&gt;&#x3D;&lt;label value&gt;, ...&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>例如，指标名称为 <code>api_http_requests_total</code>，标签为 <code>method=&quot;POST&quot;</code> 和 <code>handler=&quot;/messages&quot;</code> 的时间序列可以表示为：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">api_http_requests_total&#123;method=&quot;POST&quot;, handler=&quot;/messages&quot;&#125;</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">api_http_requests_total&#123;method&#x3D;&quot;POST&quot;, handler&#x3D;&quot;&#x2F;messages&quot;&#125;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>这与 <a href="http://opentsdb.net/" target="_blank" rel="noopener">OpenTSDB</a> 中使用的标记法相同。</p>
+<p>这与 <a target="_blank" rel="noopener" href="http://opentsdb.net/">OpenTSDB</a> 中使用的标记法相同。</p>
 <h3 id="3-2-指针类型"><a href="#3-2-指针类型" class="headerlink" title="3.2 指针类型"></a>3.2 指针类型</h3><p>Prometheus 的客户端库中提供了四种核心的指标类型。但这些类型只是在客户端库（客户端可以根据不同的数据类型调用不同的 API 接口）和在线协议中，实际在 Prometheus server 中并不对指标类型进行区分，而是简单地把这些指标统一视为无类型的时间序列。不过，将来我们会努力改变这一现状的。</p>
 <h4 id="3-2-1-Counter（计数器）"><a href="#3-2-1-Counter（计数器）" class="headerlink" title="3.2.1 Counter（计数器）"></a>3.2.1 Counter（计数器）</h4><p>Counter 类型代表一种样本数据单调递增的指标，即只增不减，除非监控系统发生了重置。例如，你可以使用 counter 类型的指标来表示服务的请求数、已完成的任务数、错误发生的次数等。counter 主要有两个方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//将counter值加1.</span><br><span class="line">Inc()</span><br><span class="line">// 将指定值加到counter值上，如果指定值&lt;0 会panic.</span><br><span class="line">Add(float64)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;将counter值加1.
+Inc()
+&#x2F;&#x2F; 将指定值加到counter值上，如果指定值&lt;0 会panic.
+Add(float64)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>Counter 类型数据可以让用户方便的了解事件产生的速率的变化，在 PromQL 内置的相关操作函数可以提供相应的分析，比如以 HTTP 应用请求量来进行说明：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">//通过rate()函数获取HTTP请求量的增长率</span><br><span class="line">rate(http_requests_total[5m])</span><br><span class="line">//查询当前系统中，访问量前10的HTTP地址</span><br><span class="line">topk(10, http_requests_total)</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F;通过rate()函数获取HTTP请求量的增长率
+rate(http_requests_total[5m])
+&#x2F;&#x2F;查询当前系统中，访问量前10的HTTP地址
+topk(10, http_requests_total)<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
 <p>不要将 counter 类型应用于样本数据非单调递增的指标，例如：当前运行的进程数量（应该用 Gauge 类型）。</p>
 <p>不同语言关于 Counter 的客户端库使用文档：</p>
 <ul>
-<li><a href="http://godoc.org/github.com/prometheus/client_golang/prometheus#Counter" target="_blank" rel="noopener">Go</a></li>
-<li><a href="https://github.com/prometheus/client_java/blob/master/simpleclient/src/main/java/io/prometheus/client/Counter.java" target="_blank" rel="noopener">Java</a></li>
-<li><a href="https://github.com/prometheus/client_python#counter" target="_blank" rel="noopener">Python</a></li>
-<li><a href="https://github.com/prometheus/client_ruby#counter" target="_blank" rel="noopener">Ruby</a></li>
+<li><a target="_blank" rel="noopener" href="http://godoc.org/github.com/prometheus/client_golang/prometheus#Counter">Go</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/prometheus/client_java/blob/master/simpleclient/src/main/java/io/prometheus/client/Counter.java">Java</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/prometheus/client_python#counter">Python</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/prometheus/client_ruby#counter">Ruby</a></li>
 </ul>
 <h4 id="3-2-2-Gauge（仪表盘）"><a href="#3-2-2-Gauge（仪表盘）" class="headerlink" title="3.2.2 Gauge（仪表盘）"></a>3.2.2 Gauge（仪表盘）</h4><p>Gauge 类型代表一种样本数据可以任意变化的指标，即可增可减。Gauge 通常用于像温度或者内存使用率这种指标数据，也可以表示能随时增加或减少的“总数”，例如：当前并发请求的数量。</p>
-<p>对于 Gauge 类型的监控指标，通过 PromQL 内置函数 <a href="https://www.yangcs.net/prometheus/3-prometheus/functions.html#delta" target="_blank" rel="noopener">delta()</a> 可以获取样本在一段时间内的变化情况，例如，计算 CPU 温度在两小时内的差异：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">dalta(cpu_temp_celsius&#123;host=&quot;zeus&quot;&#125;[2h])</span><br></pre></td></tr></table></figure>
+<p>对于 Gauge 类型的监控指标，通过 PromQL 内置函数 <a target="_blank" rel="noopener" href="https://www.yangcs.net/prometheus/3-prometheus/functions.html#delta">delta()</a> 可以获取样本在一段时间内的变化情况，例如，计算 CPU 温度在两小时内的差异：</p>
+<pre class="line-numbers language-none"><code class="language-none">dalta(cpu_temp_celsius&#123;host&#x3D;&quot;zeus&quot;&#125;[2h])<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<p>你还可以通过PromQL 内置函数 <a href="https://www.yangcs.net/prometheus/3-prometheus/functions.html#predictlinear" target="_blank" rel="noopener">predict_linear()</a> 基于简单线性回归的方式，对样本数据的变化趋势做出预测。例如，基于 2 小时的样本数据，来预测主机可用磁盘空间在 4 个小时之后的剩余情况：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">predict_linear(node_filesystem_free&#123;job=&quot;node&quot;&#125;[2h], 4 * 3600) &lt; 0</span><br></pre></td></tr></table></figure>
+<p>你还可以通过PromQL 内置函数 <a target="_blank" rel="noopener" href="https://www.yangcs.net/prometheus/3-prometheus/functions.html#predictlinear">predict_linear()</a> 基于简单线性回归的方式，对样本数据的变化趋势做出预测。例如，基于 2 小时的样本数据，来预测主机可用磁盘空间在 4 个小时之后的剩余情况：</p>
+<pre class="line-numbers language-none"><code class="language-none">predict_linear(node_filesystem_free&#123;job&#x3D;&quot;node&quot;&#125;[2h], 4 * 3600) &lt; 0<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 <p>不同语言关于 Gauge 的客户端库使用文档：</p>
 <ul>
-<li><a href="http://godoc.org/github.com/prometheus/client_golang/prometheus#Gauge" target="_blank" rel="noopener">Go</a></li>
-<li><a href="https://github.com/prometheus/client_java/blob/master/simpleclient/src/main/java/io/prometheus/client/Gauge.java" target="_blank" rel="noopener">Java</a></li>
-<li><a href="https://github.com/prometheus/client_python#gauge" target="_blank" rel="noopener">Python</a></li>
-<li><a href="https://github.com/prometheus/client_ruby#gauge" target="_blank" rel="noopener">Ruby</a></li>
+<li><a target="_blank" rel="noopener" href="http://godoc.org/github.com/prometheus/client_golang/prometheus#Gauge">Go</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/prometheus/client_java/blob/master/simpleclient/src/main/java/io/prometheus/client/Gauge.java">Java</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/prometheus/client_python#gauge">Python</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/prometheus/client_ruby#gauge">Ruby</a></li>
 </ul>
 <h4 id="3-2-3-Histogram-（直方图）"><a href="#3-2-3-Histogram-（直方图）" class="headerlink" title="3.2.3 Histogram （直方图）"></a>3.2.3 Histogram （直方图）</h4><p>在大多数情况下人们都倾向于使用某些量化指标的平均值，例如 CPU 的平均使用率、页面的平均响应时间。这种方式的问题很明显，以系统 API 调用的平均响应时间为例：如果大多数 API 请求都维持在 100ms 的响应时间范围内，而个别请求的响应时间需要 5s，那么就会导致某些 WEB 页面的响应时间落到中位数的情况，而这种现象被称为<strong>长尾问题</strong>。</p>
 <p>为了区分是平均的慢还是长尾的慢，最简单的方式就是按照请求延迟的范围进行分组。例如，统计延迟在 0<del>10ms 之间的请求数有多少而 10</del>20ms 之间的请求数又有多少。通过这种方式可以快速分析系统慢的原因。Histogram 和 Summary 都是为了能够解决这样问题的存在，通过 Histogram 和 Summary 类型的监控指标，我们可以快速了解监控样本的分布情况。</p>
 <p>Histogram 在一段时间范围内对数据进行采样（通常是请求持续时间或响应大小等），并将其计入可配置的存储桶（bucket）中，后续可通过指定区间筛选样本，也可以统计样本总数，最后一般将数据展示为直方图。</p>
 <p>Histogram 类型的样本会提供三种指标（假设指标名称为 <code>&lt;basename&gt;</code>）：</p>
 <ul>
-<li><p>样本的值分布在 bucket 中的数量，命名为 <code>&lt;basename&gt;_bucket{le=&quot;&lt;上边界&gt;&quot;}</code>。解释的更通俗易懂一点，这个值表示指标值小于等于上边界的所有样本数量。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">// 在总共2次请求当中。http 请求响应时间 &lt;=0.005 秒 的请求次数为0</span><br><span class="line">io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,le=&quot;0.005&quot;,&#125; 0.0</span><br><span class="line">// 在总共2次请求当中。http 请求响应时间 &lt;=0.01 秒 的请求次数为0</span><br><span class="line">io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,le=&quot;0.01&quot;,&#125; 0.0</span><br><span class="line">// 在总共2次请求当中。http 请求响应时间 &lt;=0.025 秒 的请求次数为0</span><br><span class="line">io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,le=&quot;0.025&quot;,&#125; 0.0</span><br><span class="line">io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,le=&quot;0.05&quot;,&#125; 0.0</span><br><span class="line">io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,le=&quot;0.075&quot;,&#125; 0.0</span><br><span class="line">io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,le=&quot;0.1&quot;,&#125; 0.0</span><br><span class="line">io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,le=&quot;0.25&quot;,&#125; 0.0</span><br><span class="line">io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,le=&quot;0.5&quot;,&#125; 0.0</span><br><span class="line">io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,le=&quot;0.75&quot;,&#125; 0.0</span><br><span class="line">io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,le=&quot;1.0&quot;,&#125; 0.0</span><br><span class="line">io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,le=&quot;2.5&quot;,&#125; 0.0</span><br><span class="line">io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,le=&quot;5.0&quot;,&#125; 0.0</span><br><span class="line">io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,le=&quot;7.5&quot;,&#125; 2.0</span><br><span class="line">// 在总共2次请求当中。http 请求响应时间 &lt;=10 秒 的请求次数为 2</span><br><span class="line">io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,le=&quot;10.0&quot;,&#125; 2.0</span><br><span class="line">io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,le=&quot;+Inf&quot;,&#125; 2.0</span><br></pre></td></tr></table></figure>
+<li><p>样本的值分布在 bucket 中的数量，命名为 <code>&lt;basename&gt;_bucket&#123;le=&quot;&lt;上边界&gt;&quot;&#125;</code>。解释的更通俗易懂一点，这个值表示指标值小于等于上边界的所有样本数量。</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 在总共2次请求当中。http 请求响应时间 &lt;&#x3D;0.005 秒 的请求次数为0
+io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,le&#x3D;&quot;0.005&quot;,&#125; 0.0
+&#x2F;&#x2F; 在总共2次请求当中。http 请求响应时间 &lt;&#x3D;0.01 秒 的请求次数为0
+io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,le&#x3D;&quot;0.01&quot;,&#125; 0.0
+&#x2F;&#x2F; 在总共2次请求当中。http 请求响应时间 &lt;&#x3D;0.025 秒 的请求次数为0
+io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,le&#x3D;&quot;0.025&quot;,&#125; 0.0
+io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,le&#x3D;&quot;0.05&quot;,&#125; 0.0
+io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,le&#x3D;&quot;0.075&quot;,&#125; 0.0
+io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,le&#x3D;&quot;0.1&quot;,&#125; 0.0
+io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,le&#x3D;&quot;0.25&quot;,&#125; 0.0
+io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,le&#x3D;&quot;0.5&quot;,&#125; 0.0
+io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,le&#x3D;&quot;0.75&quot;,&#125; 0.0
+io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,le&#x3D;&quot;1.0&quot;,&#125; 0.0
+io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,le&#x3D;&quot;2.5&quot;,&#125; 0.0
+io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,le&#x3D;&quot;5.0&quot;,&#125; 0.0
+io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,le&#x3D;&quot;7.5&quot;,&#125; 2.0
+&#x2F;&#x2F; 在总共2次请求当中。http 请求响应时间 &lt;&#x3D;10 秒 的请求次数为 2
+io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,le&#x3D;&quot;10.0&quot;,&#125; 2.0
+io_namespace_http_requests_latency_seconds_histogram_bucket&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,le&#x3D;&quot;+Inf&quot;,&#125; 2.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>所有样本值的大小总和，命名为 <code>&lt;basename&gt;_sum</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 实际含义： 发生的2次 http 请求总的响应时间为 13.107670803000001 秒</span><br><span class="line">io_namespace_http_requests_latency_seconds_histogram_sum&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,&#125; 13.107670803000001</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 实际含义： 发生的2次 http 请求总的响应时间为 13.107670803000001 秒
+io_namespace_http_requests_latency_seconds_histogram_sum&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,&#125; 13.107670803000001<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
-<li><p>样本总数，命名为 <code>&lt;basename&gt;_count</code>。值和 <code>&lt;basename&gt;_bucket{le=&quot;+Inf&quot;}</code> 相同。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 实际含义： 当前一共发生了 2 次 http 请求</span><br><span class="line">io_namespace_http_requests_latency_seconds_histogram_count&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,&#125; 2.0</span><br></pre></td></tr></table></figure>
+<li><p>样本总数，命名为 <code>&lt;basename&gt;_count</code>。值和 <code>&lt;basename&gt;_bucket&#123;le=&quot;+Inf&quot;&#125;</code> 相同。</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 实际含义： 当前一共发生了 2 次 http 请求
+io_namespace_http_requests_latency_seconds_histogram_count&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,&#125; 2.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 </li>
 </ul>
 <blockquote>
 <p><strong>[info] 注意</strong></p>
-<p>bucket 可以理解为是对数据指标值域的一个划分，划分的依据应该基于数据值的分布。注意后面的采样点是包含前面的采样点的，假设 <code>xxx_bucket{...,le=&quot;0.01&quot;}</code> 的值为 10，而 <code>xxx_bucket{...,le=&quot;0.05&quot;}</code> 的值为 30，那么意味着这 30 个采样点中，有 10 个是小于 10 ms 的，其余 20 个采样点的响应时间是介于 10 ms 和 50 ms 之间的。</p>
+<p>bucket 可以理解为是对数据指标值域的一个划分，划分的依据应该基于数据值的分布。注意后面的采样点是包含前面的采样点的，假设 <code>xxx_bucket&#123;...,le=&quot;0.01&quot;&#125;</code> 的值为 10，而 <code>xxx_bucket&#123;...,le=&quot;0.05&quot;&#125;</code> 的值为 30，那么意味着这 30 个采样点中，有 10 个是小于 10 ms 的，其余 20 个采样点的响应时间是介于 10 ms 和 50 ms 之间的。</p>
 </blockquote>
-<p>可以通过 <a href="https://www.yangcs.net/prometheus/3-prometheus/functions.html#histogramquantile" target="_blank" rel="noopener">histogram_quantile() 函数</a>来计算 Histogram 类型样本的<a href="https://www.wikiwand.com/zh-hans/分位数" target="_blank" rel="noopener">分位数</a>。分位数可能不太好理解，你可以理解为分割数据的点。我举个例子，假设样本的 9 分位数（quantile=0.9）的值为 x，即表示小于 x 的采样值的数量占总体采样值的 90%。Histogram 还可以用来计算应用性能指标值（<a href="https://www.wikiwand.com/en/Apdex" target="_blank" rel="noopener">Apdex score</a>）。</p>
+<p>可以通过 <a target="_blank" rel="noopener" href="https://www.yangcs.net/prometheus/3-prometheus/functions.html#histogramquantile">histogram_quantile() 函数</a>来计算 Histogram 类型样本的<a target="_blank" rel="noopener" href="https://www.wikiwand.com/zh-hans/分位数">分位数</a>。分位数可能不太好理解，你可以理解为分割数据的点。我举个例子，假设样本的 9 分位数（quantile=0.9）的值为 x，即表示小于 x 的采样值的数量占总体采样值的 90%。Histogram 还可以用来计算应用性能指标值（<a target="_blank" rel="noopener" href="https://www.wikiwand.com/en/Apdex">Apdex score</a>）。</p>
 <p>不同语言关于 Histogram 的客户端库使用文档：</p>
 <ul>
-<li><a href="http://godoc.org/github.com/prometheus/client_golang/prometheus#Histogram" target="_blank" rel="noopener">Go</a></li>
-<li><a href="https://github.com/prometheus/client_java/blob/master/simpleclient/src/main/java/io/prometheus/client/Histogram.java" target="_blank" rel="noopener">Java</a></li>
-<li><a href="https://github.com/prometheus/client_python#histogram" target="_blank" rel="noopener">Python</a></li>
-<li><a href="https://github.com/prometheus/client_ruby#histogram" target="_blank" rel="noopener">Ruby</a></li>
+<li><a target="_blank" rel="noopener" href="http://godoc.org/github.com/prometheus/client_golang/prometheus#Histogram">Go</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/prometheus/client_java/blob/master/simpleclient/src/main/java/io/prometheus/client/Histogram.java">Java</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/prometheus/client_python#histogram">Python</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/prometheus/client_ruby#histogram">Ruby</a></li>
 </ul>
 <h4 id="3-2-4-Summary-（摘要）"><a href="#3-2-4-Summary-（摘要）" class="headerlink" title="3.2.4 Summary （摘要）"></a>3.2.4 Summary （摘要）</h4><p>与 Histogram 类型类似，用于表示一段时间内的数据采样结果（通常是请求持续时间或响应大小等），但它直接存储了分位数（通过客户端计算，然后展示出来），而不是通过区间来计算。</p>
 <p>Summary 类型的样本也会提供三种指标（假设指标名称为 ）：</p>
 <ul>
-<li><p>样本值的分位数分布情况，命名为 <code>&lt;basename&gt;{quantile=&quot;&lt;φ&gt;&quot;}</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// 含义：这 12 次 http 请求中有 50% 的请求响应时间是 3.052404983s</span><br><span class="line">io_namespace_http_requests_latency_seconds_summary&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,quantile=&quot;0.5&quot;,&#125; 3.052404983</span><br><span class="line">// 含义：这 12 次 http 请求中有 90% 的请求响应时间是 8.003261666s</span><br><span class="line">io_namespace_http_requests_latency_seconds_summary&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,quantile=&quot;0.9&quot;,&#125; 8.003261666</span><br></pre></td></tr></table></figure>
+<li><p>样本值的分位数分布情况，命名为 <code>&lt;basename&gt;&#123;quantile=&quot;&lt;φ&gt;&quot;&#125;</code>。</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 含义：这 12 次 http 请求中有 50% 的请求响应时间是 3.052404983s
+io_namespace_http_requests_latency_seconds_summary&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,quantile&#x3D;&quot;0.5&quot;,&#125; 3.052404983
+&#x2F;&#x2F; 含义：这 12 次 http 请求中有 90% 的请求响应时间是 8.003261666s
+io_namespace_http_requests_latency_seconds_summary&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,quantile&#x3D;&quot;0.9&quot;,&#125; 8.003261666<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 </li>
 <li><p>所有样本值的大小总和，命名为 <code>&lt;basename&gt;_sum</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 含义：这12次 http 请求的总响应时间为 51.029495508s</span><br><span class="line">io_namespace_http_requests_latency_seconds_summary_sum&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,&#125; 51.029495508</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 含义：这12次 http 请求的总响应时间为 51.029495508s
+io_namespace_http_requests_latency_seconds_summary_sum&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,&#125; 51.029495508<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 </li>
 <li><p>样本总数，命名为 <code>&lt;basename&gt;_count</code>。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">// 含义：当前一共发生了 12 次 http 请求</span><br><span class="line">io_namespace_http_requests_latency_seconds_summary_count&#123;path=&quot;/&quot;,method=&quot;GET&quot;,code=&quot;200&quot;,&#125; 12.0</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;&#x2F; 含义：当前一共发生了 12 次 http 请求
+io_namespace_http_requests_latency_seconds_summary_count&#123;path&#x3D;&quot;&#x2F;&quot;,method&#x3D;&quot;GET&quot;,code&#x3D;&quot;200&quot;,&#125; 12.0<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
 
 </li>
 </ul>
@@ -628,103 +599,150 @@ X个9表示在软件系统1年时间的使用过程中，系统正常使用时�
 <li>它们都包含了 <code>&lt;basename&gt;_sum</code> 和 <code>&lt;basename&gt;_count</code> 指标</li>
 <li>Histogram 需要通过 <code>&lt;basename&gt;_bucket</code> 来计算分位数，而 Summary 则直接存储了分位数的值。</li>
 </ul>
-<p>关于 Summary 与 Histogram 的详细用法，请参考 <a href="https://prometheus.io/docs/practices/histograms" target="_blank" rel="noopener">histograms and summaries</a>。</p>
+<p>关于 Summary 与 Histogram 的详细用法，请参考 <a target="_blank" rel="noopener" href="https://prometheus.io/docs/practices/histograms">histograms and summaries</a>。</p>
 <p>不同语言关于 Summary 的客户端库使用文档：</p>
 <ul>
-<li><a href="http://godoc.org/github.com/prometheus/client_golang/prometheus#Summary" target="_blank" rel="noopener">Go</a></li>
-<li><a href="https://github.com/prometheus/client_java/blob/master/simpleclient/src/main/java/io/prometheus/client/Summary.java" target="_blank" rel="noopener">Java</a></li>
-<li><a href="https://github.com/prometheus/client_python#summary" target="_blank" rel="noopener">Python</a></li>
-<li><a href="https://github.com/prometheus/client_ruby#summary" target="_blank" rel="noopener">Ruby</a></li>
+<li><a target="_blank" rel="noopener" href="http://godoc.org/github.com/prometheus/client_golang/prometheus#Summary">Go</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/prometheus/client_java/blob/master/simpleclient/src/main/java/io/prometheus/client/Summary.java">Java</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/prometheus/client_python#summary">Python</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/prometheus/client_ruby#summary">Ruby</a></li>
 </ul>
 <h2 id="四、安装部署"><a href="#四、安装部署" class="headerlink" title="四、安装部署"></a>四、安装部署</h2><p>Prometheus基于Golang编写，编译后的软件包，不依赖于任何的第三方依赖。用户只需要下载对应平台的二进制包，解压并且添加基本的配置即可正常启动Prometheus Server。</p>
-<h3 id="4-1-二进制安装"><a href="#4-1-二进制安装" class="headerlink" title="4.1 二进制安装"></a>4.1 二进制安装</h3><p>从官网<a href="https://prometheus.io/download/" target="_blank" rel="noopener">下载Prometheus</a>，执行以下命令</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">export</span> VERSION=&#123;选择版本号&#125;</span><br><span class="line"><span class="built_in">export</span> OS=&#123;选择平台&#125;</span><br><span class="line">curl -LO https://github.com/prometheus/prometheus/releases/download/v<span class="variable">$VERSION</span>/prometheus-<span class="variable">$VERSION</span>.<span class="variable">$OS</span>.tar.gz</span><br><span class="line">tar -zxvf promtheus-<span class="variable">$&#123;VERSION&#125;</span>.<span class="variable">$&#123;OS&#125;</span>.tar.gz</span><br><span class="line"><span class="built_in">cd</span> promtheus-<span class="variable">$&#123;VERSION&#125;</span>.<span class="variable">$&#123;OS&#125;</span></span><br></pre></td></tr></table></figure>
+<h3 id="4-1-二进制安装"><a href="#4-1-二进制安装" class="headerlink" title="4.1 二进制安装"></a>4.1 二进制安装</h3><p>从官网<a target="_blank" rel="noopener" href="https://prometheus.io/download/">下载Prometheus</a>，执行以下命令</p>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token builtin class-name">export</span> <span class="token assign-left variable">VERSION</span><span class="token operator">=</span><span class="token punctuation">&#123;</span>选择版本号<span class="token punctuation">&#125;</span>
+<span class="token builtin class-name">export</span> <span class="token assign-left variable">OS</span><span class="token operator">=</span><span class="token punctuation">&#123;</span>选择平台<span class="token punctuation">&#125;</span>
+<span class="token function">curl</span> -LO https://github.com/prometheus/prometheus/releases/download/v<span class="token variable">$VERSION</span>/prometheus-<span class="token variable">$VERSION</span><span class="token builtin class-name">.</span><span class="token variable">$OS</span>.tar.gz
+<span class="token function">tar</span> -zxvf promtheus-<span class="token variable">$&#123;VERSION&#125;</span><span class="token builtin class-name">.</span><span class="token variable">$&#123;OS&#125;</span>.tar.gz
+<span class="token builtin class-name">cd</span> promtheus-<span class="token variable">$&#123;VERSION&#125;</span><span class="token builtin class-name">.</span><span class="token variable">$&#123;OS&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 <p>解压后当前目录会包含默认的Prometheus配置文件<code>prometheus.yml</code>：</p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">global:</span></span><br><span class="line"><span class="attr">  scrape_interval:</span>     <span class="number">15</span><span class="string">s</span> <span class="comment"># By default, scrape targets every 15 seconds.</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># Attach these labels to any time series or alerts when communicating with</span></span><br><span class="line">  <span class="comment"># external systems (federation, remote storage, Alertmanager).</span></span><br><span class="line"><span class="attr">  external_labels:</span></span><br><span class="line"><span class="attr">    monitor:</span> <span class="string">'codelab-monitor'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># A scrape configuration containing exactly one endpoint to scrape:</span></span><br><span class="line"><span class="comment"># Here it's Prometheus itself.</span></span><br><span class="line"><span class="attr">scrape_configs:</span></span><br><span class="line">  <span class="comment"># The job name is added as a label `job=&lt;job_name&gt;` to any timeseries scraped from this config.</span></span><br><span class="line"><span class="attr">  - job_name:</span> <span class="string">'prometheus'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># Override the global default and scrape targets from this job every 5 seconds.</span></span><br><span class="line"><span class="attr">    scrape_interval:</span> <span class="number">5</span><span class="string">s</span></span><br><span class="line"></span><br><span class="line"><span class="attr">    static_configs:</span></span><br><span class="line"><span class="attr">      - targets:</span> <span class="string">['localhost:9090']</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token key atrule">global</span><span class="token punctuation">:</span>
+  <span class="token key atrule">scrape_interval</span><span class="token punctuation">:</span>     15s <span class="token comment"># By default, scrape targets every 15 seconds.</span>
 
-<p>完整的配置选项说明，请查看<a href="https://prometheus.io/docs/prometheus/latest/configuration/configuration/" target="_blank" rel="noopener">官方配置文档</a></p>
-<h4 id="4-1-1-My-Prometheus-yml"><a href="#4-1-1-My-Prometheus-yml" class="headerlink" title="4.1.1 My Prometheus.yml"></a>4.1.1 My Prometheus.yml</h4><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 全局设置</span></span><br><span class="line"><span class="attr">global:</span></span><br><span class="line">  <span class="comment"># 设置抓取间隔，默认为1分钟</span></span><br><span class="line"><span class="attr">  scrape_interval:</span> <span class="number">15</span><span class="string">s</span> </span><br><span class="line"></span><br><span class="line">  <span class="comment"># 设置抓取超时时间，默认为10秒  </span></span><br><span class="line"><span class="attr">  scrape_timeout:</span> <span class="number">10</span><span class="string">s</span></span><br><span class="line"></span><br><span class="line">  <span class="comment"># 设置规则刷新间隔，默认为1分钟</span></span><br><span class="line"><span class="attr">  evaluation_interval:</span> <span class="number">15</span><span class="string">s</span> </span><br><span class="line"></span><br><span class="line"><span class="comment"># 告警配置</span></span><br><span class="line"><span class="comment"># 一般使用Alertmanager</span></span><br><span class="line"><span class="attr">alerting:</span></span><br><span class="line"><span class="attr"> alertmanagers:</span></span><br><span class="line"><span class="attr"> - static_configs:</span></span><br><span class="line">    <span class="comment"># 设置alertmanager ip和端口</span></span><br><span class="line"><span class="attr">   - targets:</span> <span class="string">["localhost:9093"]</span></span><br><span class="line"> </span><br><span class="line"><span class="comment"># 规则配置</span></span><br><span class="line"><span class="comment"># 配置会根据'evaluation_interval'设定刷新</span></span><br><span class="line"><span class="attr">rule_files:</span></span><br><span class="line">   <span class="comment"># Rule配置文件路径</span></span><br><span class="line"><span class="bullet">   -</span> <span class="string">"./first_rules.yml"</span></span><br><span class="line"><span class="bullet">   -</span> <span class="string">"/user/prometheus/second_rules.yml"</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 抓取配置</span></span><br><span class="line"><span class="attr">scrape_configs:</span></span><br><span class="line">    <span class="comment"># 指定抓取任务名称，job=&lt;job_name&gt;标签会被加入到指针序列中</span></span><br><span class="line"><span class="attr">  - job_name:</span> <span class="string">'prometheus'</span></span><br><span class="line"></span><br><span class="line">    <span class="comment"># metrics_path defaults to '/metrics'</span></span><br><span class="line">    <span class="comment"># scheme defaults to 'http'.</span></span><br><span class="line"></span><br><span class="line"><span class="attr">    static_configs:</span></span><br><span class="line">    <span class="comment"># 静态配置抓取目标，这里配置抓取prometheus本身</span></span><br><span class="line"><span class="attr">    - targets:</span> <span class="string">['localhost:9090']</span></span><br><span class="line"></span><br><span class="line"><span class="attr">  - job_name:</span> <span class="string">'node_exporter'</span></span><br><span class="line"><span class="attr">    static_configs:</span></span><br><span class="line">    <span class="comment"># 多个target的第二种写法</span></span><br><span class="line"><span class="attr">      - targets:</span></span><br><span class="line"><span class="bullet">        -</span> <span class="number">172.16</span><span class="number">.2</span><span class="number">.30</span><span class="string">:9100</span></span><br><span class="line"><span class="bullet">        -</span> <span class="number">172.16</span><span class="number">.2</span><span class="number">.31</span><span class="string">:9100</span></span><br><span class="line"><span class="bullet">        -</span> <span class="number">172.16</span><span class="number">.2</span><span class="number">.32</span><span class="string">:9100</span></span><br><span class="line">        <span class="comment"># 使用labels可以添加自定义标签，这里添加了&#123;location="china"&#125;</span></span><br><span class="line"><span class="attr">        labels:</span></span><br><span class="line"><span class="attr">          location:</span> <span class="string">'china'</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 下面来点高级玩法</span></span><br><span class="line"><span class="attr">  - job_name:</span> <span class="string">'blackbox_http_2xx'</span></span><br><span class="line">    <span class="comment"># 指定抓取目标的metrics路径，blackbox_exporter默认路径/probe</span></span><br><span class="line"><span class="attr">    metrics_path:</span> <span class="string">/probe</span></span><br><span class="line"><span class="attr">    params:</span></span><br><span class="line">    <span class="comment"># 指定需要使用的module，module可在对应exporter的yml文件中定义，具体参见exporter文档</span></span><br><span class="line"><span class="attr">      module:</span> <span class="string">[http_2xx]</span></span><br><span class="line"><span class="attr">    static_configs:</span></span><br><span class="line"><span class="attr">      - targets:</span></span><br><span class="line"><span class="attr">        - https:</span><span class="string">//www.baidu.com/</span></span><br><span class="line"><span class="attr">        - https:</span><span class="string">//www.google.com/</span></span><br><span class="line"><span class="attr">        labels:</span></span><br><span class="line"><span class="attr">          group:</span> <span class="string">'http_status'</span></span><br><span class="line">    <span class="comment"># 使用relabel_config重定义标签</span></span><br><span class="line"><span class="attr">    relabel_configs:</span></span><br><span class="line"><span class="attr">      - source_labels:</span> <span class="string">[__address__]</span></span><br><span class="line"><span class="attr">        target_label:</span> <span class="string">__param_target</span></span><br><span class="line"><span class="attr">      - source_labels:</span> <span class="string">[__param_target]</span></span><br><span class="line"><span class="attr">        target_label:</span> <span class="string">instance</span></span><br><span class="line"><span class="attr">      - target_label:</span> <span class="string">__address__</span></span><br><span class="line"><span class="attr">        replacement:</span> <span class="number">127.0</span><span class="number">.0</span><span class="number">.1</span><span class="string">:9115</span></span><br></pre></td></tr></table></figure>
+  <span class="token comment"># Attach these labels to any time series or alerts when communicating with</span>
+  <span class="token comment"># external systems (federation, remote storage, Alertmanager).</span>
+  <span class="token key atrule">external_labels</span><span class="token punctuation">:</span>
+    <span class="token key atrule">monitor</span><span class="token punctuation">:</span> <span class="token string">'codelab-monitor'</span>
+
+<span class="token comment"># A scrape configuration containing exactly one endpoint to scrape:</span>
+<span class="token comment"># Here it's Prometheus itself.</span>
+<span class="token key atrule">scrape_configs</span><span class="token punctuation">:</span>
+  <span class="token comment"># The job name is added as a label `job=&lt;job_name>` to any timeseries scraped from this config.</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">job_name</span><span class="token punctuation">:</span> <span class="token string">'prometheus'</span>
+
+    <span class="token comment"># Override the global default and scrape targets from this job every 5 seconds.</span>
+    <span class="token key atrule">scrape_interval</span><span class="token punctuation">:</span> 5s
+
+    <span class="token key atrule">static_configs</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">targets</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'localhost:9090'</span><span class="token punctuation">]</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>完整的配置选项说明，请查看<a target="_blank" rel="noopener" href="https://prometheus.io/docs/prometheus/latest/configuration/configuration/">官方配置文档</a></p>
+<h4 id="4-1-1-My-Prometheus-yml"><a href="#4-1-1-My-Prometheus-yml" class="headerlink" title="4.1.1 My Prometheus.yml"></a>4.1.1 My Prometheus.yml</h4><pre class="line-numbers language-yaml" data-language="yaml"><code class="language-yaml"><span class="token comment"># 全局设置</span>
+<span class="token key atrule">global</span><span class="token punctuation">:</span>
+  <span class="token comment"># 设置抓取间隔，默认为1分钟</span>
+  <span class="token key atrule">scrape_interval</span><span class="token punctuation">:</span> 15s 
+
+  <span class="token comment"># 设置抓取超时时间，默认为10秒  </span>
+  <span class="token key atrule">scrape_timeout</span><span class="token punctuation">:</span> 10s
+
+  <span class="token comment"># 设置规则刷新间隔，默认为1分钟</span>
+  <span class="token key atrule">evaluation_interval</span><span class="token punctuation">:</span> 15s 
+
+<span class="token comment"># 告警配置</span>
+<span class="token comment"># 一般使用Alertmanager</span>
+<span class="token key atrule">alerting</span><span class="token punctuation">:</span>
+ <span class="token key atrule">alertmanagers</span><span class="token punctuation">:</span>
+ <span class="token punctuation">-</span> <span class="token key atrule">static_configs</span><span class="token punctuation">:</span>
+    <span class="token comment"># 设置alertmanager ip和端口</span>
+   <span class="token punctuation">-</span> <span class="token key atrule">targets</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">"localhost:9093"</span><span class="token punctuation">]</span>
+ 
+<span class="token comment"># 规则配置</span>
+<span class="token comment"># 配置会根据'evaluation_interval'设定刷新</span>
+<span class="token key atrule">rule_files</span><span class="token punctuation">:</span>
+   <span class="token comment"># Rule配置文件路径</span>
+   <span class="token punctuation">-</span> <span class="token string">"./first_rules.yml"</span>
+   <span class="token punctuation">-</span> <span class="token string">"/user/prometheus/second_rules.yml"</span>
+
+<span class="token comment"># 抓取配置</span>
+<span class="token key atrule">scrape_configs</span><span class="token punctuation">:</span>
+    <span class="token comment"># 指定抓取任务名称，job=&lt;job_name>标签会被加入到指针序列中</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">job_name</span><span class="token punctuation">:</span> <span class="token string">'prometheus'</span>
+
+    <span class="token comment"># metrics_path defaults to '/metrics'</span>
+    <span class="token comment"># scheme defaults to 'http'.</span>
+
+    <span class="token key atrule">static_configs</span><span class="token punctuation">:</span>
+    <span class="token comment"># 静态配置抓取目标，这里配置抓取prometheus本身</span>
+    <span class="token punctuation">-</span> <span class="token key atrule">targets</span><span class="token punctuation">:</span> <span class="token punctuation">[</span><span class="token string">'localhost:9090'</span><span class="token punctuation">]</span>
+
+  <span class="token punctuation">-</span> <span class="token key atrule">job_name</span><span class="token punctuation">:</span> <span class="token string">'node_exporter'</span>
+    <span class="token key atrule">static_configs</span><span class="token punctuation">:</span>
+    <span class="token comment"># 多个target的第二种写法</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">targets</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> 172.16.2.30<span class="token punctuation">:</span><span class="token number">9100</span>
+        <span class="token punctuation">-</span> 172.16.2.31<span class="token punctuation">:</span><span class="token number">9100</span>
+        <span class="token punctuation">-</span> 172.16.2.32<span class="token punctuation">:</span><span class="token number">9100</span>
+        <span class="token comment"># 使用labels可以添加自定义标签，这里添加了&#123;location="china"&#125;</span>
+        <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+          <span class="token key atrule">location</span><span class="token punctuation">:</span> <span class="token string">'china'</span>
+
+<span class="token comment"># 下面来点高级玩法</span>
+  <span class="token punctuation">-</span> <span class="token key atrule">job_name</span><span class="token punctuation">:</span> <span class="token string">'blackbox_http_2xx'</span>
+    <span class="token comment"># 指定抓取目标的metrics路径，blackbox_exporter默认路径/probe</span>
+    <span class="token key atrule">metrics_path</span><span class="token punctuation">:</span> /probe
+    <span class="token key atrule">params</span><span class="token punctuation">:</span>
+    <span class="token comment"># 指定需要使用的module，module可在对应exporter的yml文件中定义，具体参见exporter文档</span>
+      <span class="token key atrule">module</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>http_2xx<span class="token punctuation">]</span>
+    <span class="token key atrule">static_configs</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">targets</span><span class="token punctuation">:</span>
+        <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//www.baidu.com/
+        <span class="token punctuation">-</span> https<span class="token punctuation">:</span>//www.google.com/
+        <span class="token key atrule">labels</span><span class="token punctuation">:</span>
+          <span class="token key atrule">group</span><span class="token punctuation">:</span> <span class="token string">'http_status'</span>
+    <span class="token comment"># 使用relabel_config重定义标签</span>
+    <span class="token key atrule">relabel_configs</span><span class="token punctuation">:</span>
+      <span class="token punctuation">-</span> <span class="token key atrule">source_labels</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>__address__<span class="token punctuation">]</span>
+        <span class="token key atrule">target_label</span><span class="token punctuation">:</span> __param_target
+      <span class="token punctuation">-</span> <span class="token key atrule">source_labels</span><span class="token punctuation">:</span> <span class="token punctuation">[</span>__param_target<span class="token punctuation">]</span>
+        <span class="token key atrule">target_label</span><span class="token punctuation">:</span> instance
+      <span class="token punctuation">-</span> <span class="token key atrule">target_label</span><span class="token punctuation">:</span> __address__
+        <span class="token key atrule">replacement</span><span class="token punctuation">:</span> 127.0.0.1<span class="token punctuation">:</span><span class="token number">9115</span>
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
 <h3 id="4-2-Dcoker安装"><a href="#4-2-Dcoker安装" class="headerlink" title="4.2 Dcoker安装"></a>4.2 Dcoker安装</h3><p>Docker用户直接使用prometheus镜像即可启动服务：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 9090:9090 -v /etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash">docker run -p <span class="token number">9090</span>:9090 -v /etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
 
 
 <h3 id="4-3-启动Prometheus"><a href="#4-3-启动Prometheus" class="headerlink" title="4.3 启动Prometheus"></a>4.3 启动Prometheus</h3><p>创建配置文件后，进入prometheus工作目录，执行命令启动：</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Start Prometheus.</span></span><br><span class="line"><span class="comment"># By default, Prometheus stores its database in ./data (flag --storage.tsdb.path).</span></span><br><span class="line">./prometheus --config.file=prometheus.yml</span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># Start Prometheus.</span>
+<span class="token comment"># By default, Prometheus stores its database in ./data (flag --storage.tsdb.path).</span>
+./prometheus --config.file<span class="token operator">=</span>prometheus.yml<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
 
 <ul>
 <li>我的启动参数</li>
 </ul>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">nohup ./prometheus --query.max-samples=120000000 --config.file=/prometheus.yml --storage.tsdb.path=/data/ --storage.tsdb.retention.time=7d &amp;</span><br><span class="line"><span class="comment"># --query.max-samples：设置最大查询样本量</span></span><br><span class="line"><span class="comment"># --storage.tsdb.path：设置数据存储路径</span></span><br><span class="line"><span class="comment"># --storage.tsdb.retention.time：数据保存时长</span></span><br></pre></td></tr></table></figure>
+<pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token function">nohup</span> ./prometheus --query.max-samples<span class="token operator">=</span><span class="token number">120000000</span> --config.file<span class="token operator">=</span>/prometheus.yml --storage.tsdb.path<span class="token operator">=</span>/data/ --storage.tsdb.retention.time<span class="token operator">=</span>7d <span class="token operator">&amp;</span>
+<span class="token comment"># --query.max-samples：设置最大查询样本量</span>
+<span class="token comment"># --storage.tsdb.path：设置数据存储路径</span>
+<span class="token comment"># --storage.tsdb.retention.time：数据保存时长</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
 
-<p>启动完成后，可以通过<a href="http://localhost:9090访问Prometheus的UI界面：" target="_blank" rel="noopener">http://localhost:9090访问Prometheus的UI界面：</a></p>
+<p>启动完成后，可以通过<a href="http://localhost:9090访问Prometheus的UI界面：">http://localhost:9090访问Prometheus的UI界面：</a></p>
 <p><img src="C:%5CUsers%5C%E6%A0%BE%E6%96%B0%E6%99%A8%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200617171304479.png" alt="image-20200617171304479"></p>
-<h3 id="4-4-发现服务"><a href="#4-4-发现服务" class="headerlink" title="4.4 发现服务"></a>4.4 发现服务</h3><h2 id="五、查询表达式"><a href="#五、查询表达式" class="headerlink" title="五、查询表达式"></a>五、查询表达式</h2><p>Prometheus 提供了一种功能表达式语言 <code>PromQL</code>，允许用户实时选择和汇聚时间序列数据。表达式的结果可以在浏览器中显示为图形，也可以显示为表格数据，或者由外部系统通过 <a href="https://prometheus.io/docs/prometheus/latest/querying/api/" target="_blank" rel="noopener">HTTP API</a> 调用。</p>
-<p>详细参考<a href="https://prometheus.io/docs/prometheus/latest/querying/basics/" target="_blank" rel="noopener">PromQL</a></p>
-<h2 id="六、Grafana数据可视化"><a href="#六、Grafana数据可视化" class="headerlink" title="六、Grafana数据可视化"></a>六、Grafana数据可视化</h2><h3 id="6-1-部署配置"><a href="#6-1-部署配置" class="headerlink" title="6.1 部署配置"></a>6.1 部署配置</h3><h3 id="6-2-监控模块"><a href="#6-2-监控模块" class="headerlink" title="6.2 监控模块"></a>6.2 监控模块</h3><h3 id="6-3-Dashboard"><a href="#6-3-Dashboard" class="headerlink" title="6.3 Dashboard"></a>6.3 Dashboard</h3><h2 id="七、Alertmanager告警管理"><a href="#七、Alertmanager告警管理" class="headerlink" title="七、Alertmanager告警管理"></a>七、Alertmanager告警管理</h2><h3 id="7-1-部署配置"><a href="#7-1-部署配置" class="headerlink" title="7.1 部署配置"></a>7.1 部署配置</h3><h3 id="7-2-告警规则"><a href="#7-2-告警规则" class="headerlink" title="7.2 告警规则"></a>7.2 告警规则</h3><h3 id="7-3-集成邮箱-amp-微信告警"><a href="#7-3-集成邮箱-amp-微信告警" class="headerlink" title="7.3 集成邮箱&amp;微信告警"></a>7.3 集成邮箱&amp;微信告警</h3><h2 id="八、Pushgateway"><a href="#八、Pushgateway" class="headerlink" title="八、Pushgateway"></a>八、Pushgateway</h2><h2 id="九、自定义Exporter"><a href="#九、自定义Exporter" class="headerlink" title="九、自定义Exporter"></a>九、自定义Exporter</h2><h3 id="9-1-Exporter的工作机制"><a href="#9-1-Exporter的工作机制" class="headerlink" title="9.1 Exporter的工作机制"></a>9.1 Exporter的工作机制</h3><h3 id="9-2-构建Exporter"><a href="#9-2-构建Exporter" class="headerlink" title="9.2 构建Exporter"></a>9.2 构建Exporter</h3><h2 id="十、实战案例：ESXi宿主机RAID监控"><a href="#十、实战案例：ESXi宿主机RAID监控" class="headerlink" title="十、实战案例：ESXi宿主机RAID监控"></a>十、实战案例：ESXi宿主机RAID监控</h2><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><h4 id="Install-amp-Configuration"><a href="#Install-amp-Configuration" class="headerlink" title="Install &amp; Configuration"></a>Install &amp; Configuration</h4><p><a href="https://yunlzheng.gitbook.io/prometheus-book/" target="_blank" rel="noopener">https://yunlzheng.gitbook.io/prometheus-book/</a></p>
-<h4 id="PromQL"><a href="#PromQL" class="headerlink" title="PromQL"></a>PromQL</h4><p><a href="https://prometheus.fuckcloudnative.io/di-san-zhang-prometheus/di-4-jie-cha-xun/basics" target="_blank" rel="noopener">https://prometheus.fuckcloudnative.io/di-san-zhang-prometheus/di-4-jie-cha-xun/basics</a></p>
-<h4 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h4><p><a href="https://www.dell.com/support/article/zh-cn/sln292232/extracting-the-raid-controller-logs-via-megacli?lang=en" target="_blank" rel="noopener">https://www.dell.com/support/article/zh-cn/sln292232/extracting-the-raid-controller-logs-via-megacli?lang=en</a></p>
-<p><a href="https://github.com/prometheus/pushgateway/blob/master/README.md" target="_blank" rel="noopener">https://github.com/prometheus/pushgateway/blob/master/README.md</a></p>
-<p><a href="https://github.com/prometheus/node_exporter" target="_blank" rel="noopener">https://github.com/prometheus/node_exporter</a></p>
-<p><a href="https://github.com/pryorda/vmware_exporter" target="_blank" rel="noopener">https://github.com/pryorda/vmware_exporter</a></p>
-<p><a href="https://github.com/coreos/prometheus-operator/blob/master/Documentation/high-availability.md" target="_blank" rel="noopener">https://github.com/coreos/prometheus-operator/blob/master/Documentation/high-availability.md</a></p>
+<h3 id="4-4-发现服务"><a href="#4-4-发现服务" class="headerlink" title="4.4 发现服务"></a>4.4 发现服务</h3><h2 id="五、查询表达式"><a href="#五、查询表达式" class="headerlink" title="五、查询表达式"></a>五、查询表达式</h2><p>Prometheus 提供了一种功能表达式语言 <code>PromQL</code>，允许用户实时选择和汇聚时间序列数据。表达式的结果可以在浏览器中显示为图形，也可以显示为表格数据，或者由外部系统通过 <a target="_blank" rel="noopener" href="https://prometheus.io/docs/prometheus/latest/querying/api/">HTTP API</a> 调用。</p>
+<p>详细参考<a target="_blank" rel="noopener" href="https://prometheus.io/docs/prometheus/latest/querying/basics/">PromQL</a></p>
+<h2 id="六、Grafana数据可视化"><a href="#六、Grafana数据可视化" class="headerlink" title="六、Grafana数据可视化"></a>六、Grafana数据可视化</h2><h3 id="6-1-部署配置"><a href="#6-1-部署配置" class="headerlink" title="6.1 部署配置"></a>6.1 部署配置</h3><h3 id="6-2-监控模块"><a href="#6-2-监控模块" class="headerlink" title="6.2 监控模块"></a>6.2 监控模块</h3><h3 id="6-3-Dashboard"><a href="#6-3-Dashboard" class="headerlink" title="6.3 Dashboard"></a>6.3 Dashboard</h3><h2 id="七、Alertmanager告警管理"><a href="#七、Alertmanager告警管理" class="headerlink" title="七、Alertmanager告警管理"></a>七、Alertmanager告警管理</h2><h3 id="7-1-部署配置"><a href="#7-1-部署配置" class="headerlink" title="7.1 部署配置"></a>7.1 部署配置</h3><h3 id="7-2-告警规则"><a href="#7-2-告警规则" class="headerlink" title="7.2 告警规则"></a>7.2 告警规则</h3><h3 id="7-3-集成邮箱-amp-微信告警"><a href="#7-3-集成邮箱-amp-微信告警" class="headerlink" title="7.3 集成邮箱&amp;微信告警"></a>7.3 集成邮箱&amp;微信告警</h3><h2 id="八、Pushgateway"><a href="#八、Pushgateway" class="headerlink" title="八、Pushgateway"></a>八、Pushgateway</h2><h2 id="九、自定义Exporter"><a href="#九、自定义Exporter" class="headerlink" title="九、自定义Exporter"></a>九、自定义Exporter</h2><h3 id="9-1-Exporter的工作机制"><a href="#9-1-Exporter的工作机制" class="headerlink" title="9.1 Exporter的工作机制"></a>9.1 Exporter的工作机制</h3><h3 id="9-2-构建Exporter"><a href="#9-2-构建Exporter" class="headerlink" title="9.2 构建Exporter"></a>9.2 构建Exporter</h3><h2 id="十、实战案例：ESXi宿主机RAID监控"><a href="#十、实战案例：ESXi宿主机RAID监控" class="headerlink" title="十、实战案例：ESXi宿主机RAID监控"></a>十、实战案例：ESXi宿主机RAID监控</h2><h2 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h2><h4 id="Install-amp-Configuration"><a href="#Install-amp-Configuration" class="headerlink" title="Install &amp; Configuration"></a>Install &amp; Configuration</h4><p><a target="_blank" rel="noopener" href="https://yunlzheng.gitbook.io/prometheus-book/">https://yunlzheng.gitbook.io/prometheus-book/</a></p>
+<h4 id="PromQL"><a href="#PromQL" class="headerlink" title="PromQL"></a>PromQL</h4><p><a target="_blank" rel="noopener" href="https://prometheus.fuckcloudnative.io/di-san-zhang-prometheus/di-4-jie-cha-xun/basics">https://prometheus.fuckcloudnative.io/di-san-zhang-prometheus/di-4-jie-cha-xun/basics</a></p>
+<h4 id="Others"><a href="#Others" class="headerlink" title="Others"></a>Others</h4><p><a target="_blank" rel="noopener" href="https://www.dell.com/support/article/zh-cn/sln292232/extracting-the-raid-controller-logs-via-megacli?lang=en">https://www.dell.com/support/article/zh-cn/sln292232/extracting-the-raid-controller-logs-via-megacli?lang=en</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/prometheus/pushgateway/blob/master/README.md">https://github.com/prometheus/pushgateway/blob/master/README.md</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/prometheus/node_exporter">https://github.com/prometheus/node_exporter</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/pryorda/vmware_exporter">https://github.com/pryorda/vmware_exporter</a></p>
+<p><a target="_blank" rel="noopener" href="https://github.com/coreos/prometheus-operator/blob/master/Documentation/high-availability.md">https://github.com/coreos/prometheus-operator/blob/master/Documentation/high-availability.md</a></p>
 
                 
             </div>
             <hr/>
 
             
-
-    <div class="reprint" id="reprint-statement">
-        
-            <div class="reprint__author">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-user">
-                        文章作者:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="/about" rel="external nofollow noreferrer">xinchen.luan</a>
-                </span>
-            </div>
-            <div class="reprint__type">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-link">
-                        文章链接:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    <a href="https://luanxinchen.github.io/2020/05/28/prometheus/">https://luanxinchen.github.io/2020/05/28/prometheus/</a>
-                </span>
-            </div>
-            <div class="reprint__notice">
-                <span class="reprint-meta" style="font-weight: bold;">
-                    <i class="fas fa-copyright">
-                        版权声明:
-                    </i>
-                </span>
-                <span class="reprint-info">
-                    本博客所有文章除特別声明外，均采用
-                    <a href="https://creativecommons.org/licenses/by/4.0/deed.zh" rel="external nofollow noreferrer" target="_blank">CC BY 4.0</a>
-                    许可协议。转载请注明来源
-                    <a href="/about" target="_blank">xinchen.luan</a>
-                    !
-                </span>
-            </div>
-        
-    </div>
-
-    <script async defer>
-      document.addEventListener("copy", function (e) {
-        let toastHTML = '<span>复制成功，请遵循本文的转载规则</span><button class="btn-flat toast-action" onclick="navToReprintStatement()" style="font-size: smaller">查看</a>';
-        M.toast({html: toastHTML})
-      });
-
-      function navToReprintStatement() {
-        $("html, body").animate({scrollTop: $("#reprint-statement").offset().top - 80}, 800);
-      }
-    </script>
 
 
 
@@ -864,7 +882,8 @@ RHEL：Red H
                     <div class="summary block-with-text">
                         
                             Ubuntu OS在一次断电重启后无法开机，通过BMC发现引导过程中出现如下报错：
-1234/dev/sda1: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY.        (i.e., with
+&#x2F;dev&#x2F;sda1: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY.
+        (i.e
                         
                     </div>
                     <div class="publish-info">
@@ -939,7 +958,7 @@ RHEL：Red H
             tocSelector: '#toc-content',
             contentSelector: '#articleContent',
             headingsOffset: -($(window).height() * 0.4 - 45),
-            collapseDepth: Number('2'),
+            collapseDepth: Number('1'),
             headingSelector: 'h2, h3, h4'
         });
 
