@@ -41,6 +41,8 @@
             <div class="brand-logo">
                 <a href="/" class="waves-effect waves-light">
                     
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
                     <span class="logo-span">Keep IT Real</span>
                 </a>
             </div>
@@ -53,8 +55,6 @@
     
     <a href="/" class="waves-effect waves-light">
       
-      <i class="fas fa-home" style="zoom: 0.6;"></i>
-      
       <span>首页</span>
     </a>
     
@@ -63,8 +63,6 @@
   <li class="hide-on-med-and-down nav-item">
     
     <a href="/tags" class="waves-effect waves-light">
-      
-      <i class="fas fa-tags" style="zoom: 0.6;"></i>
       
       <span>标签</span>
     </a>
@@ -75,8 +73,6 @@
     
     <a href="/categories" class="waves-effect waves-light">
       
-      <i class="fas fa-bookmark" style="zoom: 0.6;"></i>
-      
       <span>分类</span>
     </a>
     
@@ -86,8 +82,6 @@
     
     <a href="/archives" class="waves-effect waves-light">
       
-      <i class="fas fa-archive" style="zoom: 0.6;"></i>
-      
       <span>归档</span>
     </a>
     
@@ -95,20 +89,7 @@
   
   <li class="hide-on-med-and-down nav-item">
     
-    <a href="/about" class="waves-effect waves-light">
-      
-      <i class="fas fa-user-circle" style="zoom: 0.6;"></i>
-      
-      <span>关于</span>
-    </a>
-    
-  </li>
-  
-  <li class="hide-on-med-and-down nav-item">
-    
     <a href="/contact" class="waves-effect waves-light">
-      
-      <i class="fas fa-comments" style="zoom: 0.6;"></i>
       
       <span>留言板</span>
     </a>
@@ -127,6 +108,8 @@
 
     <div class="mobile-head bg-color">
         
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
         <div class="logo-name">Keep IT Real</div>
         <div class="logo-desc">
             
@@ -143,7 +126,7 @@
 	  
 		<a href="/" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-home"></i>
+				<i class="fas fa-fw fa-link"></i>
 			
 			首页
 		</a>
@@ -154,7 +137,7 @@
 	  
 		<a href="/tags" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-tags"></i>
+				<i class="fas fa-fw fa-link"></i>
 			
 			标签
 		</a>
@@ -165,7 +148,7 @@
 	  
 		<a href="/categories" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-bookmark"></i>
+				<i class="fas fa-fw fa-link"></i>
 			
 			分类
 		</a>
@@ -176,7 +159,7 @@
 	  
 		<a href="/archives" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-archive"></i>
+				<i class="fas fa-fw fa-link"></i>
 			
 			归档
 		</a>
@@ -185,20 +168,9 @@
         
         <li class="m-nav-item">
 	  
-		<a href="/about" class="waves-effect waves-light">
-			
-			    <i class="fa-fw fas fa-user-circle"></i>
-			
-			关于
-		</a>
-          
-        </li>
-        
-        <li class="m-nav-item">
-	  
 		<a href="/contact" class="waves-effect waves-light">
 			
-			    <i class="fa-fw fas fa-comments"></i>
+				<i class="fas fa-fw fa-link"></i>
 			
 			留言板
 		</a>
@@ -257,8 +229,34 @@
 
 <script>
     // 每天切换 banner 图.  Switch banner image every day.
-    var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
+    /*var bannerUrl = "/medias/banner/" + new Date().getDay() + '.jpg';
     $('.bg-cover').css('background-image', 'url(' + bannerUrl + ')');
+    */
+    var bannercount=new Date().getDay();
+    switch (bannercount)
+    {
+        case 0:
+          $('.bg-cover').css('background-image', 'url(http://ww1.sinaimg.cn/large/005DqEfjgy1gp8xlx774gj34ao2ewe82.jpg)');
+          break;
+        case 1:
+          $('.bg-cover').css('background-image', 'url(http://ww1.sinaimg.cn/large/005DqEfjgy1gp8xlx774gj34ao2ewe82.jpg)');
+          break;
+        case 2:
+          $('.bg-cover').css('background-image', 'url(http://ww1.sinaimg.cn/large/005DqEfjgy1gp8xlx774gj34ao2ewe82.jpg)');
+          break;
+        case 3:
+          $('.bg-cover').css('background-image', 'url(http://ww1.sinaimg.cn/large/005DqEfjgy1gp8xlx774gj34ao2ewe82.jpg)');
+          break;
+        case 4:
+          $('.bg-cover').css('background-image', 'url(http://ww1.sinaimg.cn/large/005DqEfjgy1gp8xlx774gj34ao2ewe82.jpg)');
+          break;
+        case 5:
+          $('.bg-cover').css('background-image', 'url(http://ww1.sinaimg.cn/large/005DqEfjgy1gp8xlx774gj34ao2ewe82.jpg)');
+          break;
+        case 6:
+          $('.bg-cover').css('background-image', 'url(http://ww1.sinaimg.cn/large/005DqEfjgy1gp8xlx774gj34ao2ewe82.jpg)');
+          break;
+    }
 </script>
 
 
@@ -315,19 +313,28 @@
                 </a>
                 
                 
+                <a href="/categories/Mysql/" title="Mysql: 1">
+                    <span class="chip center-align waves-effect waves-light
+                             chip-default "
+                            style="background-color: #FEF9E7;">Mysql
+                        <span class="tag-length">1</span>
+                    </span>
+                </a>
+                
+                
                 <a href="/categories/linux/" title="linux: 2">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #FEF9E7;">linux
+                            style="background-color: #F8F9F9;">linux
                         <span class="tag-length">2</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/Mysql/" title="Mysql: 1">
+                <a href="/categories/linux/RHEL/" title="RHEL: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #F8F9F9;">Mysql
+                            style="background-color: #82E0AA;">RHEL
                         <span class="tag-length">1</span>
                     </span>
                 </a>
@@ -336,22 +343,13 @@
                 <a href="/categories/VPN/" title="VPN: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
-                            style="background-color: #82E0AA;">VPN
+                            style="background-color: #D7BDE2;">VPN
                         <span class="tag-length">1</span>
                     </span>
                 </a>
                 
                 
-                <a href="/categories/linux/RHEL/" title="RHEL: 1">
-                    <span class="chip center-align waves-effect waves-light
-                             chip-default "
-                            style="background-color: #D7BDE2;">RHEL
-                        <span class="tag-length">1</span>
-                    </span>
-                </a>
-                
-                
-                <a href="/categories/VPN/%E8%BF%90%E7%BB%B4/" title="运维: 1">
+                <a href="/categories/%E8%BF%90%E7%BB%B4/" title="运维: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #A3E4D7;">运维
@@ -360,7 +358,7 @@
                 </a>
                 
                 
-                <a href="/categories/%E8%BF%90%E7%BB%B4/" title="运维: 1">
+                <a href="/categories/VPN/%E8%BF%90%E7%BB%B4/" title="运维: 1">
                     <span class="chip center-align waves-effect waves-light
                              chip-default "
                             style="background-color: #85C1E9;">运维
