@@ -1,39 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>Docker Pull Mysql</title>
-    <url>/2020/08/21/docker-mysql/</url>
-    <content><![CDATA[<h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker pull mysql:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<span id="more"></span>
-
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker run --restart&#x3D;always -d -v &#x2F;root&#x2F;mysql&#x2F;conf&#x2F;my.cnf:&#x2F;etc&#x2F;mysql&#x2F;my.cnf -p 3306:3306 --name webpy-mysql -e MYSQL_ROOT_PASSWORD&#x3D;Warp1234 mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker exec -it webpy-mysql bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="初始化mysql"><a href="#初始化mysql" class="headerlink" title="初始化mysql"></a>初始化mysql</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mysql -u root -p
-
-#重置root密码
-ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;Warp1234&#39;;
-
-#添加远程登录用户
-CREATE USER &#39;xinchen.luan&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password BY &#39;123456&#39;;
-GRANT ALL PRIVILEGES ON *.* TO &#39;xinchen.luan&#39;@&#39;%&#39;;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="Plugin报错解决"><a href="#Plugin报错解决" class="headerlink" title="Plugin报错解决"></a>Plugin报错解决</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">select host,user,plugin from user;
-alter user &#39;root&#39;@&#39;%&#39; identified with mysql_native_password by &#39;Warp234&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-]]></content>
-      <categories>
-        <category>Docker</category>
-      </categories>
-      <tags>
-        <tag>Docker</tag>
-        <tag>Mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>学习计划</title>
     <url>/2019/11/05/blog-plan/</url>
     <content><![CDATA[<span id="more"></span>
@@ -75,6 +42,39 @@ $ reboot<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
       </categories>
       <tags>
         <tag>linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Docker Pull Mysql</title>
+    <url>/2020/08/21/docker-mysql/</url>
+    <content><![CDATA[<h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker pull mysql:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<span id="more"></span>
+
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker run --restart&#x3D;always -d -v &#x2F;root&#x2F;mysql&#x2F;conf&#x2F;my.cnf:&#x2F;etc&#x2F;mysql&#x2F;my.cnf -p 3306:3306 --name webpy-mysql -e MYSQL_ROOT_PASSWORD&#x3D;Warp1234 mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker exec -it webpy-mysql bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="初始化mysql"><a href="#初始化mysql" class="headerlink" title="初始化mysql"></a>初始化mysql</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mysql -u root -p
+
+#重置root密码
+ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;Warp1234&#39;;
+
+#添加远程登录用户
+CREATE USER &#39;xinchen.luan&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password BY &#39;123456&#39;;
+GRANT ALL PRIVILEGES ON *.* TO &#39;xinchen.luan&#39;@&#39;%&#39;;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Plugin报错解决"><a href="#Plugin报错解决" class="headerlink" title="Plugin报错解决"></a>Plugin报错解决</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">select host,user,plugin from user;
+alter user &#39;root&#39;@&#39;%&#39; identified with mysql_native_password by &#39;Warp234&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>Mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -180,20 +180,6 @@ git config --global --unset https.proxy<span aria-hidden="true" class="line-numb
       </tags>
   </entry>
   <entry>
-    <title>自定义Login Shell后的显示字符</title>
-    <url>/2020/07/02/motd/</url>
-    <content><![CDATA[<p>1、/etc/issue 本地登陆显示的信息，本地登录前</p>
-<p>2、/etc/issue.net 网络登陆显示的信息，登录后显示，需要由sshd配置</p>
-<p>3、/etc/motd 常用于通告信息，如计划关机时间的警告等，登陆后的提示信息</p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>Mysql语法收集</title>
     <url>/2020/07/02/mysql-manual/</url>
     <content><![CDATA[<h5 id="增加主键id并自增"><a href="#增加主键id并自增" class="headerlink" title="增加主键id并自增"></a>增加主键id并自增</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter table hwinfo add id int not null primary key Auto_increment  first;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -207,6 +193,20 @@ git config --global --unset https.proxy<span aria-hidden="true" class="line-numb
       </categories>
       <tags>
         <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自定义Login Shell后的显示字符</title>
+    <url>/2020/07/02/motd/</url>
+    <content><![CDATA[<p>1、/etc/issue 本地登陆显示的信息，本地登录前</p>
+<p>2、/etc/issue.net 网络登陆显示的信息，登录后显示，需要由sshd配置</p>
+<p>3、/etc/motd 常用于通告信息，如计划关机时间的警告等，登陆后的提示信息</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -328,57 +328,6 @@ daemon<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
       </tags>
   </entry>
   <entry>
-    <title>利用Storcli定位RAID组盘符/dev/sd*对应物理磁盘</title>
-    <url>/2021/02/28/storcli-locate-disks/</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>研发组里有个裸金属集群需要升级磁盘，要求不能停机，而且只能给到mount的盘符信息，应该如何快速准确的定位到物理磁盘呢？当然是求助万能的Storcli啦！</p>
-<span id="more"></span>
-
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><h4 id="1-获取Target-ID"><a href="#1-获取Target-ID" class="headerlink" title="1. 获取Target ID"></a>1. 获取Target ID</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># ll /sys/block</span>
-total <span class="token number">0</span>
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-0 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-0
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-1 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-1
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-2 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-2
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 sda -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:00/0000:00:11.5/ata4/host4/target4:0:0/4:0:0:0/block/sda
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">12</span>:23 sdb -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:2:0/0:2:0:0/block/sdb
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdd -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:35/0:0:35:0/block/sdd
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdf -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:38/0:0:38:0/block/sdf
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdg -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:39/0:0:39:0/block/sdg
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdi -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:42/0:0:42:0/block/sdi
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdj -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:43/0:0:43:0/block/sdj
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdk -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:44/0:0:44:0/block/sdk
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdl -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:45/0:0:45:0/block/sdl
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdm -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:46/0:0:46:0/block/sdm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>其中打印信息中<strong>targetx:y:z/</strong>中的<strong>z</strong>即为target ID</p>
-<p>例如我们要定位/dev/sdb盘符，则得出该盘符(target0:2:0)的targetID为0</p>
-<h4 id="2-通过target-ID定位物理插槽"><a href="#2-通过target-ID定位物理插槽" class="headerlink" title="2.通过target ID定位物理插槽"></a>2.通过target ID定位物理插槽</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">storcli64 /call show alilog <span class="token operator">></span> /home/target.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>在target.txt文件中逻辑磁盘区块查找Target ID，在对应targetID下方的磁盘组查找Devices IDs，Devices IDs代表由哪些物理磁盘组成了逻辑磁盘</p>
-<p>再根据Devices IDs在物理磁盘区块查找，即可定位到Slot Number</p>
-<p>再搜索Enclosure ID，确认RAID卡EnclosureID号</p>
-<h4 id="3-点亮硬盘定位灯："><a href="#3-点亮硬盘定位灯：" class="headerlink" title="3.点亮硬盘定位灯："></a>3.点亮硬盘定位灯：</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">storcli64 /c0/e29/s0 start <span class="token function">locate</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>c0表示RAID卡ID</p>
-<p>e29表示Enclosure ID</p>
-<p>s0表示slot ID</p>
-<p>参考：<a href="https://support.huawei.com/enterprise/zh/doc/EDOC1000041337/75f2d44b">https://support.huawei.com/enterprise/zh/doc/EDOC1000041337/75f2d44b</a></p>
-<h4 id="4-更换硬盘后的RAID卡操作"><a href="#4-更换硬盘后的RAID卡操作" class="headerlink" title="4.更换硬盘后的RAID卡操作"></a>4.更换硬盘后的RAID卡操作</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 查看当前RAID卡状态</span>
-storcli64 /c0 show
-<span class="token comment"># 创建单盘RAID0</span>
-storcli64 /c0 <span class="token function">add</span> vd r0 <span class="token assign-left variable">drives</span><span class="token operator">=</span><span class="token number">252</span>:5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>参考：<a href="https://www.cnblogs.com/zhangxinglong/p/9771967.html">https://www.cnblogs.com/zhangxinglong/p/9771967.html</a></p>
-]]></content>
-      <categories>
-        <category>Server</category>
-      </categories>
-      <tags>
-        <tag>Server</tag>
-        <tag>Hardware</tag>
-        <tag>Disk</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>可能是目前最好用的L2TP VPN解决方案：SoftetherVPN</title>
     <url>/2019/10/24/softether/</url>
     <content><![CDATA[<blockquote>
@@ -471,6 +420,57 @@ EOF</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span>
         <tag>softether</tag>
         <tag>VPN</tag>
         <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用Storcli定位RAID组盘符/dev/sd*对应物理磁盘</title>
+    <url>/2021/02/28/storcli-locate-disks/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>研发组里有个裸金属集群需要升级磁盘，要求不能停机，而且只能给到mount的盘符信息，应该如何快速准确的定位到物理磁盘呢？当然是求助万能的Storcli啦！</p>
+<span id="more"></span>
+
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><h4 id="1-获取Target-ID"><a href="#1-获取Target-ID" class="headerlink" title="1. 获取Target ID"></a>1. 获取Target ID</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># ll /sys/block</span>
+total <span class="token number">0</span>
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-0 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-0
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-1 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-1
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-2 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-2
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 sda -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:00/0000:00:11.5/ata4/host4/target4:0:0/4:0:0:0/block/sda
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">12</span>:23 sdb -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:2:0/0:2:0:0/block/sdb
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdd -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:35/0:0:35:0/block/sdd
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdf -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:38/0:0:38:0/block/sdf
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdg -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:39/0:0:39:0/block/sdg
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdi -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:42/0:0:42:0/block/sdi
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdj -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:43/0:0:43:0/block/sdj
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdk -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:44/0:0:44:0/block/sdk
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdl -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:45/0:0:45:0/block/sdl
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdm -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:46/0:0:46:0/block/sdm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其中打印信息中<strong>targetx:y:z/</strong>中的<strong>z</strong>即为target ID</p>
+<p>例如我们要定位/dev/sdb盘符，则得出该盘符(target0:2:0)的targetID为0</p>
+<h4 id="2-通过target-ID定位物理插槽"><a href="#2-通过target-ID定位物理插槽" class="headerlink" title="2.通过target ID定位物理插槽"></a>2.通过target ID定位物理插槽</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">storcli64 /call show alilog <span class="token operator">></span> /home/target.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>在target.txt文件中逻辑磁盘区块查找Target ID，在对应targetID下方的磁盘组查找Devices IDs，Devices IDs代表由哪些物理磁盘组成了逻辑磁盘</p>
+<p>再根据Devices IDs在物理磁盘区块查找，即可定位到Slot Number</p>
+<p>再搜索Enclosure ID，确认RAID卡EnclosureID号</p>
+<h4 id="3-点亮硬盘定位灯："><a href="#3-点亮硬盘定位灯：" class="headerlink" title="3.点亮硬盘定位灯："></a>3.点亮硬盘定位灯：</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">storcli64 /c0/e29/s0 start <span class="token function">locate</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>c0表示RAID卡ID</p>
+<p>e29表示Enclosure ID</p>
+<p>s0表示slot ID</p>
+<p>参考：<a href="https://support.huawei.com/enterprise/zh/doc/EDOC1000041337/75f2d44b">https://support.huawei.com/enterprise/zh/doc/EDOC1000041337/75f2d44b</a></p>
+<h4 id="4-更换硬盘后的RAID卡操作"><a href="#4-更换硬盘后的RAID卡操作" class="headerlink" title="4.更换硬盘后的RAID卡操作"></a>4.更换硬盘后的RAID卡操作</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 查看当前RAID卡状态</span>
+storcli64 /c0 show
+<span class="token comment"># 创建单盘RAID0</span>
+storcli64 /c0 <span class="token function">add</span> vd r0 <span class="token assign-left variable">drives</span><span class="token operator">=</span><span class="token number">252</span>:5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>参考：<a href="https://www.cnblogs.com/zhangxinglong/p/9771967.html">https://www.cnblogs.com/zhangxinglong/p/9771967.html</a></p>
+]]></content>
+      <categories>
+        <category>Server</category>
+      </categories>
+      <tags>
+        <tag>Server</tag>
+        <tag>Hardware</tag>
+        <tag>Disk</tag>
       </tags>
   </entry>
   <entry>
