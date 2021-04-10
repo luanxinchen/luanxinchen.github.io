@@ -1,6 +1,39 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>Docker Pull Mysql</title>
+    <url>/2020/08/21/docker-mysql/</url>
+    <content><![CDATA[<h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker pull mysql:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<span id="more"></span>
+
+<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker run --restart&#x3D;always -d -v &#x2F;root&#x2F;mysql&#x2F;conf&#x2F;my.cnf:&#x2F;etc&#x2F;mysql&#x2F;my.cnf -p 3306:3306 --name webpy-mysql -e MYSQL_ROOT_PASSWORD&#x3D;Warp1234 mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker exec -it webpy-mysql bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h3 id="初始化mysql"><a href="#初始化mysql" class="headerlink" title="初始化mysql"></a>初始化mysql</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mysql -u root -p
+
+#重置root密码
+ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;Warp1234&#39;;
+
+#添加远程登录用户
+CREATE USER &#39;xinchen.luan&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password BY &#39;123456&#39;;
+GRANT ALL PRIVILEGES ON *.* TO &#39;xinchen.luan&#39;@&#39;%&#39;;
+<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="Plugin报错解决"><a href="#Plugin报错解决" class="headerlink" title="Plugin报错解决"></a>Plugin报错解决</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">select host,user,plugin from user;
+alter user &#39;root&#39;@&#39;%&#39; identified with mysql_native_password by &#39;Warp234&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+]]></content>
+      <categories>
+        <category>Docker</category>
+      </categories>
+      <tags>
+        <tag>Docker</tag>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>学习计划</title>
     <url>/2019/11/05/blog-plan/</url>
     <content><![CDATA[<span id="more"></span>
@@ -45,45 +78,74 @@ $ reboot<span aria-hidden="true" class="line-numbers-rows"><span></span><span></
       </tags>
   </entry>
   <entry>
-    <title>Docker Pull Mysql</title>
-    <url>/2020/08/21/docker-mysql/</url>
-    <content><![CDATA[<h3 id="拉取镜像"><a href="#拉取镜像" class="headerlink" title="拉取镜像"></a>拉取镜像</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker pull mysql:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+    <title>Typora阿里云图床配置</title>
+    <url>/2021/04/10/aliyunoss/</url>
+    <content><![CDATA[<blockquote>
+<p>博主之前有尝试过白嫖七牛云的免费图床，但是七牛云提供的免费域名每30天会重置一次，也就是每个月都需要迁移一次数据，十分麻烦。或者绑定自有域名，前提是需要进行过icp备案，由于博主的域名目前无法备案，所以只能咬牙上了阿里云付费图床，痛失9块大洋o(╥﹏╥)o</p>
+<p>这里推荐有ICP备案的域名的小伙伴可以尝试下七牛云的免费图床，10G月流量勉强够用，白嫖它不香吗！</p>
+</blockquote>
+<h2 id="一、开通阿里云OSS对象存储"><a href="#一、开通阿里云OSS对象存储" class="headerlink" title="一、开通阿里云OSS对象存储"></a>一、开通阿里云OSS对象存储</h2><p>进入OSS控制台：<a href="https://oss.console.aliyun.com/overview">https://oss.console.aliyun.com/overview</a></p>
+<p>创建Bucket，配置如下图所示</p>
+<ul>
+<li>注意读写权限需要选择公共读</li>
+</ul>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-20210410232405558.png" alt="image-20210410232405558"></p>
+<h2 id="二、购买OSS资源包"><a href="#二、购买OSS资源包" class="headerlink" title="二、购买OSS资源包"></a>二、购买OSS资源包</h2><p>在控制面板搜索资源包，进入购买页面，这里选择比较经济的40G流量套餐，费用是9元/年（要啥自行车）</p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-20210410232425006.png" alt="image-20210410232425006"></p>
+<h2 id="三、配置Typora图片服务"><a href="#三、配置Typora图片服务" class="headerlink" title="三、配置Typora图片服务"></a>三、配置Typora图片服务</h2><p>打开typora，找到图片上传配置，选择PicGo-Core服务（第一次使用服务的话需要先点击下载按钮进行安装）。点击打开配置文件：</p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-20210410233411095.png" alt="image-20210410233411095"></p>
+<p>将下面的内容复制到picgo配置文件中：</p>
+<pre class="line-numbers language-json" data-language="json"><code class="language-json"><span class="token punctuation">&#123;</span>
+    <span class="token property">"picBed"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"uploader"</span><span class="token operator">:</span> <span class="token string">"aliyun"</span><span class="token punctuation">,</span>
+      <span class="token property">"aliyun"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span>
+      <span class="token property">"accessKeyId"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+      <span class="token property">"accessKeySecret"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span>
+      <span class="token property">"bucket"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token comment">// 存储空间名</span>
+      <span class="token property">"area"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token comment">// 存储区域代号</span>
+      <span class="token property">"path"</span><span class="token operator">:</span> <span class="token string">"img/"</span><span class="token punctuation">,</span> <span class="token comment">// 自定义存储路径</span>
+       <span class="token property">"customUrl"</span><span class="token operator">:</span> <span class="token string">""</span><span class="token punctuation">,</span> <span class="token comment">// 自定义域名，注意要加 http://或者 https://</span>
+       <span class="token property">"options"</span><span class="token operator">:</span> <span class="token string">""</span> <span class="token comment">// 针对图片的一些后缀处理参数 PicGo 2.2.0+ PicGo-Core 1.4.0+</span>
+      <span class="token punctuation">&#125;</span>
+    <span class="token punctuation">&#125;</span><span class="token punctuation">,</span>
+    <span class="token property">"picgoPlugins"</span><span class="token operator">:</span> <span class="token punctuation">&#123;</span><span class="token punctuation">&#125;</span>
+  <span class="token punctuation">&#125;</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<span id="more"></span>
-
-<h3 id="启动"><a href="#启动" class="headerlink" title="启动"></a>启动</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker run --restart&#x3D;always -d -v &#x2F;root&#x2F;mysql&#x2F;conf&#x2F;my.cnf:&#x2F;etc&#x2F;mysql&#x2F;my.cnf -p 3306:3306 --name webpy-mysql -e MYSQL_ROOT_PASSWORD&#x3D;Warp1234 mysql<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker exec -it webpy-mysql bash<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h3 id="初始化mysql"><a href="#初始化mysql" class="headerlink" title="初始化mysql"></a>初始化mysql</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">mysql -u root -p
-
-#重置root密码
-ALTER USER &#39;root&#39;@&#39;localhost&#39; IDENTIFIED BY &#39;Warp1234&#39;;
-
-#添加远程登录用户
-CREATE USER &#39;xinchen.luan&#39;@&#39;%&#39; IDENTIFIED WITH mysql_native_password BY &#39;123456&#39;;
-GRANT ALL PRIVILEGES ON *.* TO &#39;xinchen.luan&#39;@&#39;%&#39;;
-<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h4 id="Plugin报错解决"><a href="#Plugin报错解决" class="headerlink" title="Plugin报错解决"></a>Plugin报错解决</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">select host,user,plugin from user;
-alter user &#39;root&#39;@&#39;%&#39; identified with mysql_native_password by &#39;Warp234&#39;;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-20210410233621985.png" alt="image-20210410233621985"></p>
+<p>接下来需要到阿里云找到配置需要的字段</p>
+<p>首先点击打开控制台面板并创建AccessKey</p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-20210410232636592.png" alt="image-20210410232636592"></p>
+<p>将创建的AccessKeyID和Secret复制到配置文件中</p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-20210410232819086.png" alt="image-20210410232819086"></p>
+<p>然后回到OSS控制面板，进入之前创建的Bucket页面，点击预览</p>
+<ul>
+<li>左上角<code>newmorning</code>即为我的bucket名称，填写到配置文件的<code>bucket</code>字段中</li>
+<li>Endpoint中的<code>oss-cn-shanghai</code>即为我的bucket区域，填写到配置文件中的<code>area</code>字段中</li>
+</ul>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-20210410233930315.png" alt="image-20210410233930315"></p>
+<p>配置文件完成后记得CtrlS保存</p>
+<p>博主这里完整的配置文件可供参考：</p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-20210411002615946.png" alt="image-20210411002615946"></p>
+<p>最后验证下配置是否生效</p>
+<p>返回Typora图片服务，点击验证图片上传选项，返回结果上传成功</p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-20210411003001059.png" alt="image-20210411003001059"></p>
+<p>如果提示上传失败，首先查看返回的程序运行结果，然后排查picgo日志，绝大部分错误都是Bucket读写权限以及AccessKey ID和Secret配置错误导致，可以重点排查。</p>
+<p>最后，Have a nice day~</p>
 ]]></content>
       <categories>
-        <category>Docker</category>
+        <category>博客</category>
       </categories>
       <tags>
-        <tag>Docker</tag>
-        <tag>Mysql</tag>
+        <tag>阿里云</tag>
+        <tag>图床</tag>
+        <tag>CDN</tag>
+        <tag>OSS</tag>
       </tags>
   </entry>
   <entry>
     <title>Git常见流程</title>
     <url>/2020/06/19/git-manual/</url>
-    <content><![CDATA[<p><img src="https://mmbiz.qpic.cn/mmbiz_png/KmXPKA19gWicpG4ibricDjhseFOGY3Qnc47QerrsJKNIjX2kiaUcH5vgEhxWiavM0YewFoJF5EicMrkf03sibglPia8esQ/640?wx_fmt=png&tp=webp&wxfrom=5&wx_lazy=1&wx_co=1" alt="图片"></p>
-<span id="more"></span>
-
-<h4 id="Git-常见流程"><a href="#Git-常见流程" class="headerlink" title="Git 常见流程"></a>Git 常见流程</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># clone远端仓库到本地</span>
+    <content><![CDATA[<h4 id="Git-常见流程"><a href="#Git-常见流程" class="headerlink" title="Git 常见流程"></a>Git 常见流程</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># clone远端仓库到本地</span>
 $ <span class="token function">git</span> clone http://github.com/jquery/jquery.git
 <span class="token comment"># 进入工作区（本地的仓库目录，称为工作区）</span>
 $ <span class="token builtin class-name">cd</span> jquery
@@ -168,7 +230,7 @@ git config --global --unset https.proxy<span aria-hidden="true" class="line-numb
 <h3 id="系统支持"><a href="#系统支持" class="headerlink" title="系统支持"></a>系统支持</h3><p>CentOS7+、RHEL7+、Ubuntu16+、UOS2.0、Neokylin4.0+</p>
 <h3 id="执行脚本"><a href="#执行脚本" class="headerlink" title="执行脚本"></a>执行脚本</h3><p>切换到root用户并执行以下命令：</p>
 <p><code>. &lt;(curl -Ls https://raw.githubusercontent.com/luanxinchen/hwInfo/master/hwinfo.sh)</code></p>
-<p><img src="http://ww1.sinaimg.cn/large/005DqEfjgy1girbhpro8yj30hj0j0aba.jpg" alt="image.png"></p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/005DqEfjgy1girbhpro8yj30hj0j0aba.jpg" alt=""></p>
 <h3 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h3><p><a href="https://github.com/luanxinchen/hwInfo">https://github.com/luanxinchen/hwInfo</a></p>
 ]]></content>
       <categories>
@@ -177,6 +239,20 @@ git config --global --unset https.proxy<span aria-hidden="true" class="line-numb
       <tags>
         <tag>Server</tag>
         <tag>Hardware</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>自定义Login Shell后的显示字符</title>
+    <url>/2020/07/02/motd/</url>
+    <content><![CDATA[<p>1、/etc/issue 本地登陆显示的信息，本地登录前</p>
+<p>2、/etc/issue.net 网络登陆显示的信息，登录后显示，需要由sshd配置</p>
+<p>3、/etc/motd 常用于通告信息，如计划关机时间的警告等，登陆后的提示信息</p>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -193,20 +269,6 @@ git config --global --unset https.proxy<span aria-hidden="true" class="line-numb
       </categories>
       <tags>
         <tag>Mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>自定义Login Shell后的显示字符</title>
-    <url>/2020/07/02/motd/</url>
-    <content><![CDATA[<p>1、/etc/issue 本地登陆显示的信息，本地登录前</p>
-<p>2、/etc/issue.net 网络登陆显示的信息，登录后显示，需要由sshd配置</p>
-<p>3、/etc/motd 常用于通告信息，如计划关机时间的警告等，登陆后的提示信息</p>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -328,6 +390,57 @@ daemon<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
       </tags>
   </entry>
   <entry>
+    <title>利用Storcli定位RAID组盘符/dev/sd*对应物理磁盘</title>
+    <url>/2021/02/28/storcli-locate-disks/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>研发组里有个裸金属集群需要升级磁盘，要求不能停机，而且只能给到mount的盘符信息，应该如何快速准确的定位到物理磁盘呢？当然是求助万能的Storcli啦！</p>
+<span id="more"></span>
+
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><h4 id="1-获取Target-ID"><a href="#1-获取Target-ID" class="headerlink" title="1. 获取Target ID"></a>1. 获取Target ID</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># ll /sys/block</span>
+total <span class="token number">0</span>
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-0 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-0
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-1 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-1
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-2 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-2
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 sda -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:00/0000:00:11.5/ata4/host4/target4:0:0/4:0:0:0/block/sda
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">12</span>:23 sdb -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:2:0/0:2:0:0/block/sdb
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdd -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:35/0:0:35:0/block/sdd
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdf -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:38/0:0:38:0/block/sdf
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdg -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:39/0:0:39:0/block/sdg
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdi -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:42/0:0:42:0/block/sdi
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdj -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:43/0:0:43:0/block/sdj
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdk -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:44/0:0:44:0/block/sdk
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdl -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:45/0:0:45:0/block/sdl
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdm -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:46/0:0:46:0/block/sdm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其中打印信息中<strong>targetx:y:z/</strong>中的<strong>z</strong>即为target ID</p>
+<p>例如我们要定位/dev/sdb盘符，则得出该盘符(target0:2:0)的targetID为0</p>
+<h4 id="2-通过target-ID定位物理插槽"><a href="#2-通过target-ID定位物理插槽" class="headerlink" title="2.通过target ID定位物理插槽"></a>2.通过target ID定位物理插槽</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">storcli64 /call show alilog <span class="token operator">></span> /home/target.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>在target.txt文件中逻辑磁盘区块查找Target ID，在对应targetID下方的磁盘组查找Devices IDs，Devices IDs代表由哪些物理磁盘组成了逻辑磁盘</p>
+<p>再根据Devices IDs在物理磁盘区块查找，即可定位到Slot Number</p>
+<p>再搜索Enclosure ID，确认RAID卡EnclosureID号</p>
+<h4 id="3-点亮硬盘定位灯："><a href="#3-点亮硬盘定位灯：" class="headerlink" title="3.点亮硬盘定位灯："></a>3.点亮硬盘定位灯：</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">storcli64 /c0/e29/s0 start <span class="token function">locate</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>c0表示RAID卡ID</p>
+<p>e29表示Enclosure ID</p>
+<p>s0表示slot ID</p>
+<p>参考：<a href="https://support.huawei.com/enterprise/zh/doc/EDOC1000041337/75f2d44b">https://support.huawei.com/enterprise/zh/doc/EDOC1000041337/75f2d44b</a></p>
+<h4 id="4-更换硬盘后的RAID卡操作"><a href="#4-更换硬盘后的RAID卡操作" class="headerlink" title="4.更换硬盘后的RAID卡操作"></a>4.更换硬盘后的RAID卡操作</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 查看当前RAID卡状态</span>
+storcli64 /c0 show
+<span class="token comment"># 创建单盘RAID0</span>
+storcli64 /c0 <span class="token function">add</span> vd r0 <span class="token assign-left variable">drives</span><span class="token operator">=</span><span class="token number">252</span>:5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>参考：<a href="https://www.cnblogs.com/zhangxinglong/p/9771967.html">https://www.cnblogs.com/zhangxinglong/p/9771967.html</a></p>
+]]></content>
+      <categories>
+        <category>Server</category>
+      </categories>
+      <tags>
+        <tag>Server</tag>
+        <tag>Hardware</tag>
+        <tag>Disk</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>可能是目前最好用的L2TP VPN解决方案：SoftetherVPN</title>
     <url>/2019/10/24/softether/</url>
     <content><![CDATA[<blockquote>
@@ -344,7 +457,7 @@ daemon<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
 </ul>
 <p>几经筛选，终于找到了最符合公司需求的一款开源VPN解决方案，也就是我们今天的主角：<a href="https://www.softether.org/">SoftetherVPN</a>。</p>
 <p><em>SoftEtherVPN是一个由日本筑波大学研究生Daiyuu Nobori（登大游）因硕士论文而开发的开源、跨平台、多重协议的虚拟专用网方案，此方案让一些虚拟专用网协议像是SSL、VPN 、L2TP、IPsec、OpenVPN以及微软SSTP都由同一个单一VPN服务器提供。在2014年1月4日以GNU通用公共授权条款的方式转变为开源软件。</em></p>
-<p><img src="http://ww1.sinaimg.cn/large/005DqEfjgy1g8ab3gmkjbj317m148aut.jpg" alt="1.2.jpg"></p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/005DqEfjgy1g8ab3gmkjbj317m148aut.jpg" alt="1.2.jpg"></p>
 <p>从当前的使用情况来看，它可能是目前最好用的L2TP VPN解决方案：</p>
 <ul>
 <li>支持SSL、L2TP、IPsec、OpenVPN、MS-SSTP等多种协议</li>
@@ -413,64 +526,13 @@ EOF</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span>
 <h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><h4 id="Radius认证无法开启"><a href="#Radius认证无法开启" class="headerlink" title="Radius认证无法开启"></a>Radius认证无法开启</h4><h4 id="MacOS密钥乱码"><a href="#MacOS密钥乱码" class="headerlink" title="MacOS密钥乱码"></a>MacOS密钥乱码</h4>]]></content>
       <categories>
         <category>VPN</category>
-        <category>运维</category>
+        <category>网络</category>
       </categories>
       <tags>
         <tag>网络</tag>
         <tag>softether</tag>
         <tag>VPN</tag>
         <tag>运维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>利用Storcli定位RAID组盘符/dev/sd*对应物理磁盘</title>
-    <url>/2021/02/28/storcli-locate-disks/</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>研发组里有个裸金属集群需要升级磁盘，要求不能停机，而且只能给到mount的盘符信息，应该如何快速准确的定位到物理磁盘呢？当然是求助万能的Storcli啦！</p>
-<span id="more"></span>
-
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><h4 id="1-获取Target-ID"><a href="#1-获取Target-ID" class="headerlink" title="1. 获取Target ID"></a>1. 获取Target ID</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># ll /sys/block</span>
-total <span class="token number">0</span>
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-0 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-0
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-1 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-1
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-2 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-2
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 sda -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:00/0000:00:11.5/ata4/host4/target4:0:0/4:0:0:0/block/sda
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">12</span>:23 sdb -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:2:0/0:2:0:0/block/sdb
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdd -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:35/0:0:35:0/block/sdd
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdf -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:38/0:0:38:0/block/sdf
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdg -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:39/0:0:39:0/block/sdg
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdi -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:42/0:0:42:0/block/sdi
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdj -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:43/0:0:43:0/block/sdj
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdk -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:44/0:0:44:0/block/sdk
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdl -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:45/0:0:45:0/block/sdl
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdm -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:46/0:0:46:0/block/sdm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>其中打印信息中<strong>targetx:y:z/</strong>中的<strong>z</strong>即为target ID</p>
-<p>例如我们要定位/dev/sdb盘符，则得出该盘符(target0:2:0)的targetID为0</p>
-<h4 id="2-通过target-ID定位物理插槽"><a href="#2-通过target-ID定位物理插槽" class="headerlink" title="2.通过target ID定位物理插槽"></a>2.通过target ID定位物理插槽</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">storcli64 /call show alilog <span class="token operator">></span> /home/target.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>在target.txt文件中逻辑磁盘区块查找Target ID，在对应targetID下方的磁盘组查找Devices IDs，Devices IDs代表由哪些物理磁盘组成了逻辑磁盘</p>
-<p>再根据Devices IDs在物理磁盘区块查找，即可定位到Slot Number</p>
-<p>再搜索Enclosure ID，确认RAID卡EnclosureID号</p>
-<h4 id="3-点亮硬盘定位灯："><a href="#3-点亮硬盘定位灯：" class="headerlink" title="3.点亮硬盘定位灯："></a>3.点亮硬盘定位灯：</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">storcli64 /c0/e29/s0 start <span class="token function">locate</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>c0表示RAID卡ID</p>
-<p>e29表示Enclosure ID</p>
-<p>s0表示slot ID</p>
-<p>参考：<a href="https://support.huawei.com/enterprise/zh/doc/EDOC1000041337/75f2d44b">https://support.huawei.com/enterprise/zh/doc/EDOC1000041337/75f2d44b</a></p>
-<h4 id="4-更换硬盘后的RAID卡操作"><a href="#4-更换硬盘后的RAID卡操作" class="headerlink" title="4.更换硬盘后的RAID卡操作"></a>4.更换硬盘后的RAID卡操作</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 查看当前RAID卡状态</span>
-storcli64 /c0 show
-<span class="token comment"># 创建单盘RAID0</span>
-storcli64 /c0 <span class="token function">add</span> vd r0 <span class="token assign-left variable">drives</span><span class="token operator">=</span><span class="token number">252</span>:5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>参考：<a href="https://www.cnblogs.com/zhangxinglong/p/9771967.html">https://www.cnblogs.com/zhangxinglong/p/9771967.html</a></p>
-]]></content>
-      <categories>
-        <category>Server</category>
-      </categories>
-      <tags>
-        <tag>Server</tag>
-        <tag>Hardware</tag>
-        <tag>Disk</tag>
       </tags>
   </entry>
   <entry>
@@ -481,8 +543,6 @@ storcli64 /c0 <span class="token function">add</span> vd r0 <span class="token a
 <li>出现问题后，利用监控数据追踪溯源，可以更高效的解决问题</li>
 <li>利用监控提高网站/服务的可用性</li>
 </ul>
-<span id="more"></span>
-
 <h4 id="1-1-1-可用性"><a href="#1-1-1-可用性" class="headerlink" title="1.1.1 可用性"></a>1.1.1 可用性</h4><pre><code>在软件系统的高可靠性（也称为可用性，英文描述为HA，High Available）里有个衡量其可靠性的标准——X个9，这个X是代表数字3~5。
 X个9表示在软件系统1年时间的使用过程中，系统正常使用时间与总时间（1年）之比，通过下面的计算来感受下X个9在不同级别的可靠性差异。
     1个9：(1-90%)*365=36.5天，表示该软件系统在连续运行1年时间里最多可能的业务中断时间是36.5天
@@ -812,13 +872,12 @@ io_namespace_http_requests_latency_seconds_summary_count&#123;path&#x3D;&quot;&#
 <p><a href="https://github.com/coreos/prometheus-operator/blob/master/Documentation/high-availability.md">https://github.com/coreos/prometheus-operator/blob/master/Documentation/high-availability.md</a></p>
 ]]></content>
       <categories>
-        <category>运维</category>
-        <category>prometheus</category>
+        <category>Prometheus</category>
       </categories>
       <tags>
         <tag>运维</tag>
         <tag>监控</tag>
-        <tag>prometheus</tag>
+        <tag>Prometheus</tag>
       </tags>
   </entry>
 </search>
