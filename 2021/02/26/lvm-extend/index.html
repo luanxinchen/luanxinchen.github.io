@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Git常见流程, Keep it real">
+    <meta name="keywords" content="LVM分区的缩扩容操作, Keep it real">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Git常见流程 | Keep it real</title>
+    <title>LVM分区的缩扩容操作 | Keep it real</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -213,12 +213,12 @@
 
 
 
-<div class="bg-cover pd-header post-cover" style="background-image: url('https://newmorning.oss-cn-shanghai.aliyuncs.com/img/640')">
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://newmorning.oss-cn-shanghai.aliyuncs.com/img/extend-increase-resize-lvm-logical-volume-in-linux-2.png')">
     <div class="container" style="right: 0px;left: 0px;">
         <div class="row">
             <div class="col s12 m12 l12">
                 <div class="brand">
-                    <h1 class="description center-align post-title">Git常见流程</h1>
+                    <h1 class="description center-align post-title">LVM分区的缩扩容操作</h1>
                 </div>
             </div>
         </div>
@@ -240,8 +240,12 @@
                     
                     <div class="article-tag">
                         
-                            <a href="/tags/Git/">
-                                <span class="chip bg-color">Git</span>
+                            <a href="/tags/%E8%BF%90%E7%BB%B4/">
+                                <span class="chip bg-color">运维</span>
+                            </a>
+                        
+                            <a href="/tags/Linux/">
+                                <span class="chip bg-color">Linux</span>
                             </a>
                         
                     </div>
@@ -252,8 +256,8 @@
                     <div class="post-cate">
                         <i class="fas fa-bookmark fa-fw icon-category"></i>
                         
-                            <a href="/categories/Git/" class="post-category">
-                                Git
+                            <a href="/categories/Linux/" class="post-category">
+                                Linux
                             </a>
                         
                     </div>
@@ -265,7 +269,7 @@
                 
                 <div class="post-date info-break-policy">
                     <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
-                    2020-06-19
+                    2021-02-26
                 </div>
                 
 
@@ -294,44 +298,129 @@
 
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h4 id="Git-常见流程"><a href="#Git-常见流程" class="headerlink" title="Git 常见流程"></a>Git 常见流程</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># clone远端仓库到本地</span>
-$ <span class="token function">git</span> clone http://github.com/jquery/jquery.git
-<span class="token comment"># 进入工作区（本地的仓库目录，称为工作区）</span>
-$ <span class="token builtin class-name">cd</span> jquery
-$ <span class="token function">touch</span> <span class="token builtin class-name">test</span>
-<span class="token comment"># 将创建的test文件加入暂存区</span>
-<span class="token comment"># git rm test 移出暂存区</span>
-<span class="token comment"># git add -all 将所有文件加入暂存区</span>
-$ <span class="token function">git</span> <span class="token function">add</span> <span class="token builtin class-name">test</span>
-<span class="token comment"># 查看暂存区状态</span>
-$ <span class="token function">git</span> status
-<span class="token comment"># 查看文件改动明细</span>
-$ <span class="token function">git</span> <span class="token function">diff</span>
-<span class="token comment"># 提交暂存区，备注“test commit”</span>
-$ <span class="token function">git</span> commit -m <span class="token string">"test commit"</span>
-<span class="token comment"># 查看当前分支</span>
-$ <span class="token function">git</span> branch
-<span class="token comment"># 查看远端仓库源</span>
-$ <span class="token function">git</span> remote -v
-<span class="token comment"># 推送变更到远端，分支为master</span>
-$ <span class="token function">git</span> push -u origin master<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+                <ul>
+<li>首先使用lvscan命令扫描LVM分区，确认缩扩容方案（这里将home分区缩减至10G，剩余空间全部分配至root分区）</li>
+</ul>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-zoomvpn-master ~<span class="token punctuation">]</span><span class="token comment"># lvscan</span>
+  ACTIVE            <span class="token string">'/dev/centos/swap'</span> <span class="token punctuation">[</span><span class="token number">7.75</span> GiB<span class="token punctuation">]</span> inherit
+  ACTIVE            <span class="token string">'/dev/centos/home'</span> <span class="token punctuation">[</span><span class="token number">41.70</span> GiB<span class="token punctuation">]</span> inherit
+  ACTIVE            <span class="token string">'/dev/centos/root'</span> <span class="token punctuation">[</span><span class="token number">50.00</span> GiB<span class="token punctuation">]</span> inherit
+<span class="token punctuation">[</span>root@it-zoomvpn-master ~<span class="token punctuation">]</span><span class="token comment"># lsblk</span>
+NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+fd0               <span class="token number">2</span>:0    <span class="token number">1</span>    4K  <span class="token number">0</span> disk
+sda               <span class="token number">8</span>:0    <span class="token number">0</span>  100G  <span class="token number">0</span> disk
+├─sda1            <span class="token number">8</span>:1    <span class="token number">0</span>  500M  <span class="token number">0</span> part /boot
+└─sda2            <span class="token number">8</span>:2    <span class="token number">0</span> <span class="token number">99</span>.5G  <span class="token number">0</span> part
+  ├─centos-root <span class="token number">253</span>:0    <span class="token number">0</span>   50G  <span class="token number">0</span> lvm  /
+  ├─centos-swap <span class="token number">253</span>:1    <span class="token number">0</span>  <span class="token number">7</span>.8G  <span class="token number">0</span> lvm  <span class="token punctuation">[</span>SWAP<span class="token punctuation">]</span>
+  └─centos-home <span class="token number">253</span>:2    <span class="token number">0</span> <span class="token number">41</span>.7G  <span class="token number">0</span> lvm
+sr0              <span class="token number">11</span>:0    <span class="token number">1</span> 1024M  <span class="token number">0</span> rom<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h4><pre class="line-numbers language-bash" data-language="bash"><code class="language-bash"><span class="token comment"># 生成ssh-rsa密钥，用作远端仓库</span>
-$ ssh-keygen -t rsa -C <span class="token string">"youremail@example.com"</span>
+<ul>
+<li>接下来备份home分区至tmp目录，（若home分区文件较多，可使用xfsdump工具进行备份）</li>
+</ul>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-zoomvpn-master ~<span class="token punctuation">]</span><span class="token comment"># cp -R /home/ /tmp/</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<span class="token comment"># 创建dev分支</span>
-<span class="token comment"># git branch -d dev 删除dev分支</span>
-$ <span class="token function">git</span> checkout dev
-<span class="token comment"># 切换到dev分支</span>
-$ <span class="token function">git</span> switch dev
 
-<span class="token comment"># 创建并切换到dev分支</span>
-$ <span class="token function">git</span> switch -c dev
 
-<span class="token comment"># 合并dev分支到当前分支</span>
-$ <span class="token function">git</span> merge dev<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<ul>
+<li>备份完成后，卸载home分区（卸载时若出现target busy，可使用fuser -km /home命令强制终止相关进程）</li>
+</ul>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-zoomvpn-master ~<span class="token punctuation">]</span><span class="token comment"># umount /home</span>
+umount: /home：目标忙。
+        <span class="token punctuation">(</span>有些情况下通过 lsof<span class="token punctuation">(</span><span class="token number">8</span><span class="token punctuation">)</span> 或 fuser<span class="token punctuation">(</span><span class="token number">1</span><span class="token punctuation">)</span> 可以
+         找到有关使用该设备的进程的有用信息<span class="token punctuation">)</span>
+<span class="token punctuation">[</span>root@it-zoomvpn-master ~<span class="token punctuation">]</span><span class="token comment"># fuser -km /home</span>
+/home:               19524ce
+<span class="token punctuation">[</span>root@it-zoomvpn-master ~<span class="token punctuation">]</span><span class="token comment"># umount /home</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="参考资料"><a href="#参考资料" class="headerlink" title="参考资料"></a>参考资料</h4><p><a target="_blank" rel="noopener" href="https://mp.weixin.qq.com/s/mbuApV5nZaJxep9M-i_UFA">https://mp.weixin.qq.com/s/mbuApV5nZaJxep9M-i_UFA</a></p>
+
+
+<ul>
+<li>接下来使用lvreduce命令，将home分区缩减到10G</li>
+</ul>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-zoomvpn-master ~<span class="token punctuation">]</span><span class="token comment"># lvreduce -L 10G /dev/centos/home</span>
+  WARNING: Reducing active logical volume to <span class="token number">10.00</span> GiB
+  THIS MAY DESTROY YOUR DATA <span class="token punctuation">(</span>filesystem etc.<span class="token punctuation">)</span>
+Do you really want to reduce home? <span class="token punctuation">[</span>y/n<span class="token punctuation">]</span>: y
+  Size of logical volume centos/home changed from <span class="token number">41.70</span> GiB <span class="token punctuation">(</span><span class="token number">10674</span> extents<span class="token punctuation">)</span> to <span class="token number">10.00</span> GiB <span class="token punctuation">(</span><span class="token number">2560</span> extents<span class="token punctuation">)</span>.
+  Logical volume home successfully resized.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<ul>
+<li>使用lvextend命令将压缩出来的可用空间全部分配至root分区</li>
+</ul>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-zoomvpn-master ~<span class="token punctuation">]</span><span class="token comment"># lvextend -l +100%FREE /dev/centos/root</span>
+  Size of logical volume centos/root changed from <span class="token number">50.00</span> GiB <span class="token punctuation">(</span><span class="token number">12800</span> extents<span class="token punctuation">)</span> to <span class="token number">81.76</span> GiB <span class="token punctuation">(</span><span class="token number">20930</span> extents<span class="token punctuation">)</span>.
+  Logical volume root successfully resized.<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+
+
+<ul>
+<li>使用xfs_growfs延展root分区（分区格式为ext2/3/4时，使用resize2fs命令）</li>
+</ul>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-zoomvpn-master ~<span class="token punctuation">]</span><span class="token comment"># xfs_growfs /dev/centos/root</span>
+meta-data<span class="token operator">=</span>/dev/mapper/centos-root <span class="token assign-left variable">isize</span><span class="token operator">=</span><span class="token number">256</span>    <span class="token assign-left variable">agcount</span><span class="token operator">=</span><span class="token number">4</span>, <span class="token assign-left variable">agsize</span><span class="token operator">=</span><span class="token number">3276800</span> blks
+         <span class="token operator">=</span>                       <span class="token assign-left variable">sectsz</span><span class="token operator">=</span><span class="token number">512</span>   <span class="token assign-left variable">attr</span><span class="token operator">=</span><span class="token number">2</span>, <span class="token assign-left variable">projid32bit</span><span class="token operator">=</span><span class="token number">1</span>
+         <span class="token operator">=</span>                       <span class="token assign-left variable">crc</span><span class="token operator">=</span><span class="token number">0</span>        <span class="token assign-left variable">finobt</span><span class="token operator">=</span><span class="token number">0</span>
+data     <span class="token operator">=</span>                       <span class="token assign-left variable">bsize</span><span class="token operator">=</span><span class="token number">4096</span>   <span class="token assign-left variable">blocks</span><span class="token operator">=</span><span class="token number">13107200</span>, <span class="token assign-left variable">imaxpct</span><span class="token operator">=</span><span class="token number">25</span>
+         <span class="token operator">=</span>                       <span class="token assign-left variable">sunit</span><span class="token operator">=</span><span class="token number">0</span>      <span class="token assign-left variable">swidth</span><span class="token operator">=</span><span class="token number">0</span> blks
+naming   <span class="token operator">=</span>version <span class="token number">2</span>              <span class="token assign-left variable">bsize</span><span class="token operator">=</span><span class="token number">4096</span>   ascii-ci<span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">ftype</span><span class="token operator">=</span><span class="token number">0</span>
+log      <span class="token operator">=</span>internal               <span class="token assign-left variable">bsize</span><span class="token operator">=</span><span class="token number">4096</span>   <span class="token assign-left variable">blocks</span><span class="token operator">=</span><span class="token number">6400</span>, <span class="token assign-left variable">version</span><span class="token operator">=</span><span class="token number">2</span>
+         <span class="token operator">=</span>                       <span class="token assign-left variable">sectsz</span><span class="token operator">=</span><span class="token number">512</span>   <span class="token assign-left variable">sunit</span><span class="token operator">=</span><span class="token number">0</span> blks, lazy-count<span class="token operator">=</span><span class="token number">1</span>
+realtime <span class="token operator">=</span>none                   <span class="token assign-left variable">extsz</span><span class="token operator">=</span><span class="token number">4096</span>   <span class="token assign-left variable">blocks</span><span class="token operator">=</span><span class="token number">0</span>, <span class="token assign-left variable">rtextents</span><span class="token operator">=</span><span class="token number">0</span>
+data blocks changed from <span class="token number">13107200</span> to <span class="token number">21432320</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<ul>
+<li>接下来恢复home分区，首先将压缩后的home分区格式化</li>
+</ul>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-zoomvpn-master ~<span class="token punctuation">]</span><span class="token comment"># mkfs.xfs -f /dev/mapper/centos-home</span>
+meta-data<span class="token operator">=</span>/dev/mapper/centos-home <span class="token assign-left variable">isize</span><span class="token operator">=</span><span class="token number">256</span>    <span class="token assign-left variable">agcount</span><span class="token operator">=</span><span class="token number">4</span>, <span class="token assign-left variable">agsize</span><span class="token operator">=</span><span class="token number">655360</span> blks
+         <span class="token operator">=</span>                       <span class="token assign-left variable">sectsz</span><span class="token operator">=</span><span class="token number">512</span>   <span class="token assign-left variable">attr</span><span class="token operator">=</span><span class="token number">2</span>, <span class="token assign-left variable">projid32bit</span><span class="token operator">=</span><span class="token number">1</span>
+         <span class="token operator">=</span>                       <span class="token assign-left variable">crc</span><span class="token operator">=</span><span class="token number">0</span>        <span class="token assign-left variable">finobt</span><span class="token operator">=</span><span class="token number">0</span>
+data     <span class="token operator">=</span>                       <span class="token assign-left variable">bsize</span><span class="token operator">=</span><span class="token number">4096</span>   <span class="token assign-left variable">blocks</span><span class="token operator">=</span><span class="token number">2621440</span>, <span class="token assign-left variable">imaxpct</span><span class="token operator">=</span><span class="token number">25</span>
+         <span class="token operator">=</span>                       <span class="token assign-left variable">sunit</span><span class="token operator">=</span><span class="token number">0</span>      <span class="token assign-left variable">swidth</span><span class="token operator">=</span><span class="token number">0</span> blks
+naming   <span class="token operator">=</span>version <span class="token number">2</span>              <span class="token assign-left variable">bsize</span><span class="token operator">=</span><span class="token number">4096</span>   ascii-ci<span class="token operator">=</span><span class="token number">0</span> <span class="token assign-left variable">ftype</span><span class="token operator">=</span><span class="token number">0</span>
+log      <span class="token operator">=</span>internal log           <span class="token assign-left variable">bsize</span><span class="token operator">=</span><span class="token number">4096</span>   <span class="token assign-left variable">blocks</span><span class="token operator">=</span><span class="token number">2560</span>, <span class="token assign-left variable">version</span><span class="token operator">=</span><span class="token number">2</span>
+         <span class="token operator">=</span>                       <span class="token assign-left variable">sectsz</span><span class="token operator">=</span><span class="token number">512</span>   <span class="token assign-left variable">sunit</span><span class="token operator">=</span><span class="token number">0</span> blks, lazy-count<span class="token operator">=</span><span class="token number">1</span>
+realtime <span class="token operator">=</span>none                   <span class="token assign-left variable">extsz</span><span class="token operator">=</span><span class="token number">4096</span>   <span class="token assign-left variable">blocks</span><span class="token operator">=</span><span class="token number">0</span>, <span class="token assign-left variable">rtextents</span><span class="token operator">=</span><span class="token number">0</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<ul>
+<li>挂载home分区，恢复原home分区文件</li>
+</ul>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-zoomvpn-master ~<span class="token punctuation">]</span><span class="token comment"># mount /home</span>
+<span class="token punctuation">[</span>root@it-zoomvpn-master ~<span class="token punctuation">]</span><span class="token comment"># cp -R /tmp/home/ /</span>
+<span class="token punctuation">[</span>root@it-zoomvpn-master home<span class="token punctuation">]</span><span class="token comment"># ll /home</span>
+总用量 <span class="token number">8</span>
+drwx------.  <span class="token number">6</span> root root <span class="token number">4096</span> <span class="token number">2</span>月  <span class="token number">26</span> <span class="token number">17</span>:25 ituser
+drwx------. <span class="token number">14</span> root root <span class="token number">4096</span> <span class="token number">2</span>月  <span class="token number">26</span> <span class="token number">17</span>:25 tom
+<span class="token punctuation">[</span>root@it-zoomvpn-master home<span class="token punctuation">]</span><span class="token comment"># chown -R ituser:ituser /home/ituser/</span>
+<span class="token comment">#恢复过来的文件夹owner是root，这里需要手动更改为正确的owner</span>
+<span class="token punctuation">[</span>root@it-zoomvpn-master home<span class="token punctuation">]</span><span class="token comment"># ll</span>
+总用量 <span class="token number">8</span>
+drwx------.  <span class="token number">6</span> ituser ituser <span class="token number">4096</span> <span class="token number">2</span>月  <span class="token number">26</span> <span class="token number">17</span>:25 ituser
+drwx------. <span class="token number">14</span> root   root   <span class="token number">4096</span> <span class="token number">2</span>月  <span class="token number">26</span> <span class="token number">17</span>:25 tom<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<ul>
+<li>最后确认下各分区空间，扩容完成。</li>
+</ul>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-zoomvpn-master home<span class="token punctuation">]</span><span class="token comment"># lsblk</span>
+NAME            MAJ:MIN RM  SIZE RO TYPE MOUNTPOINT
+fd0               <span class="token number">2</span>:0    <span class="token number">1</span>    4K  <span class="token number">0</span> disk
+sda               <span class="token number">8</span>:0    <span class="token number">0</span>  100G  <span class="token number">0</span> disk
+├─sda1            <span class="token number">8</span>:1    <span class="token number">0</span>  500M  <span class="token number">0</span> part /boot
+└─sda2            <span class="token number">8</span>:2    <span class="token number">0</span> <span class="token number">99</span>.5G  <span class="token number">0</span> part
+  ├─centos-root <span class="token number">253</span>:0    <span class="token number">0</span> <span class="token number">81</span>.8G  <span class="token number">0</span> lvm  /
+  ├─centos-swap <span class="token number">253</span>:1    <span class="token number">0</span>  <span class="token number">7</span>.8G  <span class="token number">0</span> lvm  <span class="token punctuation">[</span>SWAP<span class="token punctuation">]</span>
+  └─centos-home <span class="token number">253</span>:2    <span class="token number">0</span>   10G  <span class="token number">0</span> lvm  /home<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
 
                 
             </div>
@@ -346,8 +435,12 @@ $ <span class="token function">git</span> merge dev<span aria-hidden="true" clas
                     
                         <div class="article-tag">
                             
-                                <a href="/tags/Git/">
-                                    <span class="chip bg-color">Git</span>
+                                <a href="/tags/%E8%BF%90%E7%BB%B4/">
+                                    <span class="chip bg-color">运维</span>
+                                </a>
+                            
+                                <a href="/tags/Linux/">
+                                    <span class="chip bg-color">Linux</span>
                                 </a>
                             
                         </div>
@@ -663,32 +756,30 @@ $ <span class="token function">git</span> merge dev<span aria-hidden="true" clas
             <div class="article-badge left-badge text-color">
                 <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
             <div class="card">
-                <a href="/2020/07/02/mysql-manual/">
+                <a href="/2021/02/28/storcli-locate-disks/">
                     <div class="card-image">
                         
-                        <img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/MySQL-banco-de-dados-linux-1024x512-1-2.png" class="responsive-img" alt="Mysql语法收集">
+                        <img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/Ameta-firma_06-1-1.jpg" class="responsive-img" alt="利用Storcli定位RAID组盘符/dev/sd*对应物理磁盘">
                         
-                        <span class="card-title">Mysql语法收集</span>
+                        <span class="card-title">利用Storcli定位RAID组盘符/dev/sd*对应物理磁盘</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            增加主键id并自增alter table hwinfo add id int not null primary key Auto_increment  first;
-
-调整字段顺序ALTER table hwinfo change &#96
+                            前言研发组里有个裸金属集群需要升级磁盘，要求不能停机，而且只能给到mount的盘符信息，应该如何快速准确的定位到物理磁盘呢？当然是求助万能的Storcli啦！
                         
                     </div>
                     <div class="publish-info">
                         <span class="publish-date">
-                            <i class="far fa-clock fa-fw icon-date"></i>2020-07-02
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-02-28
                         </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/Mysql/" class="post-category">
-                                    Mysql
+                            <a href="/categories/Server/" class="post-category">
+                                    Server
                                 </a>
                             
                             
@@ -698,8 +789,16 @@ $ <span class="token function">git</span> merge dev<span aria-hidden="true" clas
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/Mysql/">
-                        <span class="chip bg-color">Mysql</span>
+                    <a href="/tags/Server/">
+                        <span class="chip bg-color">Server</span>
+                    </a>
+                    
+                    <a href="/tags/Hardware/">
+                        <span class="chip bg-color">Hardware</span>
+                    </a>
+                    
+                    <a href="/tags/Disk/">
+                        <span class="chip bg-color">Disk</span>
                     </a>
                     
                 </div>
@@ -713,37 +812,30 @@ $ <span class="token function">git</span> merge dev<span aria-hidden="true" clas
                 下一篇&nbsp;<i class="fas fa-chevron-right"></i>
             </div>
             <div class="card">
-                <a href="/2020/06/19/rhce/">
+                <a href="/2021/01/18/snmp-custom-metrics/">
                     <div class="card-image">
                         
+                        <img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-20210411164533146.png" class="responsive-img" alt="SNMP_Exporter增加自定义metrics">
                         
-                        <img src="/medias/featureimages/7.jpg" class="responsive-img" alt="RHCE认证笔记">
-                        
-                        <span class="card-title">RHCE认证笔记</span>
+                        <span class="card-title">SNMP_Exporter增加自定义metrics</span>
                     </div>
                 </a>
                 <div class="card-content article-content">
                     <div class="summary block-with-text">
                         
-                            相关知识RHCE：Red Hat Certified Engineer. RedHat 认证工程师
-CentOS：Community Enterprise Operating System. 社区企业操作系统，免费使用
-RHEL：Red H
+                            
                         
                     </div>
                     <div class="publish-info">
                             <span class="publish-date">
-                                <i class="far fa-clock fa-fw icon-date"></i>2020-06-19
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-01-18
                             </span>
                         <span class="publish-author">
                             
                             <i class="fas fa-bookmark fa-fw icon-category"></i>
                             
-                            <a href="/categories/linux/" class="post-category">
-                                    linux
-                                </a>
-                            
-                            <a href="/categories/linux/RHEL/" class="post-category">
-                                    RHEL
+                            <a href="/categories/Prometheus/" class="post-category">
+                                    Prometheus
                                 </a>
                             
                             
@@ -753,12 +845,20 @@ RHEL：Red H
                 
                 <div class="card-action article-tags">
                     
-                    <a href="/tags/linux/">
-                        <span class="chip bg-color">linux</span>
+                    <a href="/tags/%E8%BF%90%E7%BB%B4/">
+                        <span class="chip bg-color">运维</span>
                     </a>
                     
-                    <a href="/tags/RHEL/">
-                        <span class="chip bg-color">RHEL</span>
+                    <a href="/tags/%E7%9B%91%E6%8E%A7/">
+                        <span class="chip bg-color">监控</span>
+                    </a>
+                    
+                    <a href="/tags/Prometheus/">
+                        <span class="chip bg-color">Prometheus</span>
+                    </a>
+                    
+                    <a href="/tags/SNMP/">
+                        <span class="chip bg-color">SNMP</span>
                     </a>
                     
                 </div>

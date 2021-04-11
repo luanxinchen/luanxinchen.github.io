@@ -4,7 +4,7 @@
 
 <head>
     <meta charset="utf-8">
-    <meta name="keywords" content="Prometheus从入门到精通（伪）, Keep IT Real">
+    <meta name="keywords" content="Prometheus从入门到精通（伪）, Keep it real">
     <meta name="description" content="">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
@@ -16,7 +16,7 @@
     <!-- Global site tag (gtag.js) - Google Analytics -->
 
 
-    <title>Prometheus从入门到精通（伪） | Keep IT Real</title>
+    <title>Prometheus从入门到精通（伪） | Keep it real</title>
     <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
 
     <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
@@ -43,7 +43,7 @@
                     
                     <img src="/medias/logo.png" class="logo-img" alt="LOGO">
                     
-                    <span class="logo-span">Keep IT Real</span>
+                    <span class="logo-span">Keep it real</span>
                 </a>
             </div>
             
@@ -119,7 +119,7 @@
         
         <img src="/medias/logo.png" class="logo-img circle responsive-img">
         
-        <div class="logo-name">Keep IT Real</div>
+        <div class="logo-name">Keep it real</div>
         <div class="logo-desc">
             
             Never really desperate, only the lost of the soul.
@@ -351,7 +351,7 @@ X个9表示在软件系统1年时间的使用过程中，系统正常使用时�
 </ul>
 <h2 id="二、Prometheus简介"><a href="#二、Prometheus简介" class="headerlink" title="二、Prometheus简介"></a>二、Prometheus简介</h2><h3 id="2-1-Prometheus是什么"><a href="#2-1-Prometheus是什么" class="headerlink" title="2.1 Prometheus是什么"></a>2.1 Prometheus是什么</h3><p>Prometheus是由SoundCloud开发的开源监控报警系统和TSDB(Time Series Database，时序列数据库)。受启发于Google的BorgMon监控系统，使用Go语言编写，从2012年开始由前Google工程师在Soundcloud以开源软件的形式进行研发，并且于2015年早期对外发布早期版本。2016年5月继Kubernetes之后成为第二个正式加入CNCF基金会的项目，同年6月正式发布1.0版本。2017年底发布了基于全新存储层的2.0版本，能更好地与容器平台、云平台配合。</p>
 <p>有关 Prometheus 的详细信息，请参考<a target="_blank" rel="noopener" href="https://prometheus.io/docs/introduction/overview/">官方介绍</a></p>
-<p><img src="https://gblobscdn.gitbook.com/assets%2F-LBdoxo9EmQ0bJP2BuUi%2F-LPMFlGDFIX7wuLhSHx9%2F-LPMFo9ZTdKYHyFzu4DJ%2Fprometheus-release-roadmaps.png?alt=media" alt="1.3.jpg"></p>
+<p><img src="https://gblobscdn.gitbook.com/assets%2F-LBdoxo9EmQ0bJP2BuUi%2F-LPMFlGDFIX7wuLhSHx9%2F-LPMFo9ZTdKYHyFzu4DJ%2Fprometheus-release-roadmaps.png?alt=media" alt=""></p>
 <h3 id="2-2-Prometheus的特点"><a href="#2-2-Prometheus的特点" class="headerlink" title="2.2 Prometheus的特点"></a>2.2 Prometheus的特点</h3><ul>
 <li>由指标名称和键值对标签标识的时间序列数据组成的多维度数据模型</li>
 <li>灵活的查询语言（PromQL）</li>
@@ -362,7 +362,7 @@ X个9表示在软件系统1年时间的使用过程中，系统正常使用时�
 <li>支持多种可视化图标和界面展示（Grafana，PromDash）</li>
 </ul>
 <h3 id="2-2-Prometheus的架构"><a href="#2-2-Prometheus的架构" class="headerlink" title="2.2 Prometheus的架构"></a>2.2 Prometheus的架构</h3><p>Prometheus整体架构及生态系统组件如下：</p>
-<p><img src="https://hugo-picture.oss-cn-beijing.aliyuncs.com/images/9Qt5yi.jpg" alt="1.4.jpg"></p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/9Qt5yi.jpg" alt=""></p>
 <h3 id="2-3-Prometheus如何实现监控"><a href="#2-3-Prometheus如何实现监控" class="headerlink" title="2.3 Prometheus如何实现监控"></a>2.3 Prometheus如何实现监控</h3><p>在Prometheus的架构设计中，Prometheus Server并不直接服务监控特定的目标，其主要任务负责数据的收集，存储并且对外提供数据查询支持。因此为了能够监控到某些东西，如主机的CPU使用率，我们需要使用到<strong>Exporter</strong>。Prometheus周期性的从Exporter暴露的HTTP服务地址（通常是/metrics）拉取监控样本数据。</p>
 <pre><code>Exporter可以是一个独立运行的程序独立于监控目标以外，也可以是直接内置在监控目标中。只要能够向Prometheus提供标准格式的监控样本数据即可。</code></pre><h3 id="2-4-Prometheus-适用于什么场景"><a href="#2-4-Prometheus-适用于什么场景" class="headerlink" title="2.4 Prometheus 适用于什么场景"></a>2.4 Prometheus 适用于什么场景</h3><p>Prometheus 适用于记录文本格式的时间序列，它既适用于以机器为中心的监控，也适用于高度动态的面向服务架构的监控。在微服务的世界中，它对多维数据收集和查询的支持有特殊优势。Prometheus 是专为提高系统可靠性而设计的，它可以在断电期间快速诊断问题，每个 Prometheus Server 都是相互独立的，不依赖于网络存储或其他远程服务。当基础架构出现故障时，你可以通过 Prometheus 快速定位故障点，而且不会消耗大量的基础架构资源。</p>
 <h3 id="2-5-Prometheus-不适合什么场景"><a href="#2-5-Prometheus-不适合什么场景" class="headerlink" title="2.5 Prometheus 不适合什么场景"></a>2.5 Prometheus 不适合什么场景</h3><p>Prometheus 非常重视可靠性，即使在出现故障的情况下，你也可以随时查看有关系统的可用统计信息。如果你需要百分之百的准确度，例如按请求数量计费，那么 Prometheus 不太适合你，因为它收集的数据可能不够详细完整。这种情况下，你最好使用其他系统来收集和分析数据以进行计费，并使用 Prometheus 来监控系统的其余部分。</p>
@@ -946,7 +946,7 @@ io_namespace_http_requests_latency_seconds_summary_count&#123;path&#x3D;&quot;&#
         notify: 'false' === 'true',
         verify: 'false' === 'true',
         visitor: 'true' === 'true',
-        avatar: 'mm',
+        avatar: 'robohash',
         pageSize: '10',
         lang: 'zh-cn',
         placeholder: 'Say something?'
@@ -1110,60 +1110,6 @@ RHEL：Red H
 
 
     <footer class="page-footer bg-color">
-    
-        <link rel="stylesheet" href="/libs/aplayer/APlayer.min.css">
-<style>
-    .aplayer .aplayer-lrc p {
-        
-        display: none;
-        
-        font-size: 12px;
-        font-weight: 700;
-        line-height: 16px !important;
-    }
-
-    .aplayer .aplayer-lrc p.aplayer-lrc-current {
-        
-        display: none;
-        
-        font-size: 15px;
-        color: #42b983;
-    }
-
-    
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body {
-        left: -66px !important;
-    }
-
-    .aplayer.aplayer-fixed.aplayer-narrow .aplayer-body:hover {
-        left: 0px !important;
-    }
-
-    
-</style>
-<div class="">
-    
-    <div class="row">
-        <meting-js class="col l8 offset-l2 m10 offset-m1 s12"
-                   server="netease"
-                   type="playlist"
-                   id="2188554632"
-                   fixed='true'
-                   autoplay='false'
-                   theme='#42b983'
-                   loop='all'
-                   order='list'
-                   preload='auto'
-                   volume='0.7'
-                   list-folded='true'
-        >
-        </meting-js>
-    </div>
-</div>
-
-<script src="/libs/aplayer/APlayer.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/meting@2/dist/Meting.min.js"></script>
-
     
     <div class="container row center-align" style="margin-bottom: 15px !important;">
         <div class="col s12 m8 l8 copy-right">
