@@ -1,0 +1,1354 @@
+<!DOCTYPE HTML>
+<html lang="zh-CN">
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="keywords" content="FTP集成统一身份认证+Quota限额, Keep it real">
+    <meta name="description" content="">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="renderer" content="webkit|ie-stand|ie-comp">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+
+
+    <title>FTP集成统一身份认证+Quota限额 | Keep it real</title>
+    <link rel="icon" type="image/x-icon, image/vnd.microsoft.icon" href="/favicon.ico">
+
+    <link rel="stylesheet" type="text/css" href="/libs/awesome/css/all.css">
+    <link rel="stylesheet" type="text/css" href="/libs/materialize/materialize.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/aos/aos.css">
+    <link rel="stylesheet" type="text/css" href="/libs/animate/animate.min.css">
+    <link rel="stylesheet" type="text/css" href="/libs/lightGallery/css/lightgallery.min.css">
+    <link rel="stylesheet" type="text/css" href="/css/matery.css">
+    <link rel="stylesheet" type="text/css" href="/css/my.css">
+
+    <script src="/libs/jquery/jquery.min.js"></script>
+
+<meta name="generator" content="Hexo 5.4.0"></head>
+
+
+
+
+<body>
+    <header class="navbar-fixed">
+    <nav id="headNav" class="bg-color nav-transparent">
+        <div id="navContainer" class="nav-wrapper container">
+            <div class="brand-logo">
+                <a href="/" class="waves-effect waves-light">
+                    
+                    <img src="/medias/logo.png" class="logo-img" alt="LOGO">
+                    
+                    <span class="logo-span">Keep it real</span>
+                </a>
+            </div>
+            
+
+<a href="#" data-target="mobile-nav" class="sidenav-trigger button-collapse"><i class="fas fa-bars"></i></a>
+<ul class="right nav-menu">
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/" class="waves-effect waves-light" target="_blank">
+      
+      <span>首页</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/tags" class="waves-effect waves-light" target="_blank">
+      
+      <span>标签</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/categories" class="waves-effect waves-light" target="_blank">
+      
+      <span>分类</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/archives" class="waves-effect waves-light" target="_blank">
+      
+      <span>归档</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/about" class="waves-effect waves-light" target="_blank">
+      
+      <span>关于</span>
+    </a>
+    
+  </li>
+  
+  <li class="hide-on-med-and-down nav-item">
+    
+    <a href="/contact" class="waves-effect waves-light" target="_blank">
+      
+      <span>留言板</span>
+    </a>
+    
+  </li>
+  
+  <li>
+    <a href="#searchModal" class="modal-trigger waves-effect waves-light" target="_blank">
+      <i id="searchIcon" class="fas fa-search" title="搜索" style="zoom: 0.85;"></i>
+    </a>
+  </li>
+</ul>
+
+
+<div id="mobile-nav" class="side-nav sidenav">
+
+    <div class="mobile-head bg-color">
+        
+        <img src="/medias/logo.png" class="logo-img circle responsive-img">
+        
+        <div class="logo-name">Keep it real</div>
+        <div class="logo-desc">
+            
+            Never really desperate, only the lost of the soul.
+            
+        </div>
+    </div>
+
+    
+
+    <ul class="menu-list mobile-menu-list">
+        
+        <li class="m-nav-item">
+	  
+		<a href="/" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			首页
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/tags" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			标签
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/categories" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			分类
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/archives" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			归档
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/about" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			关于
+		</a>
+          
+        </li>
+        
+        <li class="m-nav-item">
+	  
+		<a href="/contact" class="waves-effect waves-light">
+			
+				<i class="fas fa-fw fa-link"></i>
+			
+			留言板
+		</a>
+          
+        </li>
+        
+        
+    </ul>
+</div>
+
+
+        </div>
+
+        
+    </nav>
+
+</header>
+
+    
+
+
+
+
+<div class="bg-cover pd-header post-cover" style="background-image: url('https://newmorning.oss-cn-shanghai.aliyuncs.com/img/what-is-file-transfer-protocol.png')">
+    <div class="container" style="right: 0px;left: 0px;">
+        <div class="row">
+            <div class="col s12 m12 l12">
+                <div class="brand">
+                    <h1 class="description center-align post-title">FTP集成统一身份认证+Quota限额</h1>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+<main class="container content">
+
+    
+    <!-- 文章内容详情 -->
+<div id="artDetail">
+    <div class="card">
+        <div class="card-content article-info">
+            <div class="row tag-cate">
+                <div class="col s7">
+                    
+                    <div class="article-tag">
+                        
+                            <a href="/tags/%E8%BF%90%E7%BB%B4/">
+                                <span class="chip bg-color">运维</span>
+                            </a>
+                        
+                            <a href="/tags/proftpd/">
+                                <span class="chip bg-color">proftpd</span>
+                            </a>
+                        
+                            <a href="/tags/%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+                                <span class="chip bg-color">文件服务器</span>
+                            </a>
+                        
+                            <a href="/tags/LDAP/">
+                                <span class="chip bg-color">LDAP</span>
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+                <div class="col s5 right-align">
+                    
+                    <div class="post-cate">
+                        <i class="fas fa-bookmark fa-fw icon-category"></i>
+                        
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
+                                博客
+                            </a>
+                        
+                    </div>
+                    
+                </div>
+            </div>
+
+            <div class="post-info">
+                
+                <div class="post-date info-break-policy">
+                    <i class="far fa-calendar-minus fa-fw"></i>发布日期:&nbsp;&nbsp;
+                    2021-11-13
+                </div>
+                
+
+                
+
+                
+
+                
+
+                
+            </div>
+        </div>
+        <hr class="clearfix">
+
+        
+        <!-- 是否加载使用自带的 prismjs. -->
+        <link rel="stylesheet" href="/libs/prism/prism.css">
+        
+
+        
+
+        <div class="card-content article-card-content">
+            <div id="articleContent">
+                <blockquote>
+<h2 id="预期目标"><a href="#预期目标" class="headerlink" title="预期目标"></a>预期目标</h2><ol>
+<li>FTP/FTPS协议文件传输</li>
+<li>基于AD或LDAP的统一身份认证登录</li>
+<li>用户登录自动进入自己的home目录</li>
+<li>所有用户可访问指定公共目录（读写）</li>
+<li>用户不可访问除以上目录外的所有其他目录（Deny）</li>
+<li>用户空间及速率配额（Quota）</li>
+<li>镜像和公共目录使用smaba协议实现匿名访问</li>
+</ol>
+</blockquote>
+<h2 id="方案一、Proftpd-LDAP-AD"><a href="#方案一、Proftpd-LDAP-AD" class="headerlink" title="方案一、Proftpd+LDAP/AD"></a>方案一、Proftpd+LDAP/AD</h2><p>安装依赖</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum <span class="token function">install</span> epel-release -y
+yum update -y
+yum <span class="token function">install</span> proftpd proftpd-ldap<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<p>准备本地用户和共享目录</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">useradd</span> -s /sbin/nologin proftpd
+<span class="token function">mkdir</span> -p /data/ftp/home
+<span class="token function">mkdir</span> -p /data/ftp/isos
+<span class="token function">mkdir</span> -p /data/ftp/public
+<span class="token function">chown</span> -R proftpd:proftpd /data/ftp/home
+<span class="token function">chown</span> -R proftpd:proftpd /data/ftp/isos
+<span class="token function">chown</span> -R proftpd:proftpd /data/ftp/public
+<span class="token function">chmod</span> <span class="token number">750</span> /data/ftp/<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>准备Quota配额表和计数表</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#这里需要使用ftpquota工具，进入到源码目录，编译安装后即可获取：</span>
+./configure --with-modules<span class="token operator">=</span>mod_quotatab:mod_quotatab_file
+<span class="token function">make</span>
+<span class="token function">make</span> <span class="token function">install</span>
+
+<span class="token comment">#创建空的配额表和计数表用于后续工作</span>
+ftpquota --create-table --type<span class="token operator">=</span>limit --table-path<span class="token operator">=</span>/root/ftpquota.limittab
+ftpquota --create-table --type<span class="token operator">=</span>tally --table-path<span class="token operator">=</span>/root/ftpquota.tallytab
+
+<span class="token comment">#如果后续有特殊配额需求，也可使用ftpquota工具对配额表手动增加配额条目</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>proftpd.conf配置如下：</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 保持注释状态，取消注释后将指定ftp根目录，同时home变量会失效</span>
+<span class="token comment">#DefaultRoot                    ~</span>
+
+<span class="token comment"># 认证顺序，这里我们只允许ldap认证</span>
+AuthOrder                       mod_ldap.c
+
+<span class="token comment"># 指定ftp进程映射在本地的用户（这里的用户必须在系统中真实存在）</span>
+User                            proftpd
+Group                           proftpd
+
+<span class="token comment">#########################LDAP/AD认证域配置##############################</span>
+<span class="token comment">#载入LDAP module</span>
+LoadModule mod_ldap.c
+
+<span class="token comment">#配置LDAP/AD服务器地址（不用填写协议前缀）</span>
+LDAPServer <span class="token number">172.16</span>.20.11
+<span class="token comment">#设置LDAP/AD 管理员DN</span>
+LDAPBindDN <span class="token string">"CN=xinchen.luan,OU=Domain Users,DC=transwarp,DC=io"</span> <span class="token string">"******"</span><span class="token punctuation">(</span>这里填写管理密码<span class="token punctuation">)</span>
+<span class="token comment">#映射uid到AD中的sAMAccountName字段</span>
+LDAPAttr uid <span class="token string">"sAMAccountName"</span>
+<span class="token comment">#设置用户BaseDN和filter</span>
+LDAPUsers <span class="token string">"OU=Domain Users,DC=transwarp,DC=io"</span> <span class="token punctuation">(</span><span class="token operator">&amp;</span><span class="token punctuation">(</span>objectClass<span class="token operator">=</span>user<span class="token punctuation">)</span><span class="token punctuation">(</span>sAMAccountName<span class="token operator">=</span>%v<span class="token punctuation">)</span><span class="token punctuation">(</span>mail<span class="token operator">=</span>*<span class="token punctuation">))</span>
+<span class="token comment">#开启log，调试认证过程</span>
+LDAPLog /var/log/mod_ldap.log
+LDAPSearchScope subtree
+<span class="token comment">#若LDAP中查询不到UserID和GroupID字段，则默认赋值</span>
+LDAPDefaultUID <span class="token number">1000</span>
+LDAPDefaultGID <span class="token number">1000</span>
+<span class="token comment">#强制给UID和GID赋默认值</span>
+LDAPForceDefaultGID on
+LDAPForceDefaultUID on
+<span class="token comment">#允许在指定目录下生成用户home目录</span>
+LDAPGenerateHomedir on
+LDAPGenerateHomedirPrefix /data/ftp/home
+LDAPForceGeneratedHomedir on
+<span class="token comment">#允许在指定目录下生成用户目录，如果设置为on，所有用户共享同一home目录</span>
+LDAPGenerateHomedirPrefixNoUsername off
+<span class="token comment">#如果用户home目录不存在，则自动创建</span>
+CreateHome on
+<span class="token comment">#允许用户没有合法 shell也可以登录，因为 LDAP 用户如果没有 posixAccount 扩展，是没有 shell 设置的</span>
+RequireValidShell off
+
+<span class="token comment">#############################目录权限配置##############################</span>
+<span class="token comment">#下面目录权限配置分为四大块，秉承先Deny后Allow的原则</span>
+<span class="token comment">#根目录权限设置</span>
+  <span class="token operator">&lt;</span>Directory / <span class="token operator">></span>
+    <span class="token operator">&lt;</span>Limit WRITE READ DIRS DELE<span class="token operator">></span> <span class="token comment">#禁止访问</span>
+      DenyAll
+    <span class="token operator">&lt;</span>/Limit<span class="token operator">></span>
+  <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
+
+<span class="token comment">#允许访问ftp目录</span>
+  <span class="token operator">&lt;</span>Directory /data/ftp/ <span class="token operator">></span>
+    <span class="token operator">&lt;</span>Limit DELE<span class="token operator">></span> <span class="token comment">#禁止删除文件</span>
+      DenyAll
+    <span class="token operator">&lt;</span>/Limit<span class="token operator">></span>
+    <span class="token operator">&lt;</span>Limit DIRS<span class="token operator">></span> <span class="token comment">#允许查看文件</span>
+      AllowAll
+    <span class="token operator">&lt;</span>/Limit<span class="token operator">></span>
+  <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
+
+<span class="token comment">#禁止访问其他用户的家目录</span>
+  <span class="token operator">&lt;</span>Directory /data/ftp/home/ <span class="token operator">></span>
+    <span class="token operator">&lt;</span>Limit DELE DIRS<span class="token operator">></span> <span class="token comment">#禁止删除文件</span>
+      DenyAll
+    <span class="token operator">&lt;</span>/Limit<span class="token operator">></span>
+  <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
+
+<span class="token comment">#公共目录权限设置</span>
+  <span class="token operator">&lt;</span>Directory /data/ftp/public/ <span class="token operator">></span>
+    <span class="token operator">&lt;</span>Limit DELE<span class="token operator">></span> <span class="token comment">#禁止删除文件</span>
+      DenyAll
+    <span class="token operator">&lt;</span>/Limit<span class="token operator">></span>
+    <span class="token operator">&lt;</span>Limit WRITE READ DIRS<span class="token operator">></span> <span class="token comment">#允许读写</span>
+      AllowAll
+    <span class="token operator">&lt;</span>/Limit<span class="token operator">></span>
+  <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
+
+<span class="token comment">#ISO镜像目录权限设置</span>
+  <span class="token operator">&lt;</span>Directory /data/ftp/isos/ <span class="token operator">></span>
+    <span class="token operator">&lt;</span>Limit DELE<span class="token operator">></span> <span class="token comment">#禁止删除文件</span>
+      DenyAll
+    <span class="token operator">&lt;</span>/Limit<span class="token operator">></span>
+    <span class="token operator">&lt;</span>Limit WRITE READ DIRS<span class="token operator">></span> <span class="token comment">#允许读写</span>
+      AllowAll
+    <span class="token operator">&lt;</span>/Limit<span class="token operator">></span>
+  <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
+
+<span class="token comment">#用户自己的家目录权限设置</span>
+  <span class="token operator">&lt;</span>Directory ~<span class="token operator">></span>
+    <span class="token operator">&lt;</span>Limit WRITE READ DIRS DELE<span class="token operator">></span> <span class="token comment">#允许读写删除</span>
+      AllowAll
+    <span class="token operator">&lt;</span>/Limit<span class="token operator">></span>
+  <span class="token operator">&lt;</span>/Directory<span class="token operator">></span>
+
+<span class="token comment">##########################Quota配置##################################</span>
+<span class="token comment">#在此之前需要弄清Quota的原理,Quota主要通过配额表和计数表实现</span>
+<span class="token comment">#若要为每个用户提供不通的配额方案，需要在LDAP/AD用户信息中添加自定义字段</span>
+<span class="token comment">#这里我们没有提供每个用户的自定义配额表，所以使用了本地配额表进行统一配额</span>
+LoadModule mod_quotatab.c
+LoadModule mod_quotatab_file.c
+
+<span class="token operator">&lt;</span>IfModule mod_quotatab.c<span class="token operator">></span>
+        QuotaEngine on
+        <span class="token comment">#开启限额调试日志</span>
+        QuotaLog /var/log/proftpd/quota.log
+        <span class="token comment">#未查询到配额的用户默认使用以下策略，这里默认限制上传空间50G</span>
+        <span class="token comment">#配额类型、单次会话限制、限制策略、上传配额、下载配额、传输速率、上传数量、下载数量、传输数量(Byte)</span>
+        QuotaDefault user <span class="token boolean">false</span> hard <span class="token number">53687091200</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span> <span class="token number">0</span>
+        QuotaDisplayUnits Mb
+        QuotaOptions ScanOnLogin
+        QuotaDirectoryTally off
+        <span class="token operator">&lt;</span>IfModule mod_quotatab_file.c<span class="token operator">></span>
+        <span class="token comment">#分别引入之前生成的本地配额表和计数表</span>
+        QuotaLimitTable file:/root/ftpquota.limittab
+        QuotaTallyTable file:/root/ftpquota.tallytab
+        <span class="token operator">&lt;</span>/IfModule<span class="token operator">></span>
+<span class="token operator">&lt;</span>/IfModule<span class="token operator">></span>
+
+<span class="token comment">##############################显式TLS配置################################</span>
+<span class="token operator">&lt;</span>IfModule mod_tls.c<span class="token operator">></span>
+  TLSEngine                     on
+  <span class="token comment">#是否强制请求证书</span>
+  TLSRequired                   off
+  TLSProtocol                   TLSv1.1 TLSv1.2
+  <span class="token comment">#证书路径</span>
+  TLSRSACertificateFile         /root/cert/transwarp.io.pem
+  TLSRSACertificateKeyFile      /root/cert/transwarp.io.key
+  TLSCipherSuite               ALL:<span class="token operator">!</span>ADH:<span class="token operator">!</span>DES
+  TLSOptions                    NoCertRequest
+  TLSVerifyClient               off
+  TLSRenegotiate               ctrl <span class="token number">3600</span> data <span class="token number">512000</span> required off <span class="token function">timeout</span> <span class="token number">300</span>
+  TLSLog                        /var/log/proftpd/tls.log
+<span class="token operator">&lt;</span>/Ifmodule<span class="token operator">></span>
+
+<span class="token comment">##############################被动模式配置##############################</span>
+
+<span class="token comment">#指定被动模式端口范围</span>
+PassivePorts <span class="token number">60022</span> <span class="token number">60023</span>
+
+<span class="token comment">#启用TLS后会默认使用被动模式，未指定MasqueradeAddress的话会导致返回内网IP</span>
+<span class="token comment">#这里启用ifsession判断来源IP</span>
+LoadModule mod_ifsession.c
+  <span class="token operator">&lt;</span>IfModule mod_ifsession.c<span class="token operator">></span>
+    <span class="token comment">#定义内网对象</span>
+    <span class="token operator">&lt;</span>Class internal<span class="token operator">></span>
+      From <span class="token number">172.18</span>.0.0/16
+    <span class="token operator">&lt;</span>/Class<span class="token operator">></span>
+
+    <span class="token comment">#来源session为IDC内网，返回FTP内网地址</span>
+    <span class="token operator">&lt;</span>IfClass internal<span class="token operator">></span>
+      MasqueradeAddress <span class="token number">172.18</span>.31.11
+    <span class="token operator">&lt;</span>/IfClass<span class="token operator">></span>
+
+    <span class="token comment">#来源session为公网，返回公网IP地址</span>
+    <span class="token operator">&lt;</span>IfClass <span class="token operator">!</span>internal<span class="token operator">></span>
+      MasqueradeAddress <span class="token number">103.28</span>.213.234
+    <span class="token operator">&lt;</span>/IfClass<span class="token operator">></span>
+  <span class="token operator">&lt;</span>/IfModule<span class="token operator">></span>
+
+<span class="token comment">##################################################################</span>
+<span class="token comment">#除此之外的其他设置请参考proftpd官方文档进行设置，这里保持默认即可#</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>附Samba共享配置：</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">[global]
+        log file &#x3D; &#x2F;var&#x2F;log&#x2F;samba&#x2F;log.%m
+        workgroup &#x3D; SAMBA
+        security &#x3D; user
+        map to guest &#x3D; bad user #开启匿名访问
+        passdb backend &#x3D; tdbsam
+        printing &#x3D; cups
+        printcap name &#x3D; cups
+        load printers &#x3D; yes
+        cups options &#x3D; raw
+[isos]
+comment &#x3D; iso share
+path &#x3D; &#x2F;data&#x2F;ftp&#x2F;isos   #isos路径
+browsable &#x3D; yes         #读取权限
+writable &#x3D; no           #写入权限
+guest ok &#x3D; yes          #匿名访问身份为guest
+public &#x3D; yes            #允许匿名访问
+force user &#x3D; proftpd    #指定ftp用户
+
+[public]
+comment &#x3D; public share
+path &#x3D; &#x2F;data&#x2F;ftp&#x2F;public #public路径
+browsable &#x3D; yes         #读取权限
+writable &#x3D; no           #写入权限
+guest ok &#x3D; yes          #匿名访问身份为guest
+public &#x3D; yes            #允许匿名访问
+force user &#x3D; proftpd    #指定ftp用户<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h4 id="最终效果"><a href="#最终效果" class="headerlink" title="最终效果"></a>最终效果</h4><p>所有用户使用统一账户登陆，登录后自动进入用户home目录，此外用户还可访问public和isos两个公共目录，目录路径和权限如下表：</p>
+<table>
+<thead>
+<tr>
+<th><strong>目录名称</strong></th>
+<th><strong>描述</strong></th>
+<th><strong>路径</strong></th>
+<th><strong>权限</strong></th>
+</tr>
+</thead>
+<tbody><tr>
+<td>home</td>
+<td>用户家目录</td>
+<td>/data/ftp/home/{username}</td>
+<td>完全控制</td>
+</tr>
+<tr>
+<td>public</td>
+<td>公共目录</td>
+<td>/data/ftp/public</td>
+<td>读写</td>
+</tr>
+<tr>
+<td>isos</td>
+<td>镜像目录</td>
+<td>/data/ftp/isos</td>
+<td>只读</td>
+</tr>
+</tbody></table>
+<p>用户连接FTP后使用<code>quote SITE QUOTA</code>命令查看配额空间：<br><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-6.png" alt=""><br>如图，总空间为51200MB，已用38.41MB。</p>
+<h2 id="方案二、Vsftp-LDAP"><a href="#方案二、Vsftp-LDAP" class="headerlink" title="方案二、Vsftp+LDAP"></a>方案二、Vsftp+LDAP</h2><p>由于vsftp对于LDAP权限管理较弱，该方案已弃用，仅做参考。</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#安装依赖</span>
+yum <span class="token function">install</span> vsftpd nss-pam-ldapd
+
+<span class="token comment">#配置LDAP</span>
+<span class="token comment">#cat /etc/nslcd.conf</span>
+uri ldap://172.16.2.17:10389
+base <span class="token assign-left variable">ou</span><span class="token operator">=</span>People,dc<span class="token operator">=</span>tdh
+binddn <span class="token assign-left variable">uid</span><span class="token operator">=</span>admin,ou<span class="token operator">=</span>People,dc<span class="token operator">=</span>tdh
+bindpw ***
+
+<span class="token comment">#cat /etc/vsftpd/vsftpd.conf</span>
+<span class="token assign-left variable">anonymous_enable</span><span class="token operator">=</span>NO
+<span class="token assign-left variable">local_enable</span><span class="token operator">=</span>YES
+<span class="token assign-left variable">write_enable</span><span class="token operator">=</span>YES
+<span class="token assign-left variable">local_umask</span><span class="token operator">=</span>022
+<span class="token assign-left variable">anon_upload_enable</span><span class="token operator">=</span>YES
+<span class="token assign-left variable">anon_mkdir_write_enable</span><span class="token operator">=</span>YES
+<span class="token assign-left variable">dirmessage_enable</span><span class="token operator">=</span>YES
+<span class="token assign-left variable">xferlog_enable</span><span class="token operator">=</span>YES
+<span class="token assign-left variable">connect_from_port_20</span><span class="token operator">=</span>YES
+<span class="token assign-left variable">xferlog_std_format</span><span class="token operator">=</span>YES
+<span class="token assign-left variable">chroot_local_user</span><span class="token operator">=</span>YES
+<span class="token assign-left variable">listen</span><span class="token operator">=</span>YES
+<span class="token assign-left variable">listen_ipv6</span><span class="token operator">=</span>NO
+<span class="token assign-left variable">pam_service_name</span><span class="token operator">=</span>vsftpd
+<span class="token assign-left variable">userlist_enable</span><span class="token operator">=</span>YES
+<span class="token assign-left variable">tcp_wrappers</span><span class="token operator">=</span>YES
+<span class="token assign-left variable">guest_enable</span><span class="token operator">=</span>YES
+<span class="token assign-left variable">guest_username</span><span class="token operator">=</span>ftp
+<span class="token assign-left variable">local_root</span><span class="token operator">=</span>/opt/data
+<span class="token assign-left variable">allow_writeable_chroot</span><span class="token operator">=</span>YES
+
+
+<span class="token comment">#systemctl start nslcd</span>
+<span class="token comment">#systemctl start vsftpd</span>
+
+<span class="token comment">#至此用户可以使用ldap账号登陆ftp</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+
+
+<p>最后，Have a nice day~</p>
+
+                
+            </div>
+            <hr/>
+
+            
+
+
+
+            <div class="tag_share" style="display: block;">
+                <div class="post-meta__tag-list" style="display: inline-block;">
+                    
+                        <div class="article-tag">
+                            
+                                <a href="/tags/%E8%BF%90%E7%BB%B4/">
+                                    <span class="chip bg-color">运维</span>
+                                </a>
+                            
+                                <a href="/tags/proftpd/">
+                                    <span class="chip bg-color">proftpd</span>
+                                </a>
+                            
+                                <a href="/tags/%E6%96%87%E4%BB%B6%E6%9C%8D%E5%8A%A1%E5%99%A8/">
+                                    <span class="chip bg-color">文件服务器</span>
+                                </a>
+                            
+                                <a href="/tags/LDAP/">
+                                    <span class="chip bg-color">LDAP</span>
+                                </a>
+                            
+                        </div>
+                    
+                </div>
+                <div class="post_share" style="zoom: 80%; width: fit-content; display: inline-block; float: right; margin: -0.15rem 0;">
+                    <link rel="stylesheet" type="text/css" href="/libs/share/css/share.min.css">
+<div id="article-share">
+
+    
+    <div class="social-share" data-sites="wechat" data-wechat-qrcode-helper="<p>微信扫一扫即可分享！</p>"></div>
+    <script src="/libs/share/js/social-share.min.js"></script>
+    
+
+    
+
+</div>
+
+                </div>
+            </div>
+            
+        </div>
+    </div>
+
+    
+
+    
+
+    
+
+    
+
+    
+        <style>
+    .valine-card {
+        margin: 1.5rem auto;
+    }
+
+    .valine-card .card-content {
+        padding: 20px 20px 5px 20px;
+    }
+
+    #vcomments textarea {
+        box-sizing: border-box;
+        background: url("/") 100% 100% no-repeat;
+    }
+
+    #vcomments p {
+        margin: 2px 2px 10px;
+        font-size: 1.05rem;
+        line-height: 1.78rem;
+    }
+
+    #vcomments blockquote p {
+        text-indent: 0.2rem;
+    }
+
+    #vcomments a {
+        padding: 0 2px;
+        color: #4cbf30;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    #vcomments img {
+        max-width: 100%;
+        height: auto;
+        cursor: pointer;
+    }
+
+    #vcomments ol li {
+        list-style-type: decimal;
+    }
+
+    #vcomments ol,
+    ul {
+        display: block;
+        padding-left: 2em;
+        word-spacing: 0.05rem;
+    }
+
+    #vcomments ul li,
+    ol li {
+        display: list-item;
+        line-height: 1.8rem;
+        font-size: 1rem;
+    }
+
+    #vcomments ul li {
+        list-style-type: disc;
+    }
+
+    #vcomments ul ul li {
+        list-style-type: circle;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    #vcomments table, th, td {
+        border: 0;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments h1 {
+        font-size: 1.85rem;
+        font-weight: bold;
+        line-height: 2.2rem;
+    }
+
+    #vcomments h2 {
+        font-size: 1.65rem;
+        font-weight: bold;
+        line-height: 1.9rem;
+    }
+
+    #vcomments h3 {
+        font-size: 1.45rem;
+        font-weight: bold;
+        line-height: 1.7rem;
+    }
+
+    #vcomments h4 {
+        font-size: 1.25rem;
+        font-weight: bold;
+        line-height: 1.5rem;
+    }
+
+    #vcomments h5 {
+        font-size: 1.1rem;
+        font-weight: bold;
+        line-height: 1.4rem;
+    }
+
+    #vcomments h6 {
+        font-size: 1rem;
+        line-height: 1.3rem;
+    }
+
+    #vcomments p {
+        font-size: 1rem;
+        line-height: 1.5rem;
+    }
+
+    #vcomments hr {
+        margin: 12px 0;
+        border: 0;
+        border-top: 1px solid #ccc;
+    }
+
+    #vcomments blockquote {
+        margin: 15px 0;
+        border-left: 5px solid #42b983;
+        padding: 1rem 0.8rem 0.3rem 0.8rem;
+        color: #666;
+        background-color: rgba(66, 185, 131, .1);
+    }
+
+    #vcomments pre {
+        font-family: monospace, monospace;
+        padding: 1.2em;
+        margin: .5em 0;
+        background: #272822;
+        overflow: auto;
+        border-radius: 0.3em;
+        tab-size: 4;
+    }
+
+    #vcomments code {
+        font-family: monospace, monospace;
+        padding: 1px 3px;
+        font-size: 0.92rem;
+        color: #e96900;
+        background-color: #f8f8f8;
+        border-radius: 2px;
+    }
+
+    #vcomments pre code {
+        font-family: monospace, monospace;
+        padding: 0;
+        color: #e8eaf6;
+        background-color: #272822;
+    }
+
+    #vcomments pre[class*="language-"] {
+        padding: 1.2em;
+        margin: .5em 0;
+    }
+
+    #vcomments code[class*="language-"],
+    pre[class*="language-"] {
+        color: #e8eaf6;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+
+    #vcomments b,
+    strong {
+        font-weight: bold;
+    }
+
+    #vcomments dfn {
+        font-style: italic;
+    }
+
+    #vcomments small {
+        font-size: 85%;
+    }
+
+    #vcomments cite {
+        font-style: normal;
+    }
+
+    #vcomments mark {
+        background-color: #fcf8e3;
+        padding: .2em;
+    }
+
+    #vcomments table, th, td {
+        padding: 12px 13px;
+        border: 1px solid #dfe2e5;
+    }
+
+    table tr:nth-child(2n), thead {
+        background-color: #fafafa;
+    }
+
+    #vcomments table th {
+        background-color: #f2f2f2;
+        min-width: 80px;
+    }
+
+    #vcomments table td {
+        min-width: 80px;
+    }
+
+    #vcomments [type="checkbox"]:not(:checked), [type="checkbox"]:checked {
+        position: inherit;
+        margin-left: -1.3rem;
+        margin-right: 0.4rem;
+        margin-top: -1px;
+        vertical-align: middle;
+        left: unset;
+        visibility: visible;
+    }
+</style>
+
+<div class="card valine-card" data-aos="fade-up">
+    <div class="comment_headling" style="font-size: 20px; font-weight: 700; position: relative; padding-left: 20px; top: 15px; padding-bottom: 5px;">
+        <i class="fas fa-comments fa-fw" aria-hidden="true"></i>
+        <span>评论</span>
+    </div>
+    <div id="vcomments" class="card-content" style="display: grid">
+    </div>
+</div>
+
+<script src="/libs/valine/av-min.js"></script>
+<script src="/libs/valine/Valine.min.js"></script>
+<script>
+    new Valine({
+        el: '#vcomments',
+        appId: 'uqSWH1Cxdv6gjR5pSAzuI1TK-gzGzoHsz',
+        appKey: 'uczvqYJoumw7RwJqbYAC7N7H',
+        notify: 'false' === 'true',
+        verify: 'false' === 'true',
+        visitor: 'true' === 'true',
+        avatar: 'robohash',
+        pageSize: '10',
+        lang: 'zh-cn',
+        placeholder: 'Say something?'
+    });
+</script>
+
+<!--酷Q推送-->
+
+
+    
+
+    
+
+    
+
+    
+
+    
+
+<article id="prenext-posts" class="prev-next articles">
+    <div class="row article-row">
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge left-badge text-color">
+                <i class="fas fa-chevron-left"></i>&nbsp;上一篇</div>
+            <div class="card">
+                <a href="/2021/12/25/squid-proxy/">
+                    <div class="card-image">
+                        
+                        <img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/squid-proxy-linux-11608228167.png" class="responsive-img" alt="Squid+AD认证代理配置">
+                        
+                        <span class="card-title">Squid+AD认证代理配置</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                        <span class="publish-date">
+                            <i class="far fa-clock fa-fw icon-date"></i>2021-12-25
+                        </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
+                                    博客
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/Proxy/">
+                        <span class="chip bg-color">Proxy</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%BF%90%E7%BB%B4/">
+                        <span class="chip bg-color">运维</span>
+                    </a>
+                    
+                    <a href="/tags/LDAP/">
+                        <span class="chip bg-color">LDAP</span>
+                    </a>
+                    
+                    <a href="/tags/Squid/">
+                        <span class="chip bg-color">Squid</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="article col s12 m6" data-aos="fade-up">
+            <div class="article-badge right-badge text-color">
+                下一篇&nbsp;<i class="fas fa-chevron-right"></i>
+            </div>
+            <div class="card">
+                <a href="/2021/10/19/jumpserver-upgrade/">
+                    <div class="card-image">
+                        
+                        <img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/1.png" class="responsive-img" alt="Jumpserver 迁移升级步骤">
+                        
+                        <span class="card-title">Jumpserver 迁移升级步骤</span>
+                    </div>
+                </a>
+                <div class="card-content article-content">
+                    <div class="summary block-with-text">
+                        
+                            
+                        
+                    </div>
+                    <div class="publish-info">
+                            <span class="publish-date">
+                                <i class="far fa-clock fa-fw icon-date"></i>2021-10-19
+                            </span>
+                        <span class="publish-author">
+                            
+                            <i class="fas fa-bookmark fa-fw icon-category"></i>
+                            
+                            <a href="/categories/%E5%8D%9A%E5%AE%A2/" class="post-category">
+                                    博客
+                                </a>
+                            
+                            
+                        </span>
+                    </div>
+                </div>
+                
+                <div class="card-action article-tags">
+                    
+                    <a href="/tags/%E5%A0%A1%E5%9E%92%E6%9C%BA/">
+                        <span class="chip bg-color">堡垒机</span>
+                    </a>
+                    
+                    <a href="/tags/Jumpserver/">
+                        <span class="chip bg-color">Jumpserver</span>
+                    </a>
+                    
+                    <a href="/tags/%E8%BF%90%E7%BB%B4/">
+                        <span class="chip bg-color">运维</span>
+                    </a>
+                    
+                </div>
+                
+            </div>
+        </div>
+        
+    </div>
+</article>
+
+</div>
+
+
+
+<!-- 代码块功能依赖 -->
+<script type="text/javascript" src="/libs/codeBlock/codeBlockFuction.js"></script>
+
+<!-- 代码语言 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeLang.js"></script>
+
+
+<!-- 代码块复制 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeCopy.js"></script>
+
+
+<!-- 代码块收缩 -->
+
+<script type="text/javascript" src="/libs/codeBlock/codeShrink.js"></script>
+
+
+    
+
+</main>
+
+
+
+
+    <footer class="page-footer bg-color">
+    
+    <div class="container row center-align" style="margin-bottom: 15px !important;">
+        <div class="col s12 m8 l8 copy-right">
+            Copyright&nbsp;&copy;
+            
+                <span id="year">2018-2022</span>
+            
+            <span id="year">2018</span>
+            <a href="/about" target="_blank">xinchen.luan</a>
+            |&nbsp;Powered by&nbsp;<a href="https://hexo.io/" target="_blank">Hexo</a>
+            |&nbsp;Theme&nbsp;<a href="https://github.com/blinkfox/hexo-theme-matery" target="_blank">Matery</a>
+            <br>
+            
+            
+            
+            
+            
+            
+            <span id="busuanzi_container_site_pv">
+                |&nbsp;<i class="far fa-eye"></i>&nbsp;总访问量:&nbsp;<span id="busuanzi_value_site_pv"
+                    class="white-color"></span>&nbsp;次
+            </span>
+            
+            
+            <span id="busuanzi_container_site_uv">
+                |&nbsp;<i class="fas fa-users"></i>&nbsp;总访问人数:&nbsp;<span id="busuanzi_value_site_uv"
+                    class="white-color"></span>&nbsp;人
+            </span>
+            
+            <br>
+            
+            <span id="sitetime">载入运行时间...</span>
+            <script>
+                function siteTime() {
+                    var seconds = 1000;
+                    var minutes = seconds * 60;
+                    var hours = minutes * 60;
+                    var days = hours * 24;
+                    var years = days * 365;
+                    var today = new Date();
+                    var startYear = "2018";
+                    var startMonth = "4";
+                    var startDate = "14";
+                    var startHour = "12";
+                    var startMinute = "30";
+                    var startSecond = "0";
+                    var todayYear = today.getFullYear();
+                    var todayMonth = today.getMonth() + 1;
+                    var todayDate = today.getDate();
+                    var todayHour = today.getHours();
+                    var todayMinute = today.getMinutes();
+                    var todaySecond = today.getSeconds();
+                    var t1 = Date.UTC(startYear, startMonth, startDate, startHour, startMinute, startSecond);
+                    var t2 = Date.UTC(todayYear, todayMonth, todayDate, todayHour, todayMinute, todaySecond);
+                    var diff = t2 - t1;
+                    var diffYears = Math.floor(diff / years);
+                    var diffDays = Math.floor((diff / days) - diffYears * 365);
+                    var diffHours = Math.floor((diff - (diffYears * 365 + diffDays) * days) / hours);
+                    var diffMinutes = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours) /
+                        minutes);
+                    var diffSeconds = Math.floor((diff - (diffYears * 365 + diffDays) * days - diffHours * hours -
+                        diffMinutes * minutes) / seconds);
+                    if (startYear == todayYear) {
+                        document.getElementById("year").innerHTML = todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffDays + " 天 " + diffHours +
+                            " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    } else {
+                        document.getElementById("year").innerHTML = startYear + " - " + todayYear;
+                        document.getElementById("sitetime").innerHTML = "本站已安全运行 " + diffYears + " 年 " + diffDays +
+                            " 天 " + diffHours + " 小时 " + diffMinutes + " 分钟 " + diffSeconds + " 秒";
+                    }
+                }
+                setInterval(siteTime, 1000);
+            </script>
+            
+            <br>
+            
+        </div>
+        <div class="col s12 m4 l4 social-link social-statis">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+    </div>
+</footer>
+
+<div class="progress-bar"></div>
+
+
+    <!-- 搜索遮罩框 -->
+<div id="searchModal" class="modal">
+    <div class="modal-content">
+        <div class="search-header">
+            <span class="title"><i class="fas fa-search"></i>&nbsp;&nbsp;搜索</span>
+            <input type="search" id="searchInput" name="s" placeholder="请输入搜索的关键字"
+                   class="search-input">
+        </div>
+        <div id="searchResult"></div>
+    </div>
+</div>
+
+<script type="text/javascript">
+$(function () {
+    var searchFunc = function (path, search_id, content_id) {
+        'use strict';
+        $.ajax({
+            url: path,
+            dataType: "xml",
+            success: function (xmlResponse) {
+                // get the contents from search data
+                var datas = $("entry", xmlResponse).map(function () {
+                    return {
+                        title: $("title", this).text(),
+                        content: $("content", this).text(),
+                        url: $("url", this).text()
+                    };
+                }).get();
+                var $input = document.getElementById(search_id);
+                var $resultContent = document.getElementById(content_id);
+                $input.addEventListener('input', function () {
+                    var str = '<ul class=\"search-result-list\">';
+                    var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+                    $resultContent.innerHTML = "";
+                    if (this.value.trim().length <= 0) {
+                        return;
+                    }
+                    // perform local searching
+                    datas.forEach(function (data) {
+                        var isMatch = true;
+                        var data_title = data.title.trim().toLowerCase();
+                        var data_content = data.content.trim().replace(/<[^>]+>/g, "").toLowerCase();
+                        var data_url = data.url;
+                        data_url = data_url.indexOf('/') === 0 ? data.url : '/' + data_url;
+                        var index_title = -1;
+                        var index_content = -1;
+                        var first_occur = -1;
+                        // only match artiles with not empty titles and contents
+                        if (data_title !== '' && data_content !== '') {
+                            keywords.forEach(function (keyword, i) {
+                                index_title = data_title.indexOf(keyword);
+                                index_content = data_content.indexOf(keyword);
+                                if (index_title < 0 && index_content < 0) {
+                                    isMatch = false;
+                                } else {
+                                    if (index_content < 0) {
+                                        index_content = 0;
+                                    }
+                                    if (i === 0) {
+                                        first_occur = index_content;
+                                    }
+                                }
+                            });
+                        }
+                        // show search results
+                        if (isMatch) {
+                            str += "<li><a href='" + data_url + "' class='search-result-title'>" + data_title + "</a>";
+                            var content = data.content.trim().replace(/<[^>]+>/g, "");
+                            if (first_occur >= 0) {
+                                // cut out 100 characters
+                                var start = first_occur - 20;
+                                var end = first_occur + 80;
+                                if (start < 0) {
+                                    start = 0;
+                                }
+                                if (start === 0) {
+                                    end = 100;
+                                }
+                                if (end > content.length) {
+                                    end = content.length;
+                                }
+                                var match_content = content.substr(start, end);
+                                // highlight all keywords
+                                keywords.forEach(function (keyword) {
+                                    var regS = new RegExp(keyword, "gi");
+                                    match_content = match_content.replace(regS, "<em class=\"search-keyword\">" + keyword + "</em>");
+                                });
+
+                                str += "<p class=\"search-result\">" + match_content + "...</p>"
+                            }
+                            str += "</li>";
+                        }
+                    });
+                    str += "</ul>";
+                    $resultContent.innerHTML = str;
+                });
+            }
+        });
+    };
+
+    searchFunc('/search.xml', 'searchInput', 'searchResult');
+});
+</script>
+
+    <!-- 回到顶部按钮 -->
+<div id="backTop" class="top-scroll">
+    <a class="btn-floating btn-large waves-effect waves-light" href="#!">
+        <i class="fas fa-arrow-up"></i>
+    </a>
+</div>
+
+
+    <script src="/libs/materialize/materialize.min.js"></script>
+    <script src="/libs/masonry/masonry.pkgd.min.js"></script>
+    <script src="/libs/aos/aos.js"></script>
+    <script src="/libs/scrollprogress/scrollProgress.min.js"></script>
+    <script src="/libs/lightGallery/js/lightgallery-all.min.js"></script>
+    <script src="/js/matery.js"></script>
+
+    <!-- Baidu Analytics -->
+
+    <!-- Baidu Push -->
+
+<script>
+    (function () {
+        var bp = document.createElement('script');
+        var curProtocol = window.location.protocol.split(':')[0];
+        if (curProtocol === 'https') {
+            bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';
+        } else {
+            bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+        }
+        var s = document.getElementsByTagName("script")[0];
+        s.parentNode.insertBefore(bp, s);
+    })();
+</script>
+
+    
+    
+    <script async src="/libs/others/busuanzi.pure.mini.js"></script>
+    
+
+    
+
+    
+
+    <!--腾讯兔小巢-->
+    
+    
+
+    
+
+    
+
+    
+    <script src="/libs/instantpage/instantpage.js" type="module"></script>
+    
+
+</body>
+
+</html>
