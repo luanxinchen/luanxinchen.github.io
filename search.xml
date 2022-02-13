@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>学习计划</title>
+    <url>/2019/11/05/blog-plan/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<ul>
+<li><input checked="" disabled="" type="checkbox"> <strong>SoftetherVPN</strong></li>
+<li><input checked="" disabled="" type="checkbox"> <strong>Prometheus</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Packetfence</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Proxmox</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Deepin-Wine-Ubuntu</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Ansible</strong></li>
+<li><input disabled="" type="checkbox"> <strong>JumpServer</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Webpy实战应用</strong></li>
+<li><input disabled="" type="checkbox"> <strong>RHCE</strong></li>
+<li><input disabled="" type="checkbox"> <strong>CCNP/HCNP</strong></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>Typora阿里云图床配置</title>
     <url>/2021/04/10/aliyunoss/</url>
     <content><![CDATA[<blockquote>
@@ -66,25 +85,6 @@
       </tags>
   </entry>
   <entry>
-    <title>学习计划</title>
-    <url>/2019/11/05/blog-plan/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<ul>
-<li><input checked="" disabled="" type="checkbox"> <strong>SoftetherVPN</strong></li>
-<li><input checked="" disabled="" type="checkbox"> <strong>Prometheus</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Packetfence</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Proxmox</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Deepin-Wine-Ubuntu</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Ansible</strong></li>
-<li><input disabled="" type="checkbox"> <strong>JumpServer</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Webpy实战应用</strong></li>
-<li><input disabled="" type="checkbox"> <strong>RHCE</strong></li>
-<li><input disabled="" type="checkbox"> <strong>CCNP/HCNP</strong></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>Docker Pull Mysql</title>
     <url>/2020/08/21/docker-mysql/</url>
     <content><![CDATA[<h3 id="1-拉取mysql镜像"><a href="#1-拉取mysql镜像" class="headerlink" title="1.拉取mysql镜像"></a>1.拉取mysql镜像</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker pull mysql:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -113,6 +113,31 @@ alter user &#39;root&#39;@&#39;%&#39; identified with mysql_native_password by &
       <tags>
         <tag>Docker</tag>
         <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记一次Ubuntu fsck code4报错处理</title>
+    <url>/2020/05/19/fsck-4/</url>
+    <content><![CDATA[<p>Ubuntu OS在一次断电重启后无法开机，通过BMC发现引导过程中出现如下报错：</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;dev&#x2F;sda1: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY.
+        (i.e., without -a or -p options)
+fsck exited with status code 4
+The root filesystem on &#x2F;dev&#x2F;sda1 requires a manual fsck<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>记录下解决方法</p>
+<span id="more"></span>
+
+<h3 id="出错原因："><a href="#出错原因：" class="headerlink" title="出错原因："></a>出错原因：</h3><p>分区损坏，磁盘检测不能通过，可能是因为系统突然断电或其它未正常关闭系统导致。</p>
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>根据上面的错误提示，可以发现是sda1出错，使用fsck对sda1进行修复：</p>
+<pre class="line-numbers language-none"><code class="language-none">$ fsck  -y &#x2F;dev&#x2F;sda1
+#修复中...
+$ reboot<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>重启后正常引导进入系统。</p>
+]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -165,54 +190,6 @@ $ <span class="token function">git</span> merge dev<span aria-hidden="true" clas
       </tags>
   </entry>
   <entry>
-    <title>记一次Ubuntu fsck code4报错处理</title>
-    <url>/2020/05/19/fsck-4/</url>
-    <content><![CDATA[<p>Ubuntu OS在一次断电重启后无法开机，通过BMC发现引导过程中出现如下报错：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;dev&#x2F;sda1: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY.
-        (i.e., without -a or -p options)
-fsck exited with status code 4
-The root filesystem on &#x2F;dev&#x2F;sda1 requires a manual fsck<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>记录下解决方法</p>
-<span id="more"></span>
-
-<h3 id="出错原因："><a href="#出错原因：" class="headerlink" title="出错原因："></a>出错原因：</h3><p>分区损坏，磁盘检测不能通过，可能是因为系统突然断电或其它未正常关闭系统导致。</p>
-<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>根据上面的错误提示，可以发现是sda1出错，使用fsck对sda1进行修复：</p>
-<pre class="line-numbers language-none"><code class="language-none">$ fsck  -y &#x2F;dev&#x2F;sda1
-#修复中...
-$ reboot<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>重启后正常引导进入系统。</p>
-]]></content>
-      <categories>
-        <category>Ubuntu</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Git代理的使用和取消</title>
-    <url>/2019/10/24/gitproxy/</url>
-    <content><![CDATA[<p>因为git被半墙的原因，部署Hexo时一直卡在git，使用<code>npm config set registry</code>更换npm为淘宝源后，又卡在git clone landscape ，landscape是hexo的默认主题，托管在 Github上，clone 的指令是内置在 hexo-cli 的 install.js 中的。这个时候就算 npm 换源，这一步也绕不过去，看着5Kb/s的clone速度忍不住再一次对GFW爆粗，无奈只能使用代理服务器</p>
-<span id="more"></span>
-
-<h2 id="设置代理"><a href="#设置代理" class="headerlink" title="设置代理"></a>设置代理</h2><h4 id="http-https"><a href="#http-https" class="headerlink" title="http/https"></a>http/https</h4><pre class="line-numbers language-none"><code class="language-none">git config --global https.proxy https:&#x2F;&#x2F;127.0.0.1:1080
-git config --global http.proxy http:&#x2F;&#x2F;127.0.0.1:1080<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h4 id="ss-ssr"><a href="#ss-ssr" class="headerlink" title="ss/ssr"></a>ss/ssr</h4><pre class="line-numbers language-none"><code class="language-none">git config --global https.proxy &#39;socks5:&#x2F;&#x2F;127.0.0.1:1080&#39;
-git config --global http.proxy &#39;socks5:&#x2F;&#x2F;127.0.0.1:1080&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2 id="取消代理"><a href="#取消代理" class="headerlink" title="取消代理"></a>取消代理</h2><pre class="line-numbers language-none"><code class="language-none">git config --global --unset http.proxy
-git config --global --unset https.proxy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>]]></content>
-      <categories>
-        <category>Git</category>
-      </categories>
-      <tags>
-        <tag>Git</tag>
-        <tag>Proxy</tag>
-        <tag>网络</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>GitPage绑定自有域名</title>
     <url>/2021/04/11/hexo-domain-setting/</url>
     <content><![CDATA[<ol>
@@ -246,6 +223,156 @@ git config --global --unset https.proxy<span aria-hidden="true" class="line-numb
       </tags>
   </entry>
   <entry>
+    <title>Git代理的使用和取消</title>
+    <url>/2019/10/24/gitproxy/</url>
+    <content><![CDATA[<p>因为git被半墙的原因，部署Hexo时一直卡在git，使用<code>npm config set registry</code>更换npm为淘宝源后，又卡在git clone landscape ，landscape是hexo的默认主题，托管在 Github上，clone 的指令是内置在 hexo-cli 的 install.js 中的。这个时候就算 npm 换源，这一步也绕不过去，看着5Kb/s的clone速度忍不住再一次对GFW爆粗，无奈只能使用代理服务器</p>
+<span id="more"></span>
+
+<h2 id="设置代理"><a href="#设置代理" class="headerlink" title="设置代理"></a>设置代理</h2><h4 id="http-https"><a href="#http-https" class="headerlink" title="http/https"></a>http/https</h4><pre class="line-numbers language-none"><code class="language-none">git config --global https.proxy https:&#x2F;&#x2F;127.0.0.1:1080
+git config --global http.proxy http:&#x2F;&#x2F;127.0.0.1:1080<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="ss-ssr"><a href="#ss-ssr" class="headerlink" title="ss/ssr"></a>ss/ssr</h4><pre class="line-numbers language-none"><code class="language-none">git config --global https.proxy &#39;socks5:&#x2F;&#x2F;127.0.0.1:1080&#39;
+git config --global http.proxy &#39;socks5:&#x2F;&#x2F;127.0.0.1:1080&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="取消代理"><a href="#取消代理" class="headerlink" title="取消代理"></a>取消代理</h2><pre class="line-numbers language-none"><code class="language-none">git config --global --unset http.proxy
+git config --global --unset https.proxy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>Proxy</tag>
+        <tag>网络</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jumpserver 迁移升级步骤</title>
+    <url>/2021/10/19/jumpserver-upgrade/</url>
+    <content><![CDATA[<blockquote>
+<p>公司原jumpserver环境采用组件容器化部署，根据官方文档所述，未使用installer部署的环境不可直接升级，需要使用installer安装最新版环境后进行数据迁移</p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image.png" alt=""></p>
+</blockquote>
+<h2 id="数据备份"><a href="#数据备份" class="headerlink" title="数据备份"></a>数据备份</h2><p>记录原环境config.yml中的数据库信息以及SECRET_KEY和BOOTSTRAP_TOKEN</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">DB_HOST: 127.0.0.1   # 数据库服务器 IP
+DB_PORT: 3306        # 数据库服务器 端口
+DB_USER: jumpserver  # 连接数据库的用户
+DB_PASSWORD: ******  # 连接数据库用户的密码
+DB_NAME: jumpserver  # JumpServer 使用的数据库
+
+SECRET_KEY: *******************************
+BOOTSTRAP_TOKEN: ************************<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>原环境停机</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">source</span> /opt/py3/bin/activate
+./jms stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>备份整个目录</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">cp</span> /opt/jumpserver /opt/jumpserver_bak<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>备份数据库</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">cp</span> /opt/jumpserver /opt/jumpserver_bak<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>修改数据库字符集</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token keyword">if</span> <span class="token function">grep</span> -q <span class="token string">'COLLATE=utf8_bin'</span> /opt/jumpserver.sql<span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token function">cp</span> /opt/jumpserver.sql /opt/jumpserver_bak.sql
+    <span class="token function">sed</span> -i <span class="token string">'s@ COLLATE=utf8_bin@@g'</span> /opt/jumpserver.sql
+    <span class="token function">sed</span> -i <span class="token string">'s@ COLLATE utf8_bin@@g'</span> /opt/jumpserver.sql
+<span class="token keyword">else</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"备份数据库字符集正确"</span><span class="token punctuation">;</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Installer部署新环境"><a href="#Installer部署新环境" class="headerlink" title="Installer部署新环境"></a>Installer部署新环境</h2><p>jumpserver官方发布仅维护此安装方式</p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-1.png" alt=""></p>
+<p>获取installer安装包</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> /opt
+yum -y <span class="token function">install</span> <span class="token function">wget</span>
+<span class="token function">wget</span> https://github.com/jumpserver/installer/releases/download/v2.14.2/jumpserver-installer-v2.14.2.tar.gz
+<span class="token function">tar</span> -xf jumpserver-installer-v2.14.2.tar.gz
+<span class="token builtin class-name">cd</span> jumpserver-installer-v2.14.2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>修改installer的config.txt文件，填写原环境的BOOTSTRAP_TOKEN和SECRET_KEY</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">***
+<span class="token comment"># Core 配置</span>
+<span class="token comment">### 启动后不能再修改，否则密码等等信息无法解密</span>
+<span class="token assign-left variable">SECRET_KEY</span><span class="token operator">=</span>                           <span class="token comment"># 从旧版本的配置文件获取后填入 (*)</span>
+<span class="token assign-left variable">BOOTSTRAP_TOKEN</span><span class="token operator">=</span>                      <span class="token comment"># 从旧版本的配置文件获取后填入 (*)</span>
+<span class="token assign-left variable">LOG_LEVEL</span><span class="token operator">=</span>ERROR
+<span class="token comment"># SESSION_COOKIE_AGE=86400</span>
+<span class="token assign-left variable">SESSION_EXPIRE_AT_BROWSER_CLOSE</span><span class="token operator">=</span>true  
+***<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>开始部署</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">./jmsctl.sh <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>部署成功后启停一次服务，用于初始化数据库</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">./jmsctl.sh start
+./jmsctl.sh stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="数据迁移"><a href="#数据迁移" class="headerlink" title="数据迁移"></a>数据迁移</h2><p>进入mysql容器</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker <span class="token builtin class-name">exec</span> -it jms_mysql /bin/bash
+mysql -uroot -p<span class="token variable">$MYSQL_ROOT_PASSWORD</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>删除并重新创建默认数据库</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">drop database jumpserver;
+create database jumpserver default charset &#39;utf8&#39;;
+exit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>还原数据</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># /opt/jumpserver.sql 为旧版本数据库</span>
+./jmsctl.sh restore_db /opt/jumpserver.sql
+
+开始还原数据库: /opt/jumpserver.sql
+mysql: <span class="token punctuation">[</span>Warning<span class="token punctuation">]</span> Using a password on the <span class="token builtin class-name">command</span> line interface can be insecure.
+数据库恢复成功！<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>迁移完成，重启服务</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">./jmsctl.sh restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="开启HTTPS"><a href="#开启HTTPS" class="headerlink" title="开启HTTPS"></a>开启HTTPS</h2><p>修改jumpserver config.txt</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /opt/jumpserver/config/config.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>开启nginx HTTPS_PORT</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">## Nginx 配置, USE_LB=1 表示开启, 为 0 的情况下, HTTPS_PORT 定义不生效</span>
+<span class="token assign-left variable">HTTP_PORT</span><span class="token operator">=</span><span class="token number">80</span>
+<span class="token assign-left variable">SSH_PORT</span><span class="token operator">=</span><span class="token number">2222</span>
+<span class="token assign-left variable">RDP_PORT</span><span class="token operator">=</span><span class="token number">3389</span>
+
+<span class="token assign-left variable">USE_LB</span><span class="token operator">=</span><span class="token number">1</span>             <span class="token comment">#修改为1</span>
+<span class="token assign-left variable">HTTPS_PORT</span><span class="token operator">=</span><span class="token number">443</span>       <span class="token comment">#端口默认443</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>导入证书文件</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#将证书文件放置/opt/jumpserver/config/nginx/cert/目录</span>
+ll /opt/jumpserver/config/nginx/cert/
+-rw-r--r--. <span class="token number">1</span> root root jumpserver.transwarp.io.bundle.crt
+-rw-r--r--. <span class="token number">1</span> root root jumpserver.transwarp.io.key.pem<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>修改nginx配置</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /opt/jumpserver/config/nginx/lb_http_server.conf
+
+server <span class="token punctuation">&#123;</span>
+  listen <span class="token number">443</span> ssl<span class="token punctuation">;</span>
+  server_name jumpserver.transwarp.io<span class="token punctuation">;</span>      <span class="token comment"># 取消注释并自行修改成你自己的域名</span>
+  server_tokens off<span class="token punctuation">;</span>
+  ssl_certificate cert/jumpserver.transwarp.io.bundle.crt<span class="token punctuation">;</span>        <span class="token comment"># 修改 server.crt 为你的证书, 不要改路径 certs/</span>
+  ssl_certificate_key cert/jumpserver.transwarp.io.key.pem<span class="token punctuation">;</span>    <span class="token comment"># 修改 server.key 为你的证书, 不要改路径 certs/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>重启服务，https生效</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> /opt/jumpserver-installer-v2.14.2
+./jmsctl.sh restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-2.png" alt=""></p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="https://docs.jumpserver.org/zh/master/install/migration/">https://docs.jumpserver.org/zh/master/install/migration/</a></p>
+<p>最后，Have a nice day~</p>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>堡垒机</tag>
+        <tag>Jumpserver</tag>
+        <tag>运维</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>服务器硬件配置采集脚本</title>
     <url>/2020/08/28/hwinfo/</url>
     <content><![CDATA[<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此脚本主要基于<code>pciutils</code>、<code>dmidecode</code>、<code>smartmontools</code>获取以下硬件配置信息，并通过POST方法触发写入远端数据库。</p>
@@ -270,24 +397,6 @@ git config --global --unset https.proxy<span aria-hidden="true" class="line-numb
       <tags>
         <tag>Server</tag>
         <tag>Hardware</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>linux自定义shell欢迎界面</title>
-    <url>/2020/07/02/motd/</url>
-    <content><![CDATA[<p>1、/etc/issue 本地登陆显示的信息，本地登录前</p>
-<p>2、/etc/issue.net 网络登陆显示的信息，登录后显示，需要由sshd配置</p>
-<p>3、/etc/motd 常用于通告信息，如计划关机时间的警告等，登陆后的提示信息</p>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-20210411151003662.png" alt=""></p>
-<ul>
-<li>Text ART&amp;Emoji：<a href="https://fsymbols.com/text-art/">https://fsymbols.com/text-art/</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -440,6 +549,24 @@ sda               <span class="token number">8</span>:0    <span class="token nu
       </categories>
       <tags>
         <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>linux自定义shell欢迎界面</title>
+    <url>/2020/07/02/motd/</url>
+    <content><![CDATA[<p>1、/etc/issue 本地登陆显示的信息，本地登录前</p>
+<p>2、/etc/issue.net 网络登陆显示的信息，登录后显示，需要由sshd配置</p>
+<p>3、/etc/motd 常用于通告信息，如计划关机时间的警告等，登陆后的提示信息</p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-20210411151003662.png" alt=""></p>
+<ul>
+<li>Text ART&amp;Emoji：<a href="https://fsymbols.com/text-art/">https://fsymbols.com/text-art/</a></li>
+</ul>
+]]></content>
+      <categories>
+        <category>linux</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -757,133 +884,6 @@ bindpw ***
         <tag>proftpd</tag>
         <tag>文件服务器</tag>
         <tag>LDAP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jumpserver 迁移升级步骤</title>
-    <url>/2021/10/19/jumpserver-upgrade/</url>
-    <content><![CDATA[<blockquote>
-<p>公司原jumpserver环境采用组件容器化部署，根据官方文档所述，未使用installer部署的环境不可直接升级，需要使用installer安装最新版环境后进行数据迁移</p>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image.png" alt=""></p>
-</blockquote>
-<h2 id="数据备份"><a href="#数据备份" class="headerlink" title="数据备份"></a>数据备份</h2><p>记录原环境config.yml中的数据库信息以及SECRET_KEY和BOOTSTRAP_TOKEN</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">DB_HOST: 127.0.0.1   # 数据库服务器 IP
-DB_PORT: 3306        # 数据库服务器 端口
-DB_USER: jumpserver  # 连接数据库的用户
-DB_PASSWORD: ******  # 连接数据库用户的密码
-DB_NAME: jumpserver  # JumpServer 使用的数据库
-
-SECRET_KEY: *******************************
-BOOTSTRAP_TOKEN: ************************<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>原环境停机</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">source</span> /opt/py3/bin/activate
-./jms stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>备份整个目录</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">cp</span> /opt/jumpserver /opt/jumpserver_bak<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>备份数据库</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">cp</span> /opt/jumpserver /opt/jumpserver_bak<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>修改数据库字符集</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token keyword">if</span> <span class="token function">grep</span> -q <span class="token string">'COLLATE=utf8_bin'</span> /opt/jumpserver.sql<span class="token punctuation">;</span> <span class="token keyword">then</span>
-    <span class="token function">cp</span> /opt/jumpserver.sql /opt/jumpserver_bak.sql
-    <span class="token function">sed</span> -i <span class="token string">'s@ COLLATE=utf8_bin@@g'</span> /opt/jumpserver.sql
-    <span class="token function">sed</span> -i <span class="token string">'s@ COLLATE utf8_bin@@g'</span> /opt/jumpserver.sql
-<span class="token keyword">else</span>
-    <span class="token builtin class-name">echo</span> <span class="token string">"备份数据库字符集正确"</span><span class="token punctuation">;</span>
-<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Installer部署新环境"><a href="#Installer部署新环境" class="headerlink" title="Installer部署新环境"></a>Installer部署新环境</h2><p>jumpserver官方发布仅维护此安装方式</p>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-1.png" alt=""></p>
-<p>获取installer安装包</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> /opt
-yum -y <span class="token function">install</span> <span class="token function">wget</span>
-<span class="token function">wget</span> https://github.com/jumpserver/installer/releases/download/v2.14.2/jumpserver-installer-v2.14.2.tar.gz
-<span class="token function">tar</span> -xf jumpserver-installer-v2.14.2.tar.gz
-<span class="token builtin class-name">cd</span> jumpserver-installer-v2.14.2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>修改installer的config.txt文件，填写原环境的BOOTSTRAP_TOKEN和SECRET_KEY</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">***
-<span class="token comment"># Core 配置</span>
-<span class="token comment">### 启动后不能再修改，否则密码等等信息无法解密</span>
-<span class="token assign-left variable">SECRET_KEY</span><span class="token operator">=</span>                           <span class="token comment"># 从旧版本的配置文件获取后填入 (*)</span>
-<span class="token assign-left variable">BOOTSTRAP_TOKEN</span><span class="token operator">=</span>                      <span class="token comment"># 从旧版本的配置文件获取后填入 (*)</span>
-<span class="token assign-left variable">LOG_LEVEL</span><span class="token operator">=</span>ERROR
-<span class="token comment"># SESSION_COOKIE_AGE=86400</span>
-<span class="token assign-left variable">SESSION_EXPIRE_AT_BROWSER_CLOSE</span><span class="token operator">=</span>true  
-***<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>开始部署</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">./jmsctl.sh <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>部署成功后启停一次服务，用于初始化数据库</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">./jmsctl.sh start
-./jmsctl.sh stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2 id="数据迁移"><a href="#数据迁移" class="headerlink" title="数据迁移"></a>数据迁移</h2><p>进入mysql容器</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker <span class="token builtin class-name">exec</span> -it jms_mysql /bin/bash
-mysql -uroot -p<span class="token variable">$MYSQL_ROOT_PASSWORD</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>删除并重新创建默认数据库</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">drop database jumpserver;
-create database jumpserver default charset &#39;utf8&#39;;
-exit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>还原数据</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># /opt/jumpserver.sql 为旧版本数据库</span>
-./jmsctl.sh restore_db /opt/jumpserver.sql
-
-开始还原数据库: /opt/jumpserver.sql
-mysql: <span class="token punctuation">[</span>Warning<span class="token punctuation">]</span> Using a password on the <span class="token builtin class-name">command</span> line interface can be insecure.
-数据库恢复成功！<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>迁移完成，重启服务</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">./jmsctl.sh restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="开启HTTPS"><a href="#开启HTTPS" class="headerlink" title="开启HTTPS"></a>开启HTTPS</h2><p>修改jumpserver config.txt</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /opt/jumpserver/config/config.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>开启nginx HTTPS_PORT</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">## Nginx 配置, USE_LB=1 表示开启, 为 0 的情况下, HTTPS_PORT 定义不生效</span>
-<span class="token assign-left variable">HTTP_PORT</span><span class="token operator">=</span><span class="token number">80</span>
-<span class="token assign-left variable">SSH_PORT</span><span class="token operator">=</span><span class="token number">2222</span>
-<span class="token assign-left variable">RDP_PORT</span><span class="token operator">=</span><span class="token number">3389</span>
-
-<span class="token assign-left variable">USE_LB</span><span class="token operator">=</span><span class="token number">1</span>             <span class="token comment">#修改为1</span>
-<span class="token assign-left variable">HTTPS_PORT</span><span class="token operator">=</span><span class="token number">443</span>       <span class="token comment">#端口默认443</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>导入证书文件</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#将证书文件放置/opt/jumpserver/config/nginx/cert/目录</span>
-ll /opt/jumpserver/config/nginx/cert/
--rw-r--r--. <span class="token number">1</span> root root jumpserver.transwarp.io.bundle.crt
--rw-r--r--. <span class="token number">1</span> root root jumpserver.transwarp.io.key.pem<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>修改nginx配置</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /opt/jumpserver/config/nginx/lb_http_server.conf
-
-server <span class="token punctuation">&#123;</span>
-  listen <span class="token number">443</span> ssl<span class="token punctuation">;</span>
-  server_name jumpserver.transwarp.io<span class="token punctuation">;</span>      <span class="token comment"># 取消注释并自行修改成你自己的域名</span>
-  server_tokens off<span class="token punctuation">;</span>
-  ssl_certificate cert/jumpserver.transwarp.io.bundle.crt<span class="token punctuation">;</span>        <span class="token comment"># 修改 server.crt 为你的证书, 不要改路径 certs/</span>
-  ssl_certificate_key cert/jumpserver.transwarp.io.key.pem<span class="token punctuation">;</span>    <span class="token comment"># 修改 server.key 为你的证书, 不要改路径 certs/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>重启服务，https生效</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> /opt/jumpserver-installer-v2.14.2
-./jmsctl.sh restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-2.png" alt=""></p>
-<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="https://docs.jumpserver.org/zh/master/install/migration/">https://docs.jumpserver.org/zh/master/install/migration/</a></p>
-<p>最后，Have a nice day~</p>
-]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>运维</tag>
-        <tag>堡垒机</tag>
-        <tag>Jumpserver</tag>
       </tags>
   </entry>
   <entry>
