@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>学习计划</title>
-    <url>/2019/11/05/blog-plan/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<ul>
-<li><input checked="" disabled="" type="checkbox"> <strong>SoftetherVPN</strong></li>
-<li><input checked="" disabled="" type="checkbox"> <strong>Prometheus</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Packetfence</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Proxmox</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Deepin-Wine-Ubuntu</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Ansible</strong></li>
-<li><input disabled="" type="checkbox"> <strong>JumpServer</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Webpy实战应用</strong></li>
-<li><input disabled="" type="checkbox"> <strong>RHCE</strong></li>
-<li><input disabled="" type="checkbox"> <strong>CCNP/HCNP</strong></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>Typora阿里云图床配置</title>
     <url>/2021/04/10/aliyunoss/</url>
     <content><![CDATA[<blockquote>
@@ -83,6 +64,25 @@
         <tag>CDN</tag>
         <tag>OSS</tag>
       </tags>
+  </entry>
+  <entry>
+    <title>学习计划</title>
+    <url>/2019/11/05/blog-plan/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<ul>
+<li><input checked="" disabled="" type="checkbox"> <strong>SoftetherVPN</strong></li>
+<li><input checked="" disabled="" type="checkbox"> <strong>Prometheus</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Packetfence</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Proxmox</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Deepin-Wine-Ubuntu</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Ansible</strong></li>
+<li><input disabled="" type="checkbox"> <strong>JumpServer</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Webpy实战应用</strong></li>
+<li><input disabled="" type="checkbox"> <strong>RHCE</strong></li>
+<li><input disabled="" type="checkbox"> <strong>CCNP/HCNP</strong></li>
+</ul>
+]]></content>
   </entry>
   <entry>
     <title>Docker Pull Mysql</title>
@@ -190,6 +190,29 @@ $ <span class="token function">git</span> merge dev<span aria-hidden="true" clas
       </tags>
   </entry>
   <entry>
+    <title>Git代理的使用和取消</title>
+    <url>/2019/10/24/gitproxy/</url>
+    <content><![CDATA[<p>因为git被半墙的原因，部署Hexo时一直卡在git，使用<code>npm config set registry</code>更换npm为淘宝源后，又卡在git clone landscape ，landscape是hexo的默认主题，托管在 Github上，clone 的指令是内置在 hexo-cli 的 install.js 中的。这个时候就算 npm 换源，这一步也绕不过去，看着5Kb/s的clone速度忍不住再一次对GFW爆粗，无奈只能使用代理服务器</p>
+<span id="more"></span>
+
+<h2 id="设置代理"><a href="#设置代理" class="headerlink" title="设置代理"></a>设置代理</h2><h4 id="http-https"><a href="#http-https" class="headerlink" title="http/https"></a>http/https</h4><pre class="line-numbers language-none"><code class="language-none">git config --global https.proxy https:&#x2F;&#x2F;127.0.0.1:1080
+git config --global http.proxy http:&#x2F;&#x2F;127.0.0.1:1080<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h4 id="ss-ssr"><a href="#ss-ssr" class="headerlink" title="ss/ssr"></a>ss/ssr</h4><pre class="line-numbers language-none"><code class="language-none">git config --global https.proxy &#39;socks5:&#x2F;&#x2F;127.0.0.1:1080&#39;
+git config --global http.proxy &#39;socks5:&#x2F;&#x2F;127.0.0.1:1080&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="取消代理"><a href="#取消代理" class="headerlink" title="取消代理"></a>取消代理</h2><pre class="line-numbers language-none"><code class="language-none">git config --global --unset http.proxy
+git config --global --unset https.proxy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>]]></content>
+      <categories>
+        <category>Git</category>
+      </categories>
+      <tags>
+        <tag>Git</tag>
+        <tag>Proxy</tag>
+        <tag>网络</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>GitPage绑定自有域名</title>
     <url>/2021/04/11/hexo-domain-setting/</url>
     <content><![CDATA[<ol>
@@ -223,26 +246,30 @@ $ <span class="token function">git</span> merge dev<span aria-hidden="true" clas
       </tags>
   </entry>
   <entry>
-    <title>Git代理的使用和取消</title>
-    <url>/2019/10/24/gitproxy/</url>
-    <content><![CDATA[<p>因为git被半墙的原因，部署Hexo时一直卡在git，使用<code>npm config set registry</code>更换npm为淘宝源后，又卡在git clone landscape ，landscape是hexo的默认主题，托管在 Github上，clone 的指令是内置在 hexo-cli 的 install.js 中的。这个时候就算 npm 换源，这一步也绕不过去，看着5Kb/s的clone速度忍不住再一次对GFW爆粗，无奈只能使用代理服务器</p>
+    <title>服务器硬件配置采集脚本</title>
+    <url>/2020/08/28/hwinfo/</url>
+    <content><![CDATA[<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此脚本主要基于<code>pciutils</code>、<code>dmidecode</code>、<code>smartmontools</code>获取以下硬件配置信息，并通过POST方法触发写入远端数据库。</p>
+<ul>
+<li>系统信息：系统厂商、型号、序列号、Hostname、操作系统版本、内核版本、ip地址.</li>
+<li>CPU信息：CPU型号、物理CPU数量、每CPU核心数量、总线程数量.</li>
+<li>内存信息：内存总容量、内存插槽总数、已用内存插槽数量、插槽类型、遍历各插槽内存容量&amp;频率.</li>
+<li>硬盘信息：硬盘总数量、遍历硬盘型号&amp;容量&amp;规格.</li>
+<li>网卡信息：网卡总数量、遍历网卡型号.</li>
+</ul>
 <span id="more"></span>
 
-<h2 id="设置代理"><a href="#设置代理" class="headerlink" title="设置代理"></a>设置代理</h2><h4 id="http-https"><a href="#http-https" class="headerlink" title="http/https"></a>http/https</h4><pre class="line-numbers language-none"><code class="language-none">git config --global https.proxy https:&#x2F;&#x2F;127.0.0.1:1080
-git config --global http.proxy http:&#x2F;&#x2F;127.0.0.1:1080<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h4 id="ss-ssr"><a href="#ss-ssr" class="headerlink" title="ss/ssr"></a>ss/ssr</h4><pre class="line-numbers language-none"><code class="language-none">git config --global https.proxy &#39;socks5:&#x2F;&#x2F;127.0.0.1:1080&#39;
-git config --global http.proxy &#39;socks5:&#x2F;&#x2F;127.0.0.1:1080&#39;<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2 id="取消代理"><a href="#取消代理" class="headerlink" title="取消代理"></a>取消代理</h2><pre class="line-numbers language-none"><code class="language-none">git config --global --unset http.proxy
-git config --global --unset https.proxy<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>]]></content>
+<h3 id="系统支持"><a href="#系统支持" class="headerlink" title="系统支持"></a>系统支持</h3><p>CentOS7+、RHEL7+、Ubuntu16+、UOS2.0、Neokylin4.0+</p>
+<h3 id="执行脚本"><a href="#执行脚本" class="headerlink" title="执行脚本"></a>执行脚本</h3><p>切换到root用户并执行以下命令：</p>
+<p><code>. &lt;(curl -Ls https://raw.githubusercontent.com/luanxinchen/hwInfo/master/hwinfo.sh)</code></p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/005DqEfjgy1girbhpro8yj30hj0j0aba.jpg" alt=""></p>
+<h3 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h3><p><a href="https://github.com/luanxinchen/hwInfo">https://github.com/luanxinchen/hwInfo</a></p>
+]]></content>
       <categories>
-        <category>Git</category>
+        <category>Server</category>
       </categories>
       <tags>
-        <tag>Git</tag>
-        <tag>Proxy</tag>
-        <tag>网络</tag>
+        <tag>Server</tag>
+        <tag>Hardware</tag>
       </tags>
   </entry>
   <entry>
@@ -370,33 +397,6 @@ server <span class="token punctuation">&#123;</span>
         <tag>堡垒机</tag>
         <tag>Jumpserver</tag>
         <tag>运维</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>服务器硬件配置采集脚本</title>
-    <url>/2020/08/28/hwinfo/</url>
-    <content><![CDATA[<h3 id="说明"><a href="#说明" class="headerlink" title="说明"></a>说明</h3><p>此脚本主要基于<code>pciutils</code>、<code>dmidecode</code>、<code>smartmontools</code>获取以下硬件配置信息，并通过POST方法触发写入远端数据库。</p>
-<ul>
-<li>系统信息：系统厂商、型号、序列号、Hostname、操作系统版本、内核版本、ip地址.</li>
-<li>CPU信息：CPU型号、物理CPU数量、每CPU核心数量、总线程数量.</li>
-<li>内存信息：内存总容量、内存插槽总数、已用内存插槽数量、插槽类型、遍历各插槽内存容量&amp;频率.</li>
-<li>硬盘信息：硬盘总数量、遍历硬盘型号&amp;容量&amp;规格.</li>
-<li>网卡信息：网卡总数量、遍历网卡型号.</li>
-</ul>
-<span id="more"></span>
-
-<h3 id="系统支持"><a href="#系统支持" class="headerlink" title="系统支持"></a>系统支持</h3><p>CentOS7+、RHEL7+、Ubuntu16+、UOS2.0、Neokylin4.0+</p>
-<h3 id="执行脚本"><a href="#执行脚本" class="headerlink" title="执行脚本"></a>执行脚本</h3><p>切换到root用户并执行以下命令：</p>
-<p><code>. &lt;(curl -Ls https://raw.githubusercontent.com/luanxinchen/hwInfo/master/hwinfo.sh)</code></p>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/005DqEfjgy1girbhpro8yj30hj0j0aba.jpg" alt=""></p>
-<h3 id="项目地址"><a href="#项目地址" class="headerlink" title="项目地址"></a>项目地址</h3><p><a href="https://github.com/luanxinchen/hwInfo">https://github.com/luanxinchen/hwInfo</a></p>
-]]></content>
-      <categories>
-        <category>Server</category>
-      </categories>
-      <tags>
-        <tag>Server</tag>
-        <tag>Hardware</tag>
       </tags>
   </entry>
   <entry>
@@ -533,22 +533,6 @@ sda               <span class="token number">8</span>:0    <span class="token nu
       <tags>
         <tag>运维</tag>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Mysql语法收集</title>
-    <url>/2020/07/02/mysql-manual/</url>
-    <content><![CDATA[<h5 id="增加主键id并自增"><a href="#增加主键id并自增" class="headerlink" title="增加主键id并自增"></a>增加主键id并自增</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter table hwinfo add id int not null primary key Auto_increment  first;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h5 id="调整字段顺序"><a href="#调整字段顺序" class="headerlink" title="调整字段顺序"></a>调整字段顺序</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">ALTER table hwinfo change &#96;test1&#96; &#96;tese1&#96; varchar(100) after &#96;test2&#96;
-#将test1字段调整到test2后面<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<span id="more"></span>]]></content>
-      <categories>
-        <category>Mysql</category>
-      </categories>
-      <tags>
-        <tag>Mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -887,6 +871,22 @@ bindpw ***
       </tags>
   </entry>
   <entry>
+    <title>Mysql语法收集</title>
+    <url>/2020/07/02/mysql-manual/</url>
+    <content><![CDATA[<h5 id="增加主键id并自增"><a href="#增加主键id并自增" class="headerlink" title="增加主键id并自增"></a>增加主键id并自增</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter table hwinfo add id int not null primary key Auto_increment  first;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="调整字段顺序"><a href="#调整字段顺序" class="headerlink" title="调整字段顺序"></a>调整字段顺序</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">ALTER table hwinfo change &#96;test1&#96; &#96;tese1&#96; varchar(100) after &#96;test2&#96;
+#将test1字段调整到test2后面<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<span id="more"></span>]]></content>
+      <categories>
+        <category>Mysql</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>RHCE认证笔记</title>
     <url>/2020/06/19/rhce/</url>
     <content><![CDATA[<h4 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h4><p>RHCE：Red Hat Certified Engineer. RedHat 认证工程师</p>
@@ -1002,123 +1002,6 @@ daemon<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
       <tags>
         <tag>linux</tag>
         <tag>RHEL</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SNMP_Exporter增加自定义metrics</title>
-    <url>/2021/01/18/snmp-custom-metrics/</url>
-    <content><![CDATA[<h2 id="一、前提条件"><a href="#一、前提条件" class="headerlink" title="一、前提条件"></a>一、前提条件</h2><ul>
-<li>目标SNMP设备开启SNMP并配置读写组权限</li>
-<li>snmptranslate、snmpwalk客户端（用于调试）</li>
-<li>snmp_exporter的generator环境</li>
-<li>目标SNMP设备的对应mib文件</li>
-</ul>
-<h3 id="generator环境"><a href="#generator环境" class="headerlink" title="generator环境"></a>generator环境</h3><p><a href="https://github.com/prometheus/snmp_exporter/tree/master/generator">https://github.com/prometheus/snmp_exporter/tree/master/generator</a></p>
-<p>clone到本地后使用go编译为可执行文件</p>
-<h3 id="snmptranslate、snmpwalk"><a href="#snmptranslate、snmpwalk" class="headerlink" title="snmptranslate、snmpwalk"></a>snmptranslate、snmpwalk</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum <span class="token function">install</span> net-snmp net-snmp-utils net-snmp-libs net-snmp-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="二、步骤"><a href="#二、步骤" class="headerlink" title="二、步骤"></a>二、步骤</h2><ol>
-<li>开启SNMP功能并配置加密算法、读写组等（这里以华为TS200服务器举例）</li>
-</ol>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-7.png" alt=""></p>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-8.png" alt=""></p>
-<ol start="2">
-<li>将下载的对应snmp设备型号的mib文件，上传到generator环境</li>
-</ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># ll mibs/huawei/</span>
-total <span class="token number">748</span>
--rw-r--r-- <span class="token number">1</span> root root <span class="token number">761950</span> Jan <span class="token number">18</span> <span class="token number">14</span>:51 HUAWEI-SERVER-iBMC-MIB.mib<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<ol start="3">
-<li>使用snmptranslate检索需要抓取的metrics OID，这里以温度监控为例</li>
-</ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># snmptranslate -Tz -m mibs/huawei/HUAWEI-SERVER-iBMC-MIB.mib |grep -i temperatureReading</span>
-<span class="token string">"temperatureReading"</span>                    <span class="token string">"1.3.6.1.4.1.2011.2.235.1.1.26.50.1.3"</span>
-<span class="token comment">#温度读数OID为1.3.6.1.4.1.2011.2.235.1.1.26.50.1.3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<ol start="4">
-<li>使用snmpbulkwalk获取指定OID的snmp取值，校验与实际值是否吻合</li>
-</ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># snmpbulkwalk -v3 -l authPriv -u "Administrator" -a SHA -A "Admin@9999" -x AES -X "Admin@9999" 172.26.3.134 1.3.6.1.4.1.2011.2.235.1.1.26.50.1.3</span>
-SNMPv2-SMI::enterprises.2011.2.235.1.1.26.50.1.3.1 <span class="token operator">=</span> INTEGER: <span class="token number">240</span>
-SNMPv2-SMI::enterprises.2011.2.235.1.1.26.50.1.3.2 <span class="token operator">=</span> INTEGER: <span class="token number">450</span>
-SNMPv2-SMI::enterprises.2011.2.235.1.1.26.50.1.3.3 <span class="token operator">=</span> INTEGER: <span class="token number">520</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>​    通过Object读数得知，上面获取到的三个值分别为进风温度、CPU1温度、CPU2温度，下面校验一下与BMC获取的温度是否一致（这里需要注意：snmp取值/10=实际值）</p>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-9.png" alt=""></p>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-10.png" alt=""></p>
-<p>​    经校验，snmp取值与实际温度值一致，该OID可用。</p>
-<ol start="5">
-<li>编辑generator.yml文件</li>
-</ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># cat generator.yml</span>
-modules:
-  huawei:
-    walk:
-    - <span class="token number">1.3</span>.6.1.4.1.2011.2.235.1.1.26.50.1.3
-    version: <span class="token number">3</span>
-    timeout: 30s
-    auth:
-      community: public
-      security_level: authPriv
-      username: <span class="token string">"Administrator"</span>
-      password: <span class="token string">"Admin@9999"</span>
-      auth_protocol: SHA
-      priv_protocol: AES
-      priv_password: <span class="token string">"Admin@9999"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol start="6">
-<li>使用generator生成snmp_exporter配置文件</li>
-</ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># export MIBDIRS=/root/snmp_exporter-master/generator/mibs</span>
-<span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># cp mibs/huawei/HUAWEI-SERVER-iBMC-MIB.mib mibs/</span>
-<span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># ./generator generate</span>
-<span class="token assign-left variable">level</span><span class="token operator">=</span>info <span class="token assign-left variable">ts</span><span class="token operator">=</span><span class="token number">2021</span>-01-18T07:38:37.110Z <span class="token assign-left variable">caller</span><span class="token operator">=</span>net_snmp.go:142 <span class="token assign-left variable">msg</span><span class="token operator">=</span><span class="token string">"Loading MIBs"</span> <span class="token assign-left variable">from</span><span class="token operator">=</span>/root/snmp_exporter-master/generator/mibs
-<span class="token assign-left variable">level</span><span class="token operator">=</span>info <span class="token assign-left variable">ts</span><span class="token operator">=</span><span class="token number">2021</span>-01-18T07:38:37.368Z <span class="token assign-left variable">caller</span><span class="token operator">=</span>main.go:52 <span class="token assign-left variable">msg</span><span class="token operator">=</span><span class="token string">"Generating config for module"</span> <span class="token assign-left variable">module</span><span class="token operator">=</span>huawei
-<span class="token assign-left variable">level</span><span class="token operator">=</span>info <span class="token assign-left variable">ts</span><span class="token operator">=</span><span class="token number">2021</span>-01-18T07:38:37.392Z <span class="token assign-left variable">caller</span><span class="token operator">=</span>main.go:67 <span class="token assign-left variable">msg</span><span class="token operator">=</span><span class="token string">"Generated metrics"</span> <span class="token assign-left variable">module</span><span class="token operator">=</span>huawei <span class="token assign-left variable">metrics</span><span class="token operator">=</span><span class="token number">1</span>
-<span class="token assign-left variable">level</span><span class="token operator">=</span>info <span class="token assign-left variable">ts</span><span class="token operator">=</span><span class="token number">2021</span>-01-18T07:38:37.392Z <span class="token assign-left variable">caller</span><span class="token operator">=</span>main.go:92 <span class="token assign-left variable">msg</span><span class="token operator">=</span><span class="token string">"Config written"</span> <span class="token assign-left variable">file</span><span class="token operator">=</span>/root/snmp_exporter-master/generator/snmp.yml
-<span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># cat snmp.yml</span>
-<span class="token comment"># WARNING: This file was auto-generated using snmp_exporter generator, manual changes will be lost.</span>
-huawei:
-  walk:
-  - <span class="token number">1.3</span>.6.1.4.1.2011.2.235.1.1.26.50.1.3
-  metrics:
-  - name: temperatureReading
-    oid: <span class="token number">1.3</span>.6.1.4.1.2011.2.235.1.1.26.50.1.3
-    type: gauge
-    help: Information about temperature reading,the unit is <span class="token number">1</span>/10 Celsius degree -
-      <span class="token number">1.3</span>.6.1.4.1.2011.2.235.1.1.26.50.1.3
-    indexes:
-    - labelname: temperatureIndex
-      type: gauge
-  version: <span class="token number">3</span>
-  timeout: 30s
-  auth:
-    community: public
-    security_level: authPriv
-    username: Administrator
-    password: Admin@9999
-    auth_protocol: SHA
-    priv_protocol: AES
-    priv_password: Admin@9999<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol start="7">
-<li>把生成的配置复制到snmp_exporter.yml中，重启snmp_exporter生效，测试读数是否正确</li>
-</ol>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-11.png" alt="img"></p>
-<ol start="8">
-<li>成功获取snmp读数，metrics添加完成。</li>
-</ol>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-12.png" alt="img"></p>
-]]></content>
-      <categories>
-        <category>Prometheus</category>
-      </categories>
-      <tags>
-        <tag>运维</tag>
-        <tag>监控</tag>
-        <tag>Prometheus</tag>
-        <tag>SNMP</tag>
       </tags>
   </entry>
   <entry>
@@ -1458,6 +1341,123 @@ foot <span class="token operator">=</span> <span class="token triple-quoted-stri
         <tag>运维</tag>
         <tag>LDAP</tag>
         <tag>Squid</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SNMP_Exporter增加自定义metrics</title>
+    <url>/2021/01/18/snmp-custom-metrics/</url>
+    <content><![CDATA[<h2 id="一、前提条件"><a href="#一、前提条件" class="headerlink" title="一、前提条件"></a>一、前提条件</h2><ul>
+<li>目标SNMP设备开启SNMP并配置读写组权限</li>
+<li>snmptranslate、snmpwalk客户端（用于调试）</li>
+<li>snmp_exporter的generator环境</li>
+<li>目标SNMP设备的对应mib文件</li>
+</ul>
+<h3 id="generator环境"><a href="#generator环境" class="headerlink" title="generator环境"></a>generator环境</h3><p><a href="https://github.com/prometheus/snmp_exporter/tree/master/generator">https://github.com/prometheus/snmp_exporter/tree/master/generator</a></p>
+<p>clone到本地后使用go编译为可执行文件</p>
+<h3 id="snmptranslate、snmpwalk"><a href="#snmptranslate、snmpwalk" class="headerlink" title="snmptranslate、snmpwalk"></a>snmptranslate、snmpwalk</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum <span class="token function">install</span> net-snmp net-snmp-utils net-snmp-libs net-snmp-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="二、步骤"><a href="#二、步骤" class="headerlink" title="二、步骤"></a>二、步骤</h2><ol>
+<li>开启SNMP功能并配置加密算法、读写组等（这里以华为TS200服务器举例）</li>
+</ol>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-7.png" alt=""></p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-8.png" alt=""></p>
+<ol start="2">
+<li>将下载的对应snmp设备型号的mib文件，上传到generator环境</li>
+</ol>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># ll mibs/huawei/</span>
+total <span class="token number">748</span>
+-rw-r--r-- <span class="token number">1</span> root root <span class="token number">761950</span> Jan <span class="token number">18</span> <span class="token number">14</span>:51 HUAWEI-SERVER-iBMC-MIB.mib<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ol start="3">
+<li>使用snmptranslate检索需要抓取的metrics OID，这里以温度监控为例</li>
+</ol>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># snmptranslate -Tz -m mibs/huawei/HUAWEI-SERVER-iBMC-MIB.mib |grep -i temperatureReading</span>
+<span class="token string">"temperatureReading"</span>                    <span class="token string">"1.3.6.1.4.1.2011.2.235.1.1.26.50.1.3"</span>
+<span class="token comment">#温度读数OID为1.3.6.1.4.1.2011.2.235.1.1.26.50.1.3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ol start="4">
+<li>使用snmpbulkwalk获取指定OID的snmp取值，校验与实际值是否吻合</li>
+</ol>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># snmpbulkwalk -v3 -l authPriv -u "Administrator" -a SHA -A "Admin@9999" -x AES -X "Admin@9999" 172.26.3.134 1.3.6.1.4.1.2011.2.235.1.1.26.50.1.3</span>
+SNMPv2-SMI::enterprises.2011.2.235.1.1.26.50.1.3.1 <span class="token operator">=</span> INTEGER: <span class="token number">240</span>
+SNMPv2-SMI::enterprises.2011.2.235.1.1.26.50.1.3.2 <span class="token operator">=</span> INTEGER: <span class="token number">450</span>
+SNMPv2-SMI::enterprises.2011.2.235.1.1.26.50.1.3.3 <span class="token operator">=</span> INTEGER: <span class="token number">520</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​    通过Object读数得知，上面获取到的三个值分别为进风温度、CPU1温度、CPU2温度，下面校验一下与BMC获取的温度是否一致（这里需要注意：snmp取值/10=实际值）</p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-9.png" alt=""></p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-10.png" alt=""></p>
+<p>​    经校验，snmp取值与实际温度值一致，该OID可用。</p>
+<ol start="5">
+<li>编辑generator.yml文件</li>
+</ol>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># cat generator.yml</span>
+modules:
+  huawei:
+    walk:
+    - <span class="token number">1.3</span>.6.1.4.1.2011.2.235.1.1.26.50.1.3
+    version: <span class="token number">3</span>
+    timeout: 30s
+    auth:
+      community: public
+      security_level: authPriv
+      username: <span class="token string">"Administrator"</span>
+      password: <span class="token string">"Admin@9999"</span>
+      auth_protocol: SHA
+      priv_protocol: AES
+      priv_password: <span class="token string">"Admin@9999"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="6">
+<li>使用generator生成snmp_exporter配置文件</li>
+</ol>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># export MIBDIRS=/root/snmp_exporter-master/generator/mibs</span>
+<span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># cp mibs/huawei/HUAWEI-SERVER-iBMC-MIB.mib mibs/</span>
+<span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># ./generator generate</span>
+<span class="token assign-left variable">level</span><span class="token operator">=</span>info <span class="token assign-left variable">ts</span><span class="token operator">=</span><span class="token number">2021</span>-01-18T07:38:37.110Z <span class="token assign-left variable">caller</span><span class="token operator">=</span>net_snmp.go:142 <span class="token assign-left variable">msg</span><span class="token operator">=</span><span class="token string">"Loading MIBs"</span> <span class="token assign-left variable">from</span><span class="token operator">=</span>/root/snmp_exporter-master/generator/mibs
+<span class="token assign-left variable">level</span><span class="token operator">=</span>info <span class="token assign-left variable">ts</span><span class="token operator">=</span><span class="token number">2021</span>-01-18T07:38:37.368Z <span class="token assign-left variable">caller</span><span class="token operator">=</span>main.go:52 <span class="token assign-left variable">msg</span><span class="token operator">=</span><span class="token string">"Generating config for module"</span> <span class="token assign-left variable">module</span><span class="token operator">=</span>huawei
+<span class="token assign-left variable">level</span><span class="token operator">=</span>info <span class="token assign-left variable">ts</span><span class="token operator">=</span><span class="token number">2021</span>-01-18T07:38:37.392Z <span class="token assign-left variable">caller</span><span class="token operator">=</span>main.go:67 <span class="token assign-left variable">msg</span><span class="token operator">=</span><span class="token string">"Generated metrics"</span> <span class="token assign-left variable">module</span><span class="token operator">=</span>huawei <span class="token assign-left variable">metrics</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">level</span><span class="token operator">=</span>info <span class="token assign-left variable">ts</span><span class="token operator">=</span><span class="token number">2021</span>-01-18T07:38:37.392Z <span class="token assign-left variable">caller</span><span class="token operator">=</span>main.go:92 <span class="token assign-left variable">msg</span><span class="token operator">=</span><span class="token string">"Config written"</span> <span class="token assign-left variable">file</span><span class="token operator">=</span>/root/snmp_exporter-master/generator/snmp.yml
+<span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># cat snmp.yml</span>
+<span class="token comment"># WARNING: This file was auto-generated using snmp_exporter generator, manual changes will be lost.</span>
+huawei:
+  walk:
+  - <span class="token number">1.3</span>.6.1.4.1.2011.2.235.1.1.26.50.1.3
+  metrics:
+  - name: temperatureReading
+    oid: <span class="token number">1.3</span>.6.1.4.1.2011.2.235.1.1.26.50.1.3
+    type: gauge
+    help: Information about temperature reading,the unit is <span class="token number">1</span>/10 Celsius degree -
+      <span class="token number">1.3</span>.6.1.4.1.2011.2.235.1.1.26.50.1.3
+    indexes:
+    - labelname: temperatureIndex
+      type: gauge
+  version: <span class="token number">3</span>
+  timeout: 30s
+  auth:
+    community: public
+    security_level: authPriv
+    username: Administrator
+    password: Admin@9999
+    auth_protocol: SHA
+    priv_protocol: AES
+    priv_password: Admin@9999<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="7">
+<li>把生成的配置复制到snmp_exporter.yml中，重启snmp_exporter生效，测试读数是否正确</li>
+</ol>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-11.png" alt="img"></p>
+<ol start="8">
+<li>成功获取snmp读数，metrics添加完成。</li>
+</ol>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-12.png" alt="img"></p>
+]]></content>
+      <categories>
+        <category>Prometheus</category>
+      </categories>
+      <tags>
+        <tag>运维</tag>
+        <tag>监控</tag>
+        <tag>Prometheus</tag>
+        <tag>SNMP</tag>
       </tags>
   </entry>
   <entry>
