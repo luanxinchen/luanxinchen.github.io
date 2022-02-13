@@ -1,25 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>学习计划</title>
-    <url>/2019/11/05/blog-plan/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<ul>
-<li><input checked="" disabled="" type="checkbox"> <strong>SoftetherVPN</strong></li>
-<li><input checked="" disabled="" type="checkbox"> <strong>Prometheus</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Packetfence</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Proxmox</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Deepin-Wine-Ubuntu</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Ansible</strong></li>
-<li><input disabled="" type="checkbox"> <strong>JumpServer</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Webpy实战应用</strong></li>
-<li><input disabled="" type="checkbox"> <strong>RHCE</strong></li>
-<li><input disabled="" type="checkbox"> <strong>CCNP/HCNP</strong></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>Typora阿里云图床配置</title>
     <url>/2021/04/10/aliyunoss/</url>
     <content><![CDATA[<blockquote>
@@ -85,6 +66,25 @@
       </tags>
   </entry>
   <entry>
+    <title>学习计划</title>
+    <url>/2019/11/05/blog-plan/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<ul>
+<li><input checked="" disabled="" type="checkbox"> <strong>SoftetherVPN</strong></li>
+<li><input checked="" disabled="" type="checkbox"> <strong>Prometheus</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Packetfence</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Proxmox</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Deepin-Wine-Ubuntu</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Ansible</strong></li>
+<li><input disabled="" type="checkbox"> <strong>JumpServer</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Webpy实战应用</strong></li>
+<li><input disabled="" type="checkbox"> <strong>RHCE</strong></li>
+<li><input disabled="" type="checkbox"> <strong>CCNP/HCNP</strong></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>Docker Pull Mysql</title>
     <url>/2020/08/21/docker-mysql/</url>
     <content><![CDATA[<h3 id="1-拉取mysql镜像"><a href="#1-拉取mysql镜像" class="headerlink" title="1.拉取mysql镜像"></a>1.拉取mysql镜像</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker pull mysql:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -113,31 +113,6 @@ alter user &#39;root&#39;@&#39;%&#39; identified with mysql_native_password by &
       <tags>
         <tag>Docker</tag>
         <tag>Mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记一次Ubuntu fsck code4报错处理</title>
-    <url>/2020/05/19/fsck-4/</url>
-    <content><![CDATA[<p>Ubuntu OS在一次断电重启后无法开机，通过BMC发现引导过程中出现如下报错：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;dev&#x2F;sda1: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY.
-        (i.e., without -a or -p options)
-fsck exited with status code 4
-The root filesystem on &#x2F;dev&#x2F;sda1 requires a manual fsck<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>记录下解决方法</p>
-<span id="more"></span>
-
-<h3 id="出错原因："><a href="#出错原因：" class="headerlink" title="出错原因："></a>出错原因：</h3><p>分区损坏，磁盘检测不能通过，可能是因为系统突然断电或其它未正常关闭系统导致。</p>
-<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>根据上面的错误提示，可以发现是sda1出错，使用fsck对sda1进行修复：</p>
-<pre class="line-numbers language-none"><code class="language-none">$ fsck  -y &#x2F;dev&#x2F;sda1
-#修复中...
-$ reboot<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>重启后正常引导进入系统。</p>
-]]></content>
-      <categories>
-        <category>Ubuntu</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -187,6 +162,31 @@ $ <span class="token function">git</span> merge dev<span aria-hidden="true" clas
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记一次Ubuntu fsck code4报错处理</title>
+    <url>/2020/05/19/fsck-4/</url>
+    <content><![CDATA[<p>Ubuntu OS在一次断电重启后无法开机，通过BMC发现引导过程中出现如下报错：</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;dev&#x2F;sda1: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY.
+        (i.e., without -a or -p options)
+fsck exited with status code 4
+The root filesystem on &#x2F;dev&#x2F;sda1 requires a manual fsck<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>记录下解决方法</p>
+<span id="more"></span>
+
+<h3 id="出错原因："><a href="#出错原因：" class="headerlink" title="出错原因："></a>出错原因：</h3><p>分区损坏，磁盘检测不能通过，可能是因为系统突然断电或其它未正常关闭系统导致。</p>
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>根据上面的错误提示，可以发现是sda1出错，使用fsck对sda1进行修复：</p>
+<pre class="line-numbers language-none"><code class="language-none">$ fsck  -y &#x2F;dev&#x2F;sda1
+#修复中...
+$ reboot<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>重启后正常引导进入系统。</p>
+]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -273,130 +273,21 @@ git config --global --unset https.proxy<span aria-hidden="true" class="line-numb
       </tags>
   </entry>
   <entry>
-    <title>Jumpserver 迁移升级步骤</title>
-    <url>/2021/10/19/jumpserver-upgrade/</url>
-    <content><![CDATA[<blockquote>
-<p>公司原jumpserver环境采用组件容器化部署，根据官方文档所述，未使用installer部署的环境不可直接升级，需要使用installer安装最新版环境后进行数据迁移</p>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image.png" alt=""></p>
-</blockquote>
-<h2 id="数据备份"><a href="#数据备份" class="headerlink" title="数据备份"></a>数据备份</h2><p>记录原环境config.yml中的数据库信息以及SECRET_KEY和BOOTSTRAP_TOKEN</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">DB_HOST: 127.0.0.1   # 数据库服务器 IP
-DB_PORT: 3306        # 数据库服务器 端口
-DB_USER: jumpserver  # 连接数据库的用户
-DB_PASSWORD: ******  # 连接数据库用户的密码
-DB_NAME: jumpserver  # JumpServer 使用的数据库
-
-SECRET_KEY: *******************************
-BOOTSTRAP_TOKEN: ************************<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>原环境停机</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">source</span> /opt/py3/bin/activate
-./jms stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>备份整个目录</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">cp</span> /opt/jumpserver /opt/jumpserver_bak<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>备份数据库</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">cp</span> /opt/jumpserver /opt/jumpserver_bak<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>修改数据库字符集</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token keyword">if</span> <span class="token function">grep</span> -q <span class="token string">'COLLATE=utf8_bin'</span> /opt/jumpserver.sql<span class="token punctuation">;</span> <span class="token keyword">then</span>
-    <span class="token function">cp</span> /opt/jumpserver.sql /opt/jumpserver_bak.sql
-    <span class="token function">sed</span> -i <span class="token string">'s@ COLLATE=utf8_bin@@g'</span> /opt/jumpserver.sql
-    <span class="token function">sed</span> -i <span class="token string">'s@ COLLATE utf8_bin@@g'</span> /opt/jumpserver.sql
-<span class="token keyword">else</span>
-    <span class="token builtin class-name">echo</span> <span class="token string">"备份数据库字符集正确"</span><span class="token punctuation">;</span>
-<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Installer部署新环境"><a href="#Installer部署新环境" class="headerlink" title="Installer部署新环境"></a>Installer部署新环境</h2><p>jumpserver官方发布仅维护此安装方式</p>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-1.png" alt=""></p>
-<p>获取installer安装包</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> /opt
-yum -y <span class="token function">install</span> <span class="token function">wget</span>
-<span class="token function">wget</span> https://github.com/jumpserver/installer/releases/download/v2.14.2/jumpserver-installer-v2.14.2.tar.gz
-<span class="token function">tar</span> -xf jumpserver-installer-v2.14.2.tar.gz
-<span class="token builtin class-name">cd</span> jumpserver-installer-v2.14.2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>修改installer的config.txt文件，填写原环境的BOOTSTRAP_TOKEN和SECRET_KEY</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">***
-<span class="token comment"># Core 配置</span>
-<span class="token comment">### 启动后不能再修改，否则密码等等信息无法解密</span>
-<span class="token assign-left variable">SECRET_KEY</span><span class="token operator">=</span>                           <span class="token comment"># 从旧版本的配置文件获取后填入 (*)</span>
-<span class="token assign-left variable">BOOTSTRAP_TOKEN</span><span class="token operator">=</span>                      <span class="token comment"># 从旧版本的配置文件获取后填入 (*)</span>
-<span class="token assign-left variable">LOG_LEVEL</span><span class="token operator">=</span>ERROR
-<span class="token comment"># SESSION_COOKIE_AGE=86400</span>
-<span class="token assign-left variable">SESSION_EXPIRE_AT_BROWSER_CLOSE</span><span class="token operator">=</span>true  
-***<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>开始部署</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">./jmsctl.sh <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>部署成功后启停一次服务，用于初始化数据库</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">./jmsctl.sh start
-./jmsctl.sh stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2 id="数据迁移"><a href="#数据迁移" class="headerlink" title="数据迁移"></a>数据迁移</h2><p>进入mysql容器</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker <span class="token builtin class-name">exec</span> -it jms_mysql /bin/bash
-mysql -uroot -p<span class="token variable">$MYSQL_ROOT_PASSWORD</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>删除并重新创建默认数据库</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">drop database jumpserver;
-create database jumpserver default charset &#39;utf8&#39;;
-exit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>还原数据</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># /opt/jumpserver.sql 为旧版本数据库</span>
-./jmsctl.sh restore_db /opt/jumpserver.sql
-
-开始还原数据库: /opt/jumpserver.sql
-mysql: <span class="token punctuation">[</span>Warning<span class="token punctuation">]</span> Using a password on the <span class="token builtin class-name">command</span> line interface can be insecure.
-数据库恢复成功！<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>迁移完成，重启服务</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">./jmsctl.sh restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="开启HTTPS"><a href="#开启HTTPS" class="headerlink" title="开启HTTPS"></a>开启HTTPS</h2><p>修改jumpserver config.txt</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /opt/jumpserver/config/config.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>开启nginx HTTPS_PORT</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">## Nginx 配置, USE_LB=1 表示开启, 为 0 的情况下, HTTPS_PORT 定义不生效</span>
-<span class="token assign-left variable">HTTP_PORT</span><span class="token operator">=</span><span class="token number">80</span>
-<span class="token assign-left variable">SSH_PORT</span><span class="token operator">=</span><span class="token number">2222</span>
-<span class="token assign-left variable">RDP_PORT</span><span class="token operator">=</span><span class="token number">3389</span>
-
-<span class="token assign-left variable">USE_LB</span><span class="token operator">=</span><span class="token number">1</span>             <span class="token comment">#修改为1</span>
-<span class="token assign-left variable">HTTPS_PORT</span><span class="token operator">=</span><span class="token number">443</span>       <span class="token comment">#端口默认443</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>导入证书文件</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#将证书文件放置/opt/jumpserver/config/nginx/cert/目录</span>
-ll /opt/jumpserver/config/nginx/cert/
--rw-r--r--. <span class="token number">1</span> root root jumpserver.transwarp.io.bundle.crt
--rw-r--r--. <span class="token number">1</span> root root jumpserver.transwarp.io.key.pem<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>修改nginx配置</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /opt/jumpserver/config/nginx/lb_http_server.conf
-
-server <span class="token punctuation">&#123;</span>
-  listen <span class="token number">443</span> ssl<span class="token punctuation">;</span>
-  server_name jumpserver.transwarp.io<span class="token punctuation">;</span>      <span class="token comment"># 取消注释并自行修改成你自己的域名</span>
-  server_tokens off<span class="token punctuation">;</span>
-  ssl_certificate cert/jumpserver.transwarp.io.bundle.crt<span class="token punctuation">;</span>        <span class="token comment"># 修改 server.crt 为你的证书, 不要改路径 certs/</span>
-  ssl_certificate_key cert/jumpserver.transwarp.io.key.pem<span class="token punctuation">;</span>    <span class="token comment"># 修改 server.key 为你的证书, 不要改路径 certs/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>重启服务，https生效</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> /opt/jumpserver-installer-v2.14.2
-./jmsctl.sh restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-2.png" alt=""></p>
-<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="https://docs.jumpserver.org/zh/master/install/migration/">https://docs.jumpserver.org/zh/master/install/migration/</a></p>
-<p>最后，Have a nice day~</p>
+    <title>linux自定义shell欢迎界面</title>
+    <url>/2020/07/02/motd/</url>
+    <content><![CDATA[<p>1、/etc/issue 本地登陆显示的信息，本地登录前</p>
+<p>2、/etc/issue.net 网络登陆显示的信息，登录后显示，需要由sshd配置</p>
+<p>3、/etc/motd 常用于通告信息，如计划关机时间的警告等，登陆后的提示信息</p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-20210411151003662.png" alt=""></p>
+<ul>
+<li>Text ART&amp;Emoji：<a href="https://fsymbols.com/text-art/">https://fsymbols.com/text-art/</a></li>
+</ul>
 ]]></content>
       <categories>
-        <category>博客</category>
+        <category>linux</category>
       </categories>
       <tags>
-        <tag>堡垒机</tag>
-        <tag>Jumpserver</tag>
-        <tag>运维</tag>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -533,24 +424,6 @@ sda               <span class="token number">8</span>:0    <span class="token nu
       <tags>
         <tag>运维</tag>
         <tag>Linux</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>linux自定义shell欢迎界面</title>
-    <url>/2020/07/02/motd/</url>
-    <content><![CDATA[<p>1、/etc/issue 本地登陆显示的信息，本地登录前</p>
-<p>2、/etc/issue.net 网络登陆显示的信息，登录后显示，需要由sshd配置</p>
-<p>3、/etc/motd 常用于通告信息，如计划关机时间的警告等，登陆后的提示信息</p>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-20210411151003662.png" alt=""></p>
-<ul>
-<li>Text ART&amp;Emoji：<a href="https://fsymbols.com/text-art/">https://fsymbols.com/text-art/</a></li>
-</ul>
-]]></content>
-      <categories>
-        <category>linux</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -887,6 +760,133 @@ bindpw ***
       </tags>
   </entry>
   <entry>
+    <title>Jumpserver 迁移升级步骤</title>
+    <url>/2021/10/19/jumpserver-upgrade/</url>
+    <content><![CDATA[<blockquote>
+<p>公司原jumpserver环境采用组件容器化部署，根据官方文档所述，未使用installer部署的环境不可直接升级，需要使用installer安装最新版环境后进行数据迁移</p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image.png" alt=""></p>
+</blockquote>
+<h2 id="数据备份"><a href="#数据备份" class="headerlink" title="数据备份"></a>数据备份</h2><p>记录原环境config.yml中的数据库信息以及SECRET_KEY和BOOTSTRAP_TOKEN</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">DB_HOST: 127.0.0.1   # 数据库服务器 IP
+DB_PORT: 3306        # 数据库服务器 端口
+DB_USER: jumpserver  # 连接数据库的用户
+DB_PASSWORD: ******  # 连接数据库用户的密码
+DB_NAME: jumpserver  # JumpServer 使用的数据库
+
+SECRET_KEY: *******************************
+BOOTSTRAP_TOKEN: ************************<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>原环境停机</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">source</span> /opt/py3/bin/activate
+./jms stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>备份整个目录</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">cp</span> /opt/jumpserver /opt/jumpserver_bak<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>备份数据库</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">cp</span> /opt/jumpserver /opt/jumpserver_bak<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>修改数据库字符集</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token keyword">if</span> <span class="token function">grep</span> -q <span class="token string">'COLLATE=utf8_bin'</span> /opt/jumpserver.sql<span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token function">cp</span> /opt/jumpserver.sql /opt/jumpserver_bak.sql
+    <span class="token function">sed</span> -i <span class="token string">'s@ COLLATE=utf8_bin@@g'</span> /opt/jumpserver.sql
+    <span class="token function">sed</span> -i <span class="token string">'s@ COLLATE utf8_bin@@g'</span> /opt/jumpserver.sql
+<span class="token keyword">else</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"备份数据库字符集正确"</span><span class="token punctuation">;</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Installer部署新环境"><a href="#Installer部署新环境" class="headerlink" title="Installer部署新环境"></a>Installer部署新环境</h2><p>jumpserver官方发布仅维护此安装方式</p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-1.png" alt=""></p>
+<p>获取installer安装包</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> /opt
+yum -y <span class="token function">install</span> <span class="token function">wget</span>
+<span class="token function">wget</span> https://github.com/jumpserver/installer/releases/download/v2.14.2/jumpserver-installer-v2.14.2.tar.gz
+<span class="token function">tar</span> -xf jumpserver-installer-v2.14.2.tar.gz
+<span class="token builtin class-name">cd</span> jumpserver-installer-v2.14.2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>修改installer的config.txt文件，填写原环境的BOOTSTRAP_TOKEN和SECRET_KEY</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">***
+<span class="token comment"># Core 配置</span>
+<span class="token comment">### 启动后不能再修改，否则密码等等信息无法解密</span>
+<span class="token assign-left variable">SECRET_KEY</span><span class="token operator">=</span>                           <span class="token comment"># 从旧版本的配置文件获取后填入 (*)</span>
+<span class="token assign-left variable">BOOTSTRAP_TOKEN</span><span class="token operator">=</span>                      <span class="token comment"># 从旧版本的配置文件获取后填入 (*)</span>
+<span class="token assign-left variable">LOG_LEVEL</span><span class="token operator">=</span>ERROR
+<span class="token comment"># SESSION_COOKIE_AGE=86400</span>
+<span class="token assign-left variable">SESSION_EXPIRE_AT_BROWSER_CLOSE</span><span class="token operator">=</span>true  
+***<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>开始部署</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">./jmsctl.sh <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>部署成功后启停一次服务，用于初始化数据库</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">./jmsctl.sh start
+./jmsctl.sh stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="数据迁移"><a href="#数据迁移" class="headerlink" title="数据迁移"></a>数据迁移</h2><p>进入mysql容器</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker <span class="token builtin class-name">exec</span> -it jms_mysql /bin/bash
+mysql -uroot -p<span class="token variable">$MYSQL_ROOT_PASSWORD</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>删除并重新创建默认数据库</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">drop database jumpserver;
+create database jumpserver default charset &#39;utf8&#39;;
+exit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>还原数据</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># /opt/jumpserver.sql 为旧版本数据库</span>
+./jmsctl.sh restore_db /opt/jumpserver.sql
+
+开始还原数据库: /opt/jumpserver.sql
+mysql: <span class="token punctuation">[</span>Warning<span class="token punctuation">]</span> Using a password on the <span class="token builtin class-name">command</span> line interface can be insecure.
+数据库恢复成功！<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>迁移完成，重启服务</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">./jmsctl.sh restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="开启HTTPS"><a href="#开启HTTPS" class="headerlink" title="开启HTTPS"></a>开启HTTPS</h2><p>修改jumpserver config.txt</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /opt/jumpserver/config/config.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>开启nginx HTTPS_PORT</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">## Nginx 配置, USE_LB=1 表示开启, 为 0 的情况下, HTTPS_PORT 定义不生效</span>
+<span class="token assign-left variable">HTTP_PORT</span><span class="token operator">=</span><span class="token number">80</span>
+<span class="token assign-left variable">SSH_PORT</span><span class="token operator">=</span><span class="token number">2222</span>
+<span class="token assign-left variable">RDP_PORT</span><span class="token operator">=</span><span class="token number">3389</span>
+
+<span class="token assign-left variable">USE_LB</span><span class="token operator">=</span><span class="token number">1</span>             <span class="token comment">#修改为1</span>
+<span class="token assign-left variable">HTTPS_PORT</span><span class="token operator">=</span><span class="token number">443</span>       <span class="token comment">#端口默认443</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>导入证书文件</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#将证书文件放置/opt/jumpserver/config/nginx/cert/目录</span>
+ll /opt/jumpserver/config/nginx/cert/
+-rw-r--r--. <span class="token number">1</span> root root jumpserver.transwarp.io.bundle.crt
+-rw-r--r--. <span class="token number">1</span> root root jumpserver.transwarp.io.key.pem<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>修改nginx配置</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /opt/jumpserver/config/nginx/lb_http_server.conf
+
+server <span class="token punctuation">&#123;</span>
+  listen <span class="token number">443</span> ssl<span class="token punctuation">;</span>
+  server_name jumpserver.transwarp.io<span class="token punctuation">;</span>      <span class="token comment"># 取消注释并自行修改成你自己的域名</span>
+  server_tokens off<span class="token punctuation">;</span>
+  ssl_certificate cert/jumpserver.transwarp.io.bundle.crt<span class="token punctuation">;</span>        <span class="token comment"># 修改 server.crt 为你的证书, 不要改路径 certs/</span>
+  ssl_certificate_key cert/jumpserver.transwarp.io.key.pem<span class="token punctuation">;</span>    <span class="token comment"># 修改 server.key 为你的证书, 不要改路径 certs/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>重启服务，https生效</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> /opt/jumpserver-installer-v2.14.2
+./jmsctl.sh restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-2.png" alt=""></p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="https://docs.jumpserver.org/zh/master/install/migration/">https://docs.jumpserver.org/zh/master/install/migration/</a></p>
+<p>最后，Have a nice day~</p>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>运维</tag>
+        <tag>堡垒机</tag>
+        <tag>Jumpserver</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>RHCE认证笔记</title>
     <url>/2020/06/19/rhce/</url>
     <content><![CDATA[<h4 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h4><p>RHCE：Red Hat Certified Engineer. RedHat 认证工程师</p>
@@ -1119,57 +1119,6 @@ huawei:
         <tag>监控</tag>
         <tag>Prometheus</tag>
         <tag>SNMP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>利用Storcli定位RAID组盘符/dev/sd*对应物理磁盘</title>
-    <url>/2021/02/28/storcli-locate-disks/</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>研发组里有个裸金属集群需要升级磁盘，要求不能停机，而且只能给到mount的盘符信息，应该如何快速准确的定位到物理磁盘呢？当然是求助万能的Storcli啦！</p>
-<span id="more"></span>
-
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><h4 id="1-获取Target-ID"><a href="#1-获取Target-ID" class="headerlink" title="1. 获取Target ID"></a>1. 获取Target ID</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># ll /sys/block</span>
-total <span class="token number">0</span>
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-0 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-0
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-1 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-1
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-2 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-2
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 sda -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:00/0000:00:11.5/ata4/host4/target4:0:0/4:0:0:0/block/sda
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">12</span>:23 sdb -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:2:0/0:2:0:0/block/sdb
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdd -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:35/0:0:35:0/block/sdd
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdf -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:38/0:0:38:0/block/sdf
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdg -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:39/0:0:39:0/block/sdg
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdi -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:42/0:0:42:0/block/sdi
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdj -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:43/0:0:43:0/block/sdj
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdk -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:44/0:0:44:0/block/sdk
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdl -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:45/0:0:45:0/block/sdl
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdm -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:46/0:0:46:0/block/sdm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>其中打印信息中<strong>targetx:y:z/</strong>中的<strong>z</strong>即为target ID</p>
-<p>例如我们要定位/dev/sdb盘符，则得出该盘符(target0:2:0)的targetID为0</p>
-<h4 id="2-通过target-ID定位物理插槽"><a href="#2-通过target-ID定位物理插槽" class="headerlink" title="2.通过target ID定位物理插槽"></a>2.通过target ID定位物理插槽</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">storcli64 /call show alilog <span class="token operator">></span> /home/target.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>在target.txt文件中逻辑磁盘区块查找Target ID，在对应targetID下方的磁盘组查找Devices IDs，Devices IDs代表由哪些物理磁盘组成了逻辑磁盘</p>
-<p>再根据Devices IDs在物理磁盘区块查找，即可定位到Slot Number</p>
-<p>再搜索Enclosure ID，确认RAID卡EnclosureID号</p>
-<h4 id="3-点亮硬盘定位灯："><a href="#3-点亮硬盘定位灯：" class="headerlink" title="3.点亮硬盘定位灯："></a>3.点亮硬盘定位灯：</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">storcli64 /c0/e29/s0 start <span class="token function">locate</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>c0表示RAID卡ID</p>
-<p>e29表示Enclosure ID</p>
-<p>s0表示slot ID</p>
-<p>参考：<a href="https://support.huawei.com/enterprise/zh/doc/EDOC1000041337/75f2d44b">https://support.huawei.com/enterprise/zh/doc/EDOC1000041337/75f2d44b</a></p>
-<h4 id="4-更换硬盘后的RAID卡操作"><a href="#4-更换硬盘后的RAID卡操作" class="headerlink" title="4.更换硬盘后的RAID卡操作"></a>4.更换硬盘后的RAID卡操作</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 查看当前RAID卡状态</span>
-storcli64 /c0 show
-<span class="token comment"># 创建单盘RAID0</span>
-storcli64 /c0 <span class="token function">add</span> vd r0 <span class="token assign-left variable">drives</span><span class="token operator">=</span><span class="token number">252</span>:5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>参考：<a href="https://www.cnblogs.com/zhangxinglong/p/9771967.html">https://www.cnblogs.com/zhangxinglong/p/9771967.html</a></p>
-]]></content>
-      <categories>
-        <category>Server</category>
-      </categories>
-      <tags>
-        <tag>Server</tag>
-        <tag>Hardware</tag>
-        <tag>Disk</tag>
       </tags>
   </entry>
   <entry>
@@ -1512,98 +1461,54 @@ foot <span class="token operator">=</span> <span class="token triple-quoted-stri
       </tags>
   </entry>
   <entry>
-    <title>可能是目前最好用的L2TP VPN解决方案：SoftetherVPN</title>
-    <url>/2019/10/24/softether/</url>
-    <content><![CDATA[<blockquote>
-<p>提到VPN，可能大部分人联想到的科学上网、爬梯子等关键词，这里需要先纠正一下，VPN并不等于科学上网，VPN的全称是Virtual Private Network（<a href="https://zh.wikipedia.org/wiki/%E8%99%9B%E6%93%AC%E7%A7%81%E4%BA%BA%E7%B6%B2%E8%B7%AF">虚拟专用网络</a>），它是一种基于隧道协议的网络服务，常用于连接中、大型企业或团体与团体间的私人网络。国内由于防火墙的存在，早期许多公司采用VPN服务连接国外网络的科学上网方法，后商业化的一键VPN逐渐成熟，久而久之，许多人便把VPN与科学上网画上了等号，实际这是一种错误的理解。</p>
-</blockquote>
-<h2 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h2><p>公司早先为了方便异地办公向员工提供了VPN服务，使用的方案是路由设备自带的PPTP+L2TP服务，随着的使用VPN的员工逐渐增加，这种方案的缺点也逐渐暴露出来：</p>
+    <title>利用Storcli定位RAID组盘符/dev/sd*对应物理磁盘</title>
+    <url>/2021/02/28/storcli-locate-disks/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>研发组里有个裸金属集群需要升级磁盘，要求不能停机，而且只能给到mount的盘符信息，应该如何快速准确的定位到物理磁盘呢？当然是求助万能的Storcli啦！</p>
 <span id="more"></span>
 
-<ul>
-<li>设备支持的用户数量十分有限</li>
-<li>路由设备的性能负载受VPN连接数影响</li>
-<li>用户管理功能薄弱，没有详细的日志记录功能</li>
-<li>自带的L2TPoveripsec协议对MAC、IOS用户不友好</li>
-</ul>
-<p>几经筛选，终于找到了最符合公司需求的一款开源VPN解决方案，也就是我们今天的主角：<a href="https://www.softether.org/">SoftetherVPN</a>。</p>
-<p><em>SoftEtherVPN是一个由日本筑波大学研究生Daiyuu Nobori（登大游）因硕士论文而开发的开源、跨平台、多重协议的虚拟专用网方案，此方案让一些虚拟专用网协议像是SSL、VPN 、L2TP、IPsec、OpenVPN以及微软SSTP都由同一个单一VPN服务器提供。在2014年1月4日以GNU通用公共授权条款的方式转变为开源软件。</em></p>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/005DqEfjgy1g8ab3gmkjbj317m148aut.jpg" alt=""></p>
-<p>从当前的使用情况来看，它可能是目前最好用的L2TP VPN解决方案：</p>
-<ul>
-<li>支持SSL、L2TP、IPsec、OpenVPN、MS-SSTP等多种协议</li>
-<li>支持radius、AD域等多种认证方式，方便用户统一管理</li>
-<li>完善的日志记录功能，可记录数据包头和载荷信息</li>
-<li>支持Windows、MAC环境下的图形化管理软件</li>
-<li>支持集群部署高可用方案</li>
-<li>开源项目，拥有较为活跃的社群<br>等等</li>
-</ul>
-<p>有点啰嗦了，下面进入正题。</p>
-<h2 id="部署与配置"><a href="#部署与配置" class="headerlink" title="部署与配置"></a>部署与配置</h2><h3 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h3><h4 id="二进制安装"><a href="#二进制安装" class="headerlink" title="二进制安装"></a>二进制安装</h4><p>进入<a href="https://www.softether-download.com/cn.aspx">Softether下载发布页</a>，组件选择VPN Server，选择系统版本（这里使用的是CentOS 7.2环境），在下方的列表里选择一个稳定版本复制链接，下载到本地后使用FTP工具传输到服务器，或在服务器环境使用<code>curl</code> <code>wget</code>等命令直接下载。</p>
-<h4 id="源码Build"><a href="#源码Build" class="headerlink" title="源码Build"></a>源码Build</h4><p>查看<a href="https://github.com/SoftEtherVPN/SoftEtherVPN/">Github项目</a></p>
-<h3 id="编译部署"><a href="#编译部署" class="headerlink" title="编译部署"></a>编译部署</h3><p>下载完成后解压tar包，进入vpnserver目录，执行<code>make</code>开始部署</p>
-<pre class="line-numbers language-none"><code class="language-none">[root@localhost vpnserver]# tar zxvf softether-vpnserver-v4.29-9680-rtm-2019.02.28-linux-x64-64bit.tar.gz
-[root@localhost vpnserver]# cd vpnserver&#x2F;
-[root@localhost vpnserver]# make<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><em>执行make时报错按照提示安装依赖即可</em></p>
-<h3 id="启用服务"><a href="#启用服务" class="headerlink" title="启用服务"></a>启用服务</h3><pre class="line-numbers language-none"><code class="language-none">[root@localhost vpnserver]# .&#x2F;vpnserver start #启动服务
-[root@localhost vpnserver]# .&#x2F;vpnserver stop #关闭服务
-[root@localhost vpnserver]# .&#x2F;vpncmd #进入命令行配置菜单<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p><em>启动后默认侦听443、992、1194、5555端口，请注意防火墙放行或关闭防火墙</em></p>
-<h2 id="图形化管理工具ServerManager"><a href="#图形化管理工具ServerManager" class="headerlink" title="图形化管理工具ServerManager"></a>图形化管理工具ServerManager</h2><h2 id="命令行管理工具vpncmd"><a href="#命令行管理工具vpncmd" class="headerlink" title="命令行管理工具vpncmd"></a>命令行管理工具vpncmd</h2><h3 id="基于vpncmd实现账号增删查"><a href="#基于vpncmd实现账号增删查" class="headerlink" title="基于vpncmd实现账号增删查"></a>基于vpncmd实现账号增删查</h3><h4 id="vpncreate"><a href="#vpncreate" class="headerlink" title="vpncreate"></a>vpncreate</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token shebang important">#!/bin/bash</span>
-<span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token variable">$1</span>
-<span class="token function">expect</span> <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
-spawn /usr/work/vpnserver/vpncmd /server
-expect &#123;
-                "Destination:"  &#123;send "<span class="token entity" title="\r">\r</span>";exp_continue&#125;
-                "Name:"  &#123;send "default<span class="token entity" title="\r">\r</span>"&#125;
-       &#125;
-expect &#123;
-                ">" &#123;send "usercreate <span class="token variable">$user</span><span class="token entity" title="\r">\r</span>";exp_continue&#125;
-                "Name:"   &#123;send "<span class="token entity" title="\r">\r</span>";exp_continue&#125;
-                "Name:"   &#123;send "<span class="token entity" title="\r">\r</span>";exp_continue&#125;
-                "Description:"   &#123;send "<span class="token entity" title="\r">\r</span>"&#125;
-       &#125;
-expect &#123;
-                ">" &#123;send "userradiusset <span class="token variable">$user</span><span class="token entity" title="\r">\r</span>";exp_continue&#125;
-                "(Optional):"  &#123;send "<span class="token entity" title="\r">\r</span>"&#125;
-       &#125;
-expect ">" &#123;send "exit<span class="token entity" title="\r">\r</span>"&#125;
-EOF</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><h4 id="1-获取Target-ID"><a href="#1-获取Target-ID" class="headerlink" title="1. 获取Target ID"></a>1. 获取Target ID</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># ll /sys/block</span>
+total <span class="token number">0</span>
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-0 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-0
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-1 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-1
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-2 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-2
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 sda -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:00/0000:00:11.5/ata4/host4/target4:0:0/4:0:0:0/block/sda
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">12</span>:23 sdb -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:2:0/0:2:0:0/block/sdb
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdd -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:35/0:0:35:0/block/sdd
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdf -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:38/0:0:38:0/block/sdf
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdg -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:39/0:0:39:0/block/sdg
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdi -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:42/0:0:42:0/block/sdi
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdj -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:43/0:0:43:0/block/sdj
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdk -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:44/0:0:44:0/block/sdk
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdl -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:45/0:0:45:0/block/sdl
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdm -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:46/0:0:46:0/block/sdm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
 
-<h4 id="vpndelete"><a href="#vpndelete" class="headerlink" title="vpndelete"></a>vpndelete</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token shebang important">#!/bin/bash</span>
-<span class="token assign-left variable">user</span><span class="token operator">=</span><span class="token variable">$1</span>
-<span class="token function">expect</span> <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
-spawn /usr/work/vpnserver/vpncmd /server
-expect &#123;
-                "Destination:"  &#123;send "<span class="token entity" title="\r">\r</span>";exp_continue&#125;
-                "Name:"  &#123;send "default<span class="token entity" title="\r">\r</span>"&#125;
-       &#125;
-expect ">" &#123;send "userdel <span class="token variable">$user</span><span class="token entity" title="\r">\r</span>"&#125;
-expect ">" &#123;send "exit<span class="token entity" title="\r">\r</span>"&#125;
-EOF</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>其中打印信息中<strong>targetx:y:z/</strong>中的<strong>z</strong>即为target ID</p>
+<p>例如我们要定位/dev/sdb盘符，则得出该盘符(target0:2:0)的targetID为0</p>
+<h4 id="2-通过target-ID定位物理插槽"><a href="#2-通过target-ID定位物理插槽" class="headerlink" title="2.通过target ID定位物理插槽"></a>2.通过target ID定位物理插槽</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">storcli64 /call show alilog <span class="token operator">></span> /home/target.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h4 id="vpnlist"><a href="#vpnlist" class="headerlink" title="vpnlist"></a>vpnlist</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token shebang important">#!/bin/bash</span>
-<span class="token function">expect</span> <span class="token operator">&lt;&lt;</span> <span class="token string">EOF
-spawn /usr/work/vpnserver/vpncmd /server
-expect &#123;
-                "Destination:"  &#123;send "<span class="token entity" title="\r">\r</span>";exp_continue&#125;
-                "Name:"  &#123;send "default<span class="token entity" title="\r">\r</span>"&#125;
-       &#125;
-expect ">" &#123;send "userlist<span class="token entity" title="\r">\r</span>"&#125;
-expect ">" &#123;send "exit<span class="token entity" title="\r">\r</span>"&#125;
-EOF</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+<p>在target.txt文件中逻辑磁盘区块查找Target ID，在对应targetID下方的磁盘组查找Devices IDs，Devices IDs代表由哪些物理磁盘组成了逻辑磁盘</p>
+<p>再根据Devices IDs在物理磁盘区块查找，即可定位到Slot Number</p>
+<p>再搜索Enclosure ID，确认RAID卡EnclosureID号</p>
+<h4 id="3-点亮硬盘定位灯："><a href="#3-点亮硬盘定位灯：" class="headerlink" title="3.点亮硬盘定位灯："></a>3.点亮硬盘定位灯：</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">storcli64 /c0/e29/s0 start <span class="token function">locate</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
 
-<h2 id="Troubleshooting"><a href="#Troubleshooting" class="headerlink" title="Troubleshooting"></a>Troubleshooting</h2><h4 id="Radius认证无法开启"><a href="#Radius认证无法开启" class="headerlink" title="Radius认证无法开启"></a>Radius认证无法开启</h4><h4 id="MacOS密钥乱码"><a href="#MacOS密钥乱码" class="headerlink" title="MacOS密钥乱码"></a>MacOS密钥乱码</h4>]]></content>
+<p>c0表示RAID卡ID</p>
+<p>e29表示Enclosure ID</p>
+<p>s0表示slot ID</p>
+<p>参考：<a href="https://support.huawei.com/enterprise/zh/doc/EDOC1000041337/75f2d44b">https://support.huawei.com/enterprise/zh/doc/EDOC1000041337/75f2d44b</a></p>
+<h4 id="4-更换硬盘后的RAID卡操作"><a href="#4-更换硬盘后的RAID卡操作" class="headerlink" title="4.更换硬盘后的RAID卡操作"></a>4.更换硬盘后的RAID卡操作</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 查看当前RAID卡状态</span>
+storcli64 /c0 show
+<span class="token comment"># 创建单盘RAID0</span>
+storcli64 /c0 <span class="token function">add</span> vd r0 <span class="token assign-left variable">drives</span><span class="token operator">=</span><span class="token number">252</span>:5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>参考：<a href="https://www.cnblogs.com/zhangxinglong/p/9771967.html">https://www.cnblogs.com/zhangxinglong/p/9771967.html</a></p>
+]]></content>
       <categories>
-        <category>VPN</category>
-        <category>网络</category>
+        <category>Server</category>
       </categories>
       <tags>
-        <tag>网络</tag>
-        <tag>运维</tag>
-        <tag>softether</tag>
-        <tag>VPN</tag>
+        <tag>Server</tag>
+        <tag>Hardware</tag>
+        <tag>Disk</tag>
       </tags>
   </entry>
   <entry>
