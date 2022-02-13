@@ -1,6 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title>学习计划</title>
+    <url>/2019/11/05/blog-plan/</url>
+    <content><![CDATA[<span id="more"></span>
+
+<ul>
+<li><input checked="" disabled="" type="checkbox"> <strong>SoftetherVPN</strong></li>
+<li><input checked="" disabled="" type="checkbox"> <strong>Prometheus</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Packetfence</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Proxmox</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Deepin-Wine-Ubuntu</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Ansible</strong></li>
+<li><input disabled="" type="checkbox"> <strong>JumpServer</strong></li>
+<li><input disabled="" type="checkbox"> <strong>Webpy实战应用</strong></li>
+<li><input disabled="" type="checkbox"> <strong>RHCE</strong></li>
+<li><input disabled="" type="checkbox"> <strong>CCNP/HCNP</strong></li>
+</ul>
+]]></content>
+  </entry>
+  <entry>
     <title>Typora阿里云图床配置</title>
     <url>/2021/04/10/aliyunoss/</url>
     <content><![CDATA[<blockquote>
@@ -66,25 +85,6 @@
       </tags>
   </entry>
   <entry>
-    <title>学习计划</title>
-    <url>/2019/11/05/blog-plan/</url>
-    <content><![CDATA[<span id="more"></span>
-
-<ul>
-<li><input checked="" disabled="" type="checkbox"> <strong>SoftetherVPN</strong></li>
-<li><input checked="" disabled="" type="checkbox"> <strong>Prometheus</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Packetfence</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Proxmox</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Deepin-Wine-Ubuntu</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Ansible</strong></li>
-<li><input disabled="" type="checkbox"> <strong>JumpServer</strong></li>
-<li><input disabled="" type="checkbox"> <strong>Webpy实战应用</strong></li>
-<li><input disabled="" type="checkbox"> <strong>RHCE</strong></li>
-<li><input disabled="" type="checkbox"> <strong>CCNP/HCNP</strong></li>
-</ul>
-]]></content>
-  </entry>
-  <entry>
     <title>Docker Pull Mysql</title>
     <url>/2020/08/21/docker-mysql/</url>
     <content><![CDATA[<h3 id="1-拉取mysql镜像"><a href="#1-拉取mysql镜像" class="headerlink" title="1.拉取mysql镜像"></a>1.拉取mysql镜像</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker pull mysql:latest<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
@@ -113,31 +113,6 @@ alter user &#39;root&#39;@&#39;%&#39; identified with mysql_native_password by &
       <tags>
         <tag>Docker</tag>
         <tag>Mysql</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>记一次Ubuntu fsck code4报错处理</title>
-    <url>/2020/05/19/fsck-4/</url>
-    <content><![CDATA[<p>Ubuntu OS在一次断电重启后无法开机，通过BMC发现引导过程中出现如下报错：</p>
-<pre class="line-numbers language-none"><code class="language-none">&#x2F;dev&#x2F;sda1: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY.
-        (i.e., without -a or -p options)
-fsck exited with status code 4
-The root filesystem on &#x2F;dev&#x2F;sda1 requires a manual fsck<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-<p>记录下解决方法</p>
-<span id="more"></span>
-
-<h3 id="出错原因："><a href="#出错原因：" class="headerlink" title="出错原因："></a>出错原因：</h3><p>分区损坏，磁盘检测不能通过，可能是因为系统突然断电或其它未正常关闭系统导致。</p>
-<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>根据上面的错误提示，可以发现是sda1出错，使用fsck对sda1进行修复：</p>
-<pre class="line-numbers language-none"><code class="language-none">$ fsck  -y &#x2F;dev&#x2F;sda1
-#修复中...
-$ reboot<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>重启后正常引导进入系统。</p>
-]]></content>
-      <categories>
-        <category>Ubuntu</category>
-      </categories>
-      <tags>
-        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -187,6 +162,31 @@ $ <span class="token function">git</span> merge dev<span aria-hidden="true" clas
       </categories>
       <tags>
         <tag>Git</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>记一次Ubuntu fsck code4报错处理</title>
+    <url>/2020/05/19/fsck-4/</url>
+    <content><![CDATA[<p>Ubuntu OS在一次断电重启后无法开机，通过BMC发现引导过程中出现如下报错：</p>
+<pre class="line-numbers language-none"><code class="language-none">&#x2F;dev&#x2F;sda1: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY.
+        (i.e., without -a or -p options)
+fsck exited with status code 4
+The root filesystem on &#x2F;dev&#x2F;sda1 requires a manual fsck<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+<p>记录下解决方法</p>
+<span id="more"></span>
+
+<h3 id="出错原因："><a href="#出错原因：" class="headerlink" title="出错原因："></a>出错原因：</h3><p>分区损坏，磁盘检测不能通过，可能是因为系统突然断电或其它未正常关闭系统导致。</p>
+<h3 id="解决方法："><a href="#解决方法：" class="headerlink" title="解决方法："></a>解决方法：</h3><p>根据上面的错误提示，可以发现是sda1出错，使用fsck对sda1进行修复：</p>
+<pre class="line-numbers language-none"><code class="language-none">$ fsck  -y &#x2F;dev&#x2F;sda1
+#修复中...
+$ reboot<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>重启后正常引导进入系统。</p>
+]]></content>
+      <categories>
+        <category>Ubuntu</category>
+      </categories>
+      <tags>
+        <tag>linux</tag>
       </tags>
   </entry>
   <entry>
@@ -270,133 +270,6 @@ git config --global --unset https.proxy<span aria-hidden="true" class="line-numb
       <tags>
         <tag>Server</tag>
         <tag>Hardware</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Jumpserver 迁移升级步骤</title>
-    <url>/2021/10/19/jumpserver-upgrade/</url>
-    <content><![CDATA[<blockquote>
-<p>公司原jumpserver环境采用组件容器化部署，根据官方文档所述，未使用installer部署的环境不可直接升级，需要使用installer安装最新版环境后进行数据迁移</p>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image.png" alt=""></p>
-</blockquote>
-<h2 id="数据备份"><a href="#数据备份" class="headerlink" title="数据备份"></a>数据备份</h2><p>记录原环境config.yml中的数据库信息以及SECRET_KEY和BOOTSTRAP_TOKEN</p>
-<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">DB_HOST: 127.0.0.1   # 数据库服务器 IP
-DB_PORT: 3306        # 数据库服务器 端口
-DB_USER: jumpserver  # 连接数据库的用户
-DB_PASSWORD: ******  # 连接数据库用户的密码
-DB_NAME: jumpserver  # JumpServer 使用的数据库
-
-SECRET_KEY: *******************************
-BOOTSTRAP_TOKEN: ************************<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>原环境停机</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">source</span> /opt/py3/bin/activate
-./jms stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>备份整个目录</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">cp</span> /opt/jumpserver /opt/jumpserver_bak<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>备份数据库</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">cp</span> /opt/jumpserver /opt/jumpserver_bak<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>修改数据库字符集</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token keyword">if</span> <span class="token function">grep</span> -q <span class="token string">'COLLATE=utf8_bin'</span> /opt/jumpserver.sql<span class="token punctuation">;</span> <span class="token keyword">then</span>
-    <span class="token function">cp</span> /opt/jumpserver.sql /opt/jumpserver_bak.sql
-    <span class="token function">sed</span> -i <span class="token string">'s@ COLLATE=utf8_bin@@g'</span> /opt/jumpserver.sql
-    <span class="token function">sed</span> -i <span class="token string">'s@ COLLATE utf8_bin@@g'</span> /opt/jumpserver.sql
-<span class="token keyword">else</span>
-    <span class="token builtin class-name">echo</span> <span class="token string">"备份数据库字符集正确"</span><span class="token punctuation">;</span>
-<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<h2 id="Installer部署新环境"><a href="#Installer部署新环境" class="headerlink" title="Installer部署新环境"></a>Installer部署新环境</h2><p>jumpserver官方发布仅维护此安装方式</p>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-1.png" alt=""></p>
-<p>获取installer安装包</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> /opt
-yum -y <span class="token function">install</span> <span class="token function">wget</span>
-<span class="token function">wget</span> https://github.com/jumpserver/installer/releases/download/v2.14.2/jumpserver-installer-v2.14.2.tar.gz
-<span class="token function">tar</span> -xf jumpserver-installer-v2.14.2.tar.gz
-<span class="token builtin class-name">cd</span> jumpserver-installer-v2.14.2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>修改installer的config.txt文件，填写原环境的BOOTSTRAP_TOKEN和SECRET_KEY</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">***
-<span class="token comment"># Core 配置</span>
-<span class="token comment">### 启动后不能再修改，否则密码等等信息无法解密</span>
-<span class="token assign-left variable">SECRET_KEY</span><span class="token operator">=</span>                           <span class="token comment"># 从旧版本的配置文件获取后填入 (*)</span>
-<span class="token assign-left variable">BOOTSTRAP_TOKEN</span><span class="token operator">=</span>                      <span class="token comment"># 从旧版本的配置文件获取后填入 (*)</span>
-<span class="token assign-left variable">LOG_LEVEL</span><span class="token operator">=</span>ERROR
-<span class="token comment"># SESSION_COOKIE_AGE=86400</span>
-<span class="token assign-left variable">SESSION_EXPIRE_AT_BROWSER_CLOSE</span><span class="token operator">=</span>true  
-***<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>开始部署</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">./jmsctl.sh <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>部署成功后启停一次服务，用于初始化数据库</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">./jmsctl.sh start
-./jmsctl.sh stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<h2 id="数据迁移"><a href="#数据迁移" class="headerlink" title="数据迁移"></a>数据迁移</h2><p>进入mysql容器</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker <span class="token builtin class-name">exec</span> -it jms_mysql /bin/bash
-mysql -uroot -p<span class="token variable">$MYSQL_ROOT_PASSWORD</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p>删除并重新创建默认数据库</p>
-<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">drop database jumpserver;
-create database jumpserver default charset &#39;utf8&#39;;
-exit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-<p>还原数据</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># /opt/jumpserver.sql 为旧版本数据库</span>
-./jmsctl.sh restore_db /opt/jumpserver.sql
-
-开始还原数据库: /opt/jumpserver.sql
-mysql: <span class="token punctuation">[</span>Warning<span class="token punctuation">]</span> Using a password on the <span class="token builtin class-name">command</span> line interface can be insecure.
-数据库恢复成功！<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>迁移完成，重启服务</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">./jmsctl.sh restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="开启HTTPS"><a href="#开启HTTPS" class="headerlink" title="开启HTTPS"></a>开启HTTPS</h2><p>修改jumpserver config.txt</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /opt/jumpserver/config/config.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>开启nginx HTTPS_PORT</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">## Nginx 配置, USE_LB=1 表示开启, 为 0 的情况下, HTTPS_PORT 定义不生效</span>
-<span class="token assign-left variable">HTTP_PORT</span><span class="token operator">=</span><span class="token number">80</span>
-<span class="token assign-left variable">SSH_PORT</span><span class="token operator">=</span><span class="token number">2222</span>
-<span class="token assign-left variable">RDP_PORT</span><span class="token operator">=</span><span class="token number">3389</span>
-
-<span class="token assign-left variable">USE_LB</span><span class="token operator">=</span><span class="token number">1</span>             <span class="token comment">#修改为1</span>
-<span class="token assign-left variable">HTTPS_PORT</span><span class="token operator">=</span><span class="token number">443</span>       <span class="token comment">#端口默认443</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>导入证书文件</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#将证书文件放置/opt/jumpserver/config/nginx/cert/目录</span>
-ll /opt/jumpserver/config/nginx/cert/
--rw-r--r--. <span class="token number">1</span> root root jumpserver.transwarp.io.bundle.crt
--rw-r--r--. <span class="token number">1</span> root root jumpserver.transwarp.io.key.pem<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>修改nginx配置</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /opt/jumpserver/config/nginx/lb_http_server.conf
-
-server <span class="token punctuation">&#123;</span>
-  listen <span class="token number">443</span> ssl<span class="token punctuation">;</span>
-  server_name jumpserver.transwarp.io<span class="token punctuation">;</span>      <span class="token comment"># 取消注释并自行修改成你自己的域名</span>
-  server_tokens off<span class="token punctuation">;</span>
-  ssl_certificate cert/jumpserver.transwarp.io.bundle.crt<span class="token punctuation">;</span>        <span class="token comment"># 修改 server.crt 为你的证书, 不要改路径 certs/</span>
-  ssl_certificate_key cert/jumpserver.transwarp.io.key.pem<span class="token punctuation">;</span>    <span class="token comment"># 修改 server.key 为你的证书, 不要改路径 certs/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>重启服务，https生效</p>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> /opt/jumpserver-installer-v2.14.2
-./jmsctl.sh restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-2.png" alt=""></p>
-<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="https://docs.jumpserver.org/zh/master/install/migration/">https://docs.jumpserver.org/zh/master/install/migration/</a></p>
-<p>最后，Have a nice day~</p>
-]]></content>
-      <categories>
-        <category>博客</category>
-      </categories>
-      <tags>
-        <tag>堡垒机</tag>
-        <tag>Jumpserver</tag>
-        <tag>运维</tag>
       </tags>
   </entry>
   <entry>
@@ -533,6 +406,149 @@ sda               <span class="token number">8</span>:0    <span class="token nu
       <tags>
         <tag>运维</tag>
         <tag>Linux</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Jumpserver 迁移升级步骤</title>
+    <url>/2021/10/19/jumpserver-upgrade/</url>
+    <content><![CDATA[<blockquote>
+<p>公司原jumpserver环境采用组件容器化部署，根据官方文档所述，未使用installer部署的环境不可直接升级，需要使用installer安装最新版环境后进行数据迁移</p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image.png" alt=""></p>
+</blockquote>
+<h2 id="数据备份"><a href="#数据备份" class="headerlink" title="数据备份"></a>数据备份</h2><p>记录原环境config.yml中的数据库信息以及SECRET_KEY和BOOTSTRAP_TOKEN</p>
+<pre class="line-numbers language-yml" data-language="yml"><code class="language-yml">DB_HOST: 127.0.0.1   # 数据库服务器 IP
+DB_PORT: 3306        # 数据库服务器 端口
+DB_USER: jumpserver  # 连接数据库的用户
+DB_PASSWORD: ******  # 连接数据库用户的密码
+DB_NAME: jumpserver  # JumpServer 使用的数据库
+
+SECRET_KEY: *******************************
+BOOTSTRAP_TOKEN: ************************<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>原环境停机</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">source</span> /opt/py3/bin/activate
+./jms stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>备份整个目录</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">cp</span> /opt/jumpserver /opt/jumpserver_bak<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>备份数据库</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">cp</span> /opt/jumpserver /opt/jumpserver_bak<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>修改数据库字符集</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token keyword">if</span> <span class="token function">grep</span> -q <span class="token string">'COLLATE=utf8_bin'</span> /opt/jumpserver.sql<span class="token punctuation">;</span> <span class="token keyword">then</span>
+    <span class="token function">cp</span> /opt/jumpserver.sql /opt/jumpserver_bak.sql
+    <span class="token function">sed</span> -i <span class="token string">'s@ COLLATE=utf8_bin@@g'</span> /opt/jumpserver.sql
+    <span class="token function">sed</span> -i <span class="token string">'s@ COLLATE utf8_bin@@g'</span> /opt/jumpserver.sql
+<span class="token keyword">else</span>
+    <span class="token builtin class-name">echo</span> <span class="token string">"备份数据库字符集正确"</span><span class="token punctuation">;</span>
+<span class="token keyword">fi</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<h2 id="Installer部署新环境"><a href="#Installer部署新环境" class="headerlink" title="Installer部署新环境"></a>Installer部署新环境</h2><p>jumpserver官方发布仅维护此安装方式</p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-1.png" alt=""></p>
+<p>获取installer安装包</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> /opt
+yum -y <span class="token function">install</span> <span class="token function">wget</span>
+<span class="token function">wget</span> https://github.com/jumpserver/installer/releases/download/v2.14.2/jumpserver-installer-v2.14.2.tar.gz
+<span class="token function">tar</span> -xf jumpserver-installer-v2.14.2.tar.gz
+<span class="token builtin class-name">cd</span> jumpserver-installer-v2.14.2<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>修改installer的config.txt文件，填写原环境的BOOTSTRAP_TOKEN和SECRET_KEY</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">***
+<span class="token comment"># Core 配置</span>
+<span class="token comment">### 启动后不能再修改，否则密码等等信息无法解密</span>
+<span class="token assign-left variable">SECRET_KEY</span><span class="token operator">=</span>                           <span class="token comment"># 从旧版本的配置文件获取后填入 (*)</span>
+<span class="token assign-left variable">BOOTSTRAP_TOKEN</span><span class="token operator">=</span>                      <span class="token comment"># 从旧版本的配置文件获取后填入 (*)</span>
+<span class="token assign-left variable">LOG_LEVEL</span><span class="token operator">=</span>ERROR
+<span class="token comment"># SESSION_COOKIE_AGE=86400</span>
+<span class="token assign-left variable">SESSION_EXPIRE_AT_BROWSER_CLOSE</span><span class="token operator">=</span>true  
+***<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>开始部署</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">./jmsctl.sh <span class="token function">install</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>部署成功后启停一次服务，用于初始化数据库</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">./jmsctl.sh start
+./jmsctl.sh stop<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<h2 id="数据迁移"><a href="#数据迁移" class="headerlink" title="数据迁移"></a>数据迁移</h2><p>进入mysql容器</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">docker <span class="token builtin class-name">exec</span> -it jms_mysql /bin/bash
+mysql -uroot -p<span class="token variable">$MYSQL_ROOT_PASSWORD</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p>删除并重新创建默认数据库</p>
+<pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">drop database jumpserver;
+create database jumpserver default charset &#39;utf8&#39;;
+exit<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+<p>还原数据</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># /opt/jumpserver.sql 为旧版本数据库</span>
+./jmsctl.sh restore_db /opt/jumpserver.sql
+
+开始还原数据库: /opt/jumpserver.sql
+mysql: <span class="token punctuation">[</span>Warning<span class="token punctuation">]</span> Using a password on the <span class="token builtin class-name">command</span> line interface can be insecure.
+数据库恢复成功！<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>迁移完成，重启服务</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">./jmsctl.sh restart<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="开启HTTPS"><a href="#开启HTTPS" class="headerlink" title="开启HTTPS"></a>开启HTTPS</h2><p>修改jumpserver config.txt</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /opt/jumpserver/config/config.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>开启nginx HTTPS_PORT</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">## Nginx 配置, USE_LB=1 表示开启, 为 0 的情况下, HTTPS_PORT 定义不生效</span>
+<span class="token assign-left variable">HTTP_PORT</span><span class="token operator">=</span><span class="token number">80</span>
+<span class="token assign-left variable">SSH_PORT</span><span class="token operator">=</span><span class="token number">2222</span>
+<span class="token assign-left variable">RDP_PORT</span><span class="token operator">=</span><span class="token number">3389</span>
+
+<span class="token assign-left variable">USE_LB</span><span class="token operator">=</span><span class="token number">1</span>             <span class="token comment">#修改为1</span>
+<span class="token assign-left variable">HTTPS_PORT</span><span class="token operator">=</span><span class="token number">443</span>       <span class="token comment">#端口默认443</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>导入证书文件</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment">#将证书文件放置/opt/jumpserver/config/nginx/cert/目录</span>
+ll /opt/jumpserver/config/nginx/cert/
+-rw-r--r--. <span class="token number">1</span> root root jumpserver.transwarp.io.bundle.crt
+-rw-r--r--. <span class="token number">1</span> root root jumpserver.transwarp.io.key.pem<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>修改nginx配置</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token function">vim</span> /opt/jumpserver/config/nginx/lb_http_server.conf
+
+server <span class="token punctuation">&#123;</span>
+  listen <span class="token number">443</span> ssl<span class="token punctuation">;</span>
+  server_name jumpserver.transwarp.io<span class="token punctuation">;</span>      <span class="token comment"># 取消注释并自行修改成你自己的域名</span>
+  server_tokens off<span class="token punctuation">;</span>
+  ssl_certificate cert/jumpserver.transwarp.io.bundle.crt<span class="token punctuation">;</span>        <span class="token comment"># 修改 server.crt 为你的证书, 不要改路径 certs/</span>
+  ssl_certificate_key cert/jumpserver.transwarp.io.key.pem<span class="token punctuation">;</span>    <span class="token comment"># 修改 server.key 为你的证书, 不要改路径 certs/</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>重启服务，https生效</p>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token builtin class-name">cd</span> /opt/jumpserver-installer-v2.14.2
+./jmsctl.sh restart<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-2.png" alt=""></p>
+<h2 id="参考文档"><a href="#参考文档" class="headerlink" title="参考文档"></a>参考文档</h2><p><a href="https://docs.jumpserver.org/zh/master/install/migration/">https://docs.jumpserver.org/zh/master/install/migration/</a></p>
+<p>最后，Have a nice day~</p>
+]]></content>
+      <categories>
+        <category>博客</category>
+      </categories>
+      <tags>
+        <tag>运维</tag>
+        <tag>堡垒机</tag>
+        <tag>Jumpserver</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Mysql语法收集</title>
+    <url>/2020/07/02/mysql-manual/</url>
+    <content><![CDATA[<h5 id="增加主键id并自增"><a href="#增加主键id并自增" class="headerlink" title="增加主键id并自增"></a>增加主键id并自增</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter table hwinfo add id int not null primary key Auto_increment  first;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h5 id="调整字段顺序"><a href="#调整字段顺序" class="headerlink" title="调整字段顺序"></a>调整字段顺序</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">ALTER table hwinfo change &#96;test1&#96; &#96;tese1&#96; varchar(100) after &#96;test2&#96;
+#将test1字段调整到test2后面<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
+
+<span id="more"></span>]]></content>
+      <categories>
+        <category>Mysql</category>
+      </categories>
+      <tags>
+        <tag>Mysql</tag>
       </tags>
   </entry>
   <entry>
@@ -871,22 +887,6 @@ bindpw ***
       </tags>
   </entry>
   <entry>
-    <title>Mysql语法收集</title>
-    <url>/2020/07/02/mysql-manual/</url>
-    <content><![CDATA[<h5 id="增加主键id并自增"><a href="#增加主键id并自增" class="headerlink" title="增加主键id并自增"></a>增加主键id并自增</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">alter table hwinfo add id int not null primary key Auto_increment  first;<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h5 id="调整字段顺序"><a href="#调整字段顺序" class="headerlink" title="调整字段顺序"></a>调整字段顺序</h5><pre class="line-numbers language-mysql" data-language="mysql"><code class="language-mysql">ALTER table hwinfo change &#96;test1&#96; &#96;tese1&#96; varchar(100) after &#96;test2&#96;
-#将test1字段调整到test2后面<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span></span></code></pre>
-
-<span id="more"></span>]]></content>
-      <categories>
-        <category>Mysql</category>
-      </categories>
-      <tags>
-        <tag>Mysql</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>RHCE认证笔记</title>
     <url>/2020/06/19/rhce/</url>
     <content><![CDATA[<h4 id="相关知识"><a href="#相关知识" class="headerlink" title="相关知识"></a>相关知识</h4><p>RHCE：Red Hat Certified Engineer. RedHat 认证工程师</p>
@@ -1002,6 +1002,174 @@ daemon<span aria-hidden="true" class="line-numbers-rows"><span></span><span></sp
       <tags>
         <tag>linux</tag>
         <tag>RHEL</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>SNMP_Exporter增加自定义metrics</title>
+    <url>/2021/01/18/snmp-custom-metrics/</url>
+    <content><![CDATA[<h2 id="一、前提条件"><a href="#一、前提条件" class="headerlink" title="一、前提条件"></a>一、前提条件</h2><ul>
+<li>目标SNMP设备开启SNMP并配置读写组权限</li>
+<li>snmptranslate、snmpwalk客户端（用于调试）</li>
+<li>snmp_exporter的generator环境</li>
+<li>目标SNMP设备的对应mib文件</li>
+</ul>
+<h3 id="generator环境"><a href="#generator环境" class="headerlink" title="generator环境"></a>generator环境</h3><p><a href="https://github.com/prometheus/snmp_exporter/tree/master/generator">https://github.com/prometheus/snmp_exporter/tree/master/generator</a></p>
+<p>clone到本地后使用go编译为可执行文件</p>
+<h3 id="snmptranslate、snmpwalk"><a href="#snmptranslate、snmpwalk" class="headerlink" title="snmptranslate、snmpwalk"></a>snmptranslate、snmpwalk</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum <span class="token function">install</span> net-snmp net-snmp-utils net-snmp-libs net-snmp-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<h2 id="二、步骤"><a href="#二、步骤" class="headerlink" title="二、步骤"></a>二、步骤</h2><ol>
+<li>开启SNMP功能并配置加密算法、读写组等（这里以华为TS200服务器举例）</li>
+</ol>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-7.png" alt=""></p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-8.png" alt=""></p>
+<ol start="2">
+<li>将下载的对应snmp设备型号的mib文件，上传到generator环境</li>
+</ol>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># ll mibs/huawei/</span>
+total <span class="token number">748</span>
+-rw-r--r-- <span class="token number">1</span> root root <span class="token number">761950</span> Jan <span class="token number">18</span> <span class="token number">14</span>:51 HUAWEI-SERVER-iBMC-MIB.mib<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ol start="3">
+<li>使用snmptranslate检索需要抓取的metrics OID，这里以温度监控为例</li>
+</ol>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># snmptranslate -Tz -m mibs/huawei/HUAWEI-SERVER-iBMC-MIB.mib |grep -i temperatureReading</span>
+<span class="token string">"temperatureReading"</span>                    <span class="token string">"1.3.6.1.4.1.2011.2.235.1.1.26.50.1.3"</span>
+<span class="token comment">#温度读数OID为1.3.6.1.4.1.2011.2.235.1.1.26.50.1.3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
+
+<ol start="4">
+<li>使用snmpbulkwalk获取指定OID的snmp取值，校验与实际值是否吻合</li>
+</ol>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># snmpbulkwalk -v3 -l authPriv -u "Administrator" -a SHA -A "Admin@9999" -x AES -X "Admin@9999" 172.26.3.134 1.3.6.1.4.1.2011.2.235.1.1.26.50.1.3</span>
+SNMPv2-SMI::enterprises.2011.2.235.1.1.26.50.1.3.1 <span class="token operator">=</span> INTEGER: <span class="token number">240</span>
+SNMPv2-SMI::enterprises.2011.2.235.1.1.26.50.1.3.2 <span class="token operator">=</span> INTEGER: <span class="token number">450</span>
+SNMPv2-SMI::enterprises.2011.2.235.1.1.26.50.1.3.3 <span class="token operator">=</span> INTEGER: <span class="token number">520</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>​    通过Object读数得知，上面获取到的三个值分别为进风温度、CPU1温度、CPU2温度，下面校验一下与BMC获取的温度是否一致（这里需要注意：snmp取值/10=实际值）</p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-9.png" alt=""></p>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-10.png" alt=""></p>
+<p>​    经校验，snmp取值与实际温度值一致，该OID可用。</p>
+<ol start="5">
+<li>编辑generator.yml文件</li>
+</ol>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># cat generator.yml</span>
+modules:
+  huawei:
+    walk:
+    - <span class="token number">1.3</span>.6.1.4.1.2011.2.235.1.1.26.50.1.3
+    version: <span class="token number">3</span>
+    timeout: 30s
+    auth:
+      community: public
+      security_level: authPriv
+      username: <span class="token string">"Administrator"</span>
+      password: <span class="token string">"Admin@9999"</span>
+      auth_protocol: SHA
+      priv_protocol: AES
+      priv_password: <span class="token string">"Admin@9999"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="6">
+<li>使用generator生成snmp_exporter配置文件</li>
+</ol>
+<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># export MIBDIRS=/root/snmp_exporter-master/generator/mibs</span>
+<span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># cp mibs/huawei/HUAWEI-SERVER-iBMC-MIB.mib mibs/</span>
+<span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># ./generator generate</span>
+<span class="token assign-left variable">level</span><span class="token operator">=</span>info <span class="token assign-left variable">ts</span><span class="token operator">=</span><span class="token number">2021</span>-01-18T07:38:37.110Z <span class="token assign-left variable">caller</span><span class="token operator">=</span>net_snmp.go:142 <span class="token assign-left variable">msg</span><span class="token operator">=</span><span class="token string">"Loading MIBs"</span> <span class="token assign-left variable">from</span><span class="token operator">=</span>/root/snmp_exporter-master/generator/mibs
+<span class="token assign-left variable">level</span><span class="token operator">=</span>info <span class="token assign-left variable">ts</span><span class="token operator">=</span><span class="token number">2021</span>-01-18T07:38:37.368Z <span class="token assign-left variable">caller</span><span class="token operator">=</span>main.go:52 <span class="token assign-left variable">msg</span><span class="token operator">=</span><span class="token string">"Generating config for module"</span> <span class="token assign-left variable">module</span><span class="token operator">=</span>huawei
+<span class="token assign-left variable">level</span><span class="token operator">=</span>info <span class="token assign-left variable">ts</span><span class="token operator">=</span><span class="token number">2021</span>-01-18T07:38:37.392Z <span class="token assign-left variable">caller</span><span class="token operator">=</span>main.go:67 <span class="token assign-left variable">msg</span><span class="token operator">=</span><span class="token string">"Generated metrics"</span> <span class="token assign-left variable">module</span><span class="token operator">=</span>huawei <span class="token assign-left variable">metrics</span><span class="token operator">=</span><span class="token number">1</span>
+<span class="token assign-left variable">level</span><span class="token operator">=</span>info <span class="token assign-left variable">ts</span><span class="token operator">=</span><span class="token number">2021</span>-01-18T07:38:37.392Z <span class="token assign-left variable">caller</span><span class="token operator">=</span>main.go:92 <span class="token assign-left variable">msg</span><span class="token operator">=</span><span class="token string">"Config written"</span> <span class="token assign-left variable">file</span><span class="token operator">=</span>/root/snmp_exporter-master/generator/snmp.yml
+<span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># cat snmp.yml</span>
+<span class="token comment"># WARNING: This file was auto-generated using snmp_exporter generator, manual changes will be lost.</span>
+huawei:
+  walk:
+  - <span class="token number">1.3</span>.6.1.4.1.2011.2.235.1.1.26.50.1.3
+  metrics:
+  - name: temperatureReading
+    oid: <span class="token number">1.3</span>.6.1.4.1.2011.2.235.1.1.26.50.1.3
+    type: gauge
+    help: Information about temperature reading,the unit is <span class="token number">1</span>/10 Celsius degree -
+      <span class="token number">1.3</span>.6.1.4.1.2011.2.235.1.1.26.50.1.3
+    indexes:
+    - labelname: temperatureIndex
+      type: gauge
+  version: <span class="token number">3</span>
+  timeout: 30s
+  auth:
+    community: public
+    security_level: authPriv
+    username: Administrator
+    password: Admin@9999
+    auth_protocol: SHA
+    priv_protocol: AES
+    priv_password: Admin@9999<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<ol start="7">
+<li>把生成的配置复制到snmp_exporter.yml中，重启snmp_exporter生效，测试读数是否正确</li>
+</ol>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-11.png" alt="img"></p>
+<ol start="8">
+<li>成功获取snmp读数，metrics添加完成。</li>
+</ol>
+<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-12.png" alt="img"></p>
+]]></content>
+      <categories>
+        <category>Prometheus</category>
+      </categories>
+      <tags>
+        <tag>运维</tag>
+        <tag>监控</tag>
+        <tag>Prometheus</tag>
+        <tag>SNMP</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>利用Storcli定位RAID组盘符/dev/sd*对应物理磁盘</title>
+    <url>/2021/02/28/storcli-locate-disks/</url>
+    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>研发组里有个裸金属集群需要升级磁盘，要求不能停机，而且只能给到mount的盘符信息，应该如何快速准确的定位到物理磁盘呢？当然是求助万能的Storcli啦！</p>
+<span id="more"></span>
+
+<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><h4 id="1-获取Target-ID"><a href="#1-获取Target-ID" class="headerlink" title="1. 获取Target ID"></a>1. 获取Target ID</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># ll /sys/block</span>
+total <span class="token number">0</span>
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-0 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-0
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-1 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-1
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-2 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-2
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 sda -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:00/0000:00:11.5/ata4/host4/target4:0:0/4:0:0:0/block/sda
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">12</span>:23 sdb -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:2:0/0:2:0:0/block/sdb
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdd -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:35/0:0:35:0/block/sdd
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdf -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:38/0:0:38:0/block/sdf
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdg -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:39/0:0:39:0/block/sdg
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdi -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:42/0:0:42:0/block/sdi
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdj -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:43/0:0:43:0/block/sdj
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdk -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:44/0:0:44:0/block/sdk
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdl -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:45/0:0:45:0/block/sdl
+lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdm -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:46/0:0:46:0/block/sdm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>其中打印信息中<strong>targetx:y:z/</strong>中的<strong>z</strong>即为target ID</p>
+<p>例如我们要定位/dev/sdb盘符，则得出该盘符(target0:2:0)的targetID为0</p>
+<h4 id="2-通过target-ID定位物理插槽"><a href="#2-通过target-ID定位物理插槽" class="headerlink" title="2.通过target ID定位物理插槽"></a>2.通过target ID定位物理插槽</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">storcli64 /call show alilog <span class="token operator">></span> /home/target.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>在target.txt文件中逻辑磁盘区块查找Target ID，在对应targetID下方的磁盘组查找Devices IDs，Devices IDs代表由哪些物理磁盘组成了逻辑磁盘</p>
+<p>再根据Devices IDs在物理磁盘区块查找，即可定位到Slot Number</p>
+<p>再搜索Enclosure ID，确认RAID卡EnclosureID号</p>
+<h4 id="3-点亮硬盘定位灯："><a href="#3-点亮硬盘定位灯：" class="headerlink" title="3.点亮硬盘定位灯："></a>3.点亮硬盘定位灯：</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">storcli64 /c0/e29/s0 start <span class="token function">locate</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
+
+<p>c0表示RAID卡ID</p>
+<p>e29表示Enclosure ID</p>
+<p>s0表示slot ID</p>
+<p>参考：<a href="https://support.huawei.com/enterprise/zh/doc/EDOC1000041337/75f2d44b">https://support.huawei.com/enterprise/zh/doc/EDOC1000041337/75f2d44b</a></p>
+<h4 id="4-更换硬盘后的RAID卡操作"><a href="#4-更换硬盘后的RAID卡操作" class="headerlink" title="4.更换硬盘后的RAID卡操作"></a>4.更换硬盘后的RAID卡操作</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 查看当前RAID卡状态</span>
+storcli64 /c0 show
+<span class="token comment"># 创建单盘RAID0</span>
+storcli64 /c0 <span class="token function">add</span> vd r0 <span class="token assign-left variable">drives</span><span class="token operator">=</span><span class="token number">252</span>:5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
+
+<p>参考：<a href="https://www.cnblogs.com/zhangxinglong/p/9771967.html">https://www.cnblogs.com/zhangxinglong/p/9771967.html</a></p>
+]]></content>
+      <categories>
+        <category>Server</category>
+      </categories>
+      <tags>
+        <tag>Server</tag>
+        <tag>Hardware</tag>
+        <tag>Disk</tag>
       </tags>
   </entry>
   <entry>
@@ -1341,174 +1509,6 @@ foot <span class="token operator">=</span> <span class="token triple-quoted-stri
         <tag>运维</tag>
         <tag>LDAP</tag>
         <tag>Squid</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>SNMP_Exporter增加自定义metrics</title>
-    <url>/2021/01/18/snmp-custom-metrics/</url>
-    <content><![CDATA[<h2 id="一、前提条件"><a href="#一、前提条件" class="headerlink" title="一、前提条件"></a>一、前提条件</h2><ul>
-<li>目标SNMP设备开启SNMP并配置读写组权限</li>
-<li>snmptranslate、snmpwalk客户端（用于调试）</li>
-<li>snmp_exporter的generator环境</li>
-<li>目标SNMP设备的对应mib文件</li>
-</ul>
-<h3 id="generator环境"><a href="#generator环境" class="headerlink" title="generator环境"></a>generator环境</h3><p><a href="https://github.com/prometheus/snmp_exporter/tree/master/generator">https://github.com/prometheus/snmp_exporter/tree/master/generator</a></p>
-<p>clone到本地后使用go编译为可执行文件</p>
-<h3 id="snmptranslate、snmpwalk"><a href="#snmptranslate、snmpwalk" class="headerlink" title="snmptranslate、snmpwalk"></a>snmptranslate、snmpwalk</h3><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">yum <span class="token function">install</span> net-snmp net-snmp-utils net-snmp-libs net-snmp-devel<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<h2 id="二、步骤"><a href="#二、步骤" class="headerlink" title="二、步骤"></a>二、步骤</h2><ol>
-<li>开启SNMP功能并配置加密算法、读写组等（这里以华为TS200服务器举例）</li>
-</ol>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-7.png" alt=""></p>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-8.png" alt=""></p>
-<ol start="2">
-<li>将下载的对应snmp设备型号的mib文件，上传到generator环境</li>
-</ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># ll mibs/huawei/</span>
-total <span class="token number">748</span>
--rw-r--r-- <span class="token number">1</span> root root <span class="token number">761950</span> Jan <span class="token number">18</span> <span class="token number">14</span>:51 HUAWEI-SERVER-iBMC-MIB.mib<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<ol start="3">
-<li>使用snmptranslate检索需要抓取的metrics OID，这里以温度监控为例</li>
-</ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># snmptranslate -Tz -m mibs/huawei/HUAWEI-SERVER-iBMC-MIB.mib |grep -i temperatureReading</span>
-<span class="token string">"temperatureReading"</span>                    <span class="token string">"1.3.6.1.4.1.2011.2.235.1.1.26.50.1.3"</span>
-<span class="token comment">#温度读数OID为1.3.6.1.4.1.2011.2.235.1.1.26.50.1.3</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span></span></code></pre>
-
-<ol start="4">
-<li>使用snmpbulkwalk获取指定OID的snmp取值，校验与实际值是否吻合</li>
-</ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># snmpbulkwalk -v3 -l authPriv -u "Administrator" -a SHA -A "Admin@9999" -x AES -X "Admin@9999" 172.26.3.134 1.3.6.1.4.1.2011.2.235.1.1.26.50.1.3</span>
-SNMPv2-SMI::enterprises.2011.2.235.1.1.26.50.1.3.1 <span class="token operator">=</span> INTEGER: <span class="token number">240</span>
-SNMPv2-SMI::enterprises.2011.2.235.1.1.26.50.1.3.2 <span class="token operator">=</span> INTEGER: <span class="token number">450</span>
-SNMPv2-SMI::enterprises.2011.2.235.1.1.26.50.1.3.3 <span class="token operator">=</span> INTEGER: <span class="token number">520</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>​    通过Object读数得知，上面获取到的三个值分别为进风温度、CPU1温度、CPU2温度，下面校验一下与BMC获取的温度是否一致（这里需要注意：snmp取值/10=实际值）</p>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-9.png" alt=""></p>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-10.png" alt=""></p>
-<p>​    经校验，snmp取值与实际温度值一致，该OID可用。</p>
-<ol start="5">
-<li>编辑generator.yml文件</li>
-</ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># cat generator.yml</span>
-modules:
-  huawei:
-    walk:
-    - <span class="token number">1.3</span>.6.1.4.1.2011.2.235.1.1.26.50.1.3
-    version: <span class="token number">3</span>
-    timeout: 30s
-    auth:
-      community: public
-      security_level: authPriv
-      username: <span class="token string">"Administrator"</span>
-      password: <span class="token string">"Admin@9999"</span>
-      auth_protocol: SHA
-      priv_protocol: AES
-      priv_password: <span class="token string">"Admin@9999"</span><span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol start="6">
-<li>使用generator生成snmp_exporter配置文件</li>
-</ol>
-<pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># export MIBDIRS=/root/snmp_exporter-master/generator/mibs</span>
-<span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># cp mibs/huawei/HUAWEI-SERVER-iBMC-MIB.mib mibs/</span>
-<span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># ./generator generate</span>
-<span class="token assign-left variable">level</span><span class="token operator">=</span>info <span class="token assign-left variable">ts</span><span class="token operator">=</span><span class="token number">2021</span>-01-18T07:38:37.110Z <span class="token assign-left variable">caller</span><span class="token operator">=</span>net_snmp.go:142 <span class="token assign-left variable">msg</span><span class="token operator">=</span><span class="token string">"Loading MIBs"</span> <span class="token assign-left variable">from</span><span class="token operator">=</span>/root/snmp_exporter-master/generator/mibs
-<span class="token assign-left variable">level</span><span class="token operator">=</span>info <span class="token assign-left variable">ts</span><span class="token operator">=</span><span class="token number">2021</span>-01-18T07:38:37.368Z <span class="token assign-left variable">caller</span><span class="token operator">=</span>main.go:52 <span class="token assign-left variable">msg</span><span class="token operator">=</span><span class="token string">"Generating config for module"</span> <span class="token assign-left variable">module</span><span class="token operator">=</span>huawei
-<span class="token assign-left variable">level</span><span class="token operator">=</span>info <span class="token assign-left variable">ts</span><span class="token operator">=</span><span class="token number">2021</span>-01-18T07:38:37.392Z <span class="token assign-left variable">caller</span><span class="token operator">=</span>main.go:67 <span class="token assign-left variable">msg</span><span class="token operator">=</span><span class="token string">"Generated metrics"</span> <span class="token assign-left variable">module</span><span class="token operator">=</span>huawei <span class="token assign-left variable">metrics</span><span class="token operator">=</span><span class="token number">1</span>
-<span class="token assign-left variable">level</span><span class="token operator">=</span>info <span class="token assign-left variable">ts</span><span class="token operator">=</span><span class="token number">2021</span>-01-18T07:38:37.392Z <span class="token assign-left variable">caller</span><span class="token operator">=</span>main.go:92 <span class="token assign-left variable">msg</span><span class="token operator">=</span><span class="token string">"Config written"</span> <span class="token assign-left variable">file</span><span class="token operator">=</span>/root/snmp_exporter-master/generator/snmp.yml
-<span class="token punctuation">[</span>root@it-webpy-master generator<span class="token punctuation">]</span><span class="token comment"># cat snmp.yml</span>
-<span class="token comment"># WARNING: This file was auto-generated using snmp_exporter generator, manual changes will be lost.</span>
-huawei:
-  walk:
-  - <span class="token number">1.3</span>.6.1.4.1.2011.2.235.1.1.26.50.1.3
-  metrics:
-  - name: temperatureReading
-    oid: <span class="token number">1.3</span>.6.1.4.1.2011.2.235.1.1.26.50.1.3
-    type: gauge
-    help: Information about temperature reading,the unit is <span class="token number">1</span>/10 Celsius degree -
-      <span class="token number">1.3</span>.6.1.4.1.2011.2.235.1.1.26.50.1.3
-    indexes:
-    - labelname: temperatureIndex
-      type: gauge
-  version: <span class="token number">3</span>
-  timeout: 30s
-  auth:
-    community: public
-    security_level: authPriv
-    username: Administrator
-    password: Admin@9999
-    auth_protocol: SHA
-    priv_protocol: AES
-    priv_password: Admin@9999<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<ol start="7">
-<li>把生成的配置复制到snmp_exporter.yml中，重启snmp_exporter生效，测试读数是否正确</li>
-</ol>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-11.png" alt="img"></p>
-<ol start="8">
-<li>成功获取snmp读数，metrics添加完成。</li>
-</ol>
-<p><img src="https://newmorning.oss-cn-shanghai.aliyuncs.com/img/image-12.png" alt="img"></p>
-]]></content>
-      <categories>
-        <category>Prometheus</category>
-      </categories>
-      <tags>
-        <tag>运维</tag>
-        <tag>监控</tag>
-        <tag>Prometheus</tag>
-        <tag>SNMP</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>利用Storcli定位RAID组盘符/dev/sd*对应物理磁盘</title>
-    <url>/2021/02/28/storcli-locate-disks/</url>
-    <content><![CDATA[<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>研发组里有个裸金属集群需要升级磁盘，要求不能停机，而且只能给到mount的盘符信息，应该如何快速准确的定位到物理磁盘呢？当然是求助万能的Storcli啦！</p>
-<span id="more"></span>
-
-<h3 id="步骤"><a href="#步骤" class="headerlink" title="步骤"></a>步骤</h3><h4 id="1-获取Target-ID"><a href="#1-获取Target-ID" class="headerlink" title="1. 获取Target ID"></a>1. 获取Target ID</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># ll /sys/block</span>
-total <span class="token number">0</span>
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-0 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-0
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-1 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-1
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 dm-2 -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/virtual/block/dm-2
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">3</span> <span class="token number">19</span>:19 sda -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:00/0000:00:11.5/ata4/host4/target4:0:0/4:0:0:0/block/sda
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">12</span>:23 sdb -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:2:0/0:2:0:0/block/sdb
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdd -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:35/0:0:35:0/block/sdd
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdf -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:38/0:0:38:0/block/sdf
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdg -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:39/0:0:39:0/block/sdg
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdi -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:42/0:0:42:0/block/sdi
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdj -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:43/0:0:43:0/block/sdj
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdk -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:44/0:0:44:0/block/sdk
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdl -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:45/0:0:45:0/block/sdl
-lrwxrwxrwx. <span class="token number">1</span> root root <span class="token number">0</span> Jan  <span class="token number">4</span> <span class="token number">10</span>:10 sdm -<span class="token operator">></span> <span class="token punctuation">..</span>/devices/pci0000:17/0000:17:02.0/0000:1c:00.0/host0/target0:0:46/0:0:46:0/block/sdm<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>其中打印信息中<strong>targetx:y:z/</strong>中的<strong>z</strong>即为target ID</p>
-<p>例如我们要定位/dev/sdb盘符，则得出该盘符(target0:2:0)的targetID为0</p>
-<h4 id="2-通过target-ID定位物理插槽"><a href="#2-通过target-ID定位物理插槽" class="headerlink" title="2.通过target ID定位物理插槽"></a>2.通过target ID定位物理插槽</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">storcli64 /call show alilog <span class="token operator">></span> /home/target.txt<span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>在target.txt文件中逻辑磁盘区块查找Target ID，在对应targetID下方的磁盘组查找Devices IDs，Devices IDs代表由哪些物理磁盘组成了逻辑磁盘</p>
-<p>再根据Devices IDs在物理磁盘区块查找，即可定位到Slot Number</p>
-<p>再搜索Enclosure ID，确认RAID卡EnclosureID号</p>
-<h4 id="3-点亮硬盘定位灯："><a href="#3-点亮硬盘定位灯：" class="headerlink" title="3.点亮硬盘定位灯："></a>3.点亮硬盘定位灯：</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell">storcli64 /c0/e29/s0 start <span class="token function">locate</span><span aria-hidden="true" class="line-numbers-rows"><span></span></span></code></pre>
-
-<p>c0表示RAID卡ID</p>
-<p>e29表示Enclosure ID</p>
-<p>s0表示slot ID</p>
-<p>参考：<a href="https://support.huawei.com/enterprise/zh/doc/EDOC1000041337/75f2d44b">https://support.huawei.com/enterprise/zh/doc/EDOC1000041337/75f2d44b</a></p>
-<h4 id="4-更换硬盘后的RAID卡操作"><a href="#4-更换硬盘后的RAID卡操作" class="headerlink" title="4.更换硬盘后的RAID卡操作"></a>4.更换硬盘后的RAID卡操作</h4><pre class="line-numbers language-shell" data-language="shell"><code class="language-shell"><span class="token comment"># 查看当前RAID卡状态</span>
-storcli64 /c0 show
-<span class="token comment"># 创建单盘RAID0</span>
-storcli64 /c0 <span class="token function">add</span> vd r0 <span class="token assign-left variable">drives</span><span class="token operator">=</span><span class="token number">252</span>:5<span aria-hidden="true" class="line-numbers-rows"><span></span><span></span><span></span><span></span></span></code></pre>
-
-<p>参考：<a href="https://www.cnblogs.com/zhangxinglong/p/9771967.html">https://www.cnblogs.com/zhangxinglong/p/9771967.html</a></p>
-]]></content>
-      <categories>
-        <category>Server</category>
-      </categories>
-      <tags>
-        <tag>Server</tag>
-        <tag>Hardware</tag>
-        <tag>Disk</tag>
       </tags>
   </entry>
   <entry>
