@@ -109,9 +109,9 @@
             
             <tag> 运维 </tag>
             
-            <tag> LDAP </tag>
-            
             <tag> Squid </tag>
+            
+            <tag> LDAP </tag>
             
         </tags>
       
@@ -138,11 +138,11 @@
             
             <tag> 运维 </tag>
             
+            <tag> LDAP </tag>
+            
             <tag> proftpd </tag>
             
             <tag> 文件服务器 </tag>
-            
-            <tag> LDAP </tag>
             
         </tags>
       
